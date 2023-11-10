@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Roomr.ProfileCard">
+    <VerticalStackLayout>
+        <Image
+ Source="Resources/Images/joker.jpg"
+ Margin="0, 0, 0, 15"
+ HorizontalOptions="CenterAndExpand"
+/>
+        <Label Text="Da Joka Baybee"
+ FontSize="Title"
+ HorizontalOptions="Center"/>
+        <ScrollView>
+            <VerticalStackLayout>
+        <Label Text="Bio:"
+           FontSize="Caption"
+           HorizontalOptions="Start"
+           />
+        <Label Text="I'm a joka, I'm a smoker, I'm a midnight toker... wanna know how I got these scars? HAHAHAHAHA"
+            FontSize="Body"
+           HorizontalOptions="End"
+            />
+            </VerticalStackLayout>
+        </ScrollView>
+    </VerticalStackLayout>
+</ContentView>
