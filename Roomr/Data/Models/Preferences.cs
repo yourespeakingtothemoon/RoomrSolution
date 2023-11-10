@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Roomr.Models
+namespace Roomr.Data.Models
 {
-    [SQLite.Table("preferences")]
+    [Table("preferences")]
     public class Preferences
     {
         [SQLiteNetExtensions.Attributes.ForeignKey(typeof(Person))]

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Roomr.Models
+namespace Roomr.Data.Models
 {
     [SQLite.Table("matches")]
     public class Match
