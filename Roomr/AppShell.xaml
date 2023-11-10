@@ -8,7 +8,7 @@
 
     <ShellContent
         Title="Home"
-        ContentTemplate="{DataTemplate local:MatchesPage}"
+        ContentTemplate="{DataTemplate local:FeedPage}"
         Route="MainPage" />
 
 </Shell>

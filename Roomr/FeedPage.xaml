@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Roomr.FeedPage"
+             Title="Feed Page">
+    <VerticalStackLayout>
+        <BoxView Color="{StaticResource Tertiary}" HeightRequest="400" WidthRequest="400">
+            <BoxView.GestureRecognizers>
+                <SwipeGestureRecognizer Direction="Left" Swiped="SwipeMatch_Swiped"/>
+                <SwipeGestureRecognizer Direction="Right" Swiped="SwipeReject_Swiped"/>
+            </BoxView.GestureRecognizers>
+        </BoxView>
+        <Label x:Name="test"></Label>
+    </VerticalStackLayout>
+</ContentPage>
