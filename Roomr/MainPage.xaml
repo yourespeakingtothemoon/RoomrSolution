@@ -5,36 +5,46 @@
 
     <ScrollView>
         <VerticalStackLayout
-            Spacing="25"
+            Spacing="10"
             Padding="30,0"
             VerticalOptions="Center">
 
             <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
+                Source="roomr.png"
+                SemanticProperties.Description="The Roomr Logo"
+                HeightRequest="100"
+                
+                />
 
             <Label
-                Text="Hello, World!"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
+                Text="Welcome to Roomr!"
+                TextColor="#8B508B"
+                FontSize="31"
+                HorizontalOptions="Center"
+
+                />
 
             <Label
-                Text="Welcome to .NET Multi-platform App UI"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                FontSize="18"
-                HorizontalOptions="Center" />
+                Text="And They Were Roommates"
+                SemanticProperties.Description="And They Were Roommates"
+                FontSize="17"
+                HorizontalOptions="Center" 
+                FontAttributes="Italic"/>
 
             <Button
                 x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
+                Text="Log In"
+                BackgroundColor="#8B508B"
+                SemanticProperties.Hint="Takes you to log in"
                 Clicked="OnCounterClicked"
                 HorizontalOptions="Center" />
-
+            <Button
+                x:Name="SignUpBtn"
+                Text="Sign Up"
+                BackgroundColor="#FFB7C8"
+                SemanticProperties.Hint="Takes you to sign up"
+                Clicked="OnCounterClicked"
+                HorizontalOptions="Center" />
         </VerticalStackLayout>
     </ScrollView>
 
