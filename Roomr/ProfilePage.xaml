@@ -5,21 +5,41 @@
              Title="ProfilePage">
     <VerticalStackLayout>
         <Image
-     Source="Resources/Images/joker.jpg"
-     Margin="0, 0, 0, 15"
-     HorizontalOptions="CenterAndExpand"
-    />
+ Source="Resources/Images/joker.jpg"
+ Margin="0, 0, 0, 15"
+ HorizontalOptions="CenterAndExpand"
+/>
         <Label Text="Da Joka Baybee"
-     FontSize="Header"
-     HorizontalOptions="Center"/>
+ FontSize="Title"
+ HorizontalOptions="Center"/>
+        <StackLayout>
+        <ScrollView
+               VerticalOptions="Fill"
+            VerticalScrollBarVisibility="Always"
+            >
+            <StackLayout>
+                <Label Text="Bio:"
+           FontSize="Caption"
+      
+           HorizontalOptions="Start"
+           />
+            <Label Text="I'm a joka, I'm a smoker, I'm a midnight toker... wanna know how I got these scars? HAHAHAHAHA 
 
-        <Label Text="Bio:"
-               FontSize="Caption"
-               HorizontalOptions="Start"
-               />
-        <Label Text="I'm a joka, I'm a smoker, I'm a midnight toker... wanna know how I got these scars? HAHAHAHAHA"
-                FontSize="Body"
-               HorizontalOptions="End"
-                />
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis condimentum magna ullamcorper porttitor fringilla. Mauris sollicitudin vulputate turpis in rhoncus. Pellentesque condimentum mauris magna. In dui neque, elementum vitae commodo ut, eleifend id velit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce iaculis porttitor metus, id convallis turpis efficitur vitae.
+
+Donec placerat in eros sed faucibus. Morbi ut viverra eros. Vivamus convallis viverra vestibulum. Suspendisse aliquet sed arcu ac interdum. Pellentesque vitae lacus velit. Praesent auctor porta libero nec lacinia. Aliquam aliquet purus vel enim ullamcorper, in vulputate leo molestie. Nunc suscipit quam ut aliquet rhoncus. Sed feugiat tortor eget tortor placerat varius. Ut ultricies eros est, et blandit nulla semper sed. Etiam convallis ullamcorper blandit.
+
+Pellentesque pellentesque enim augue, sed laoreet urna tempor sit amet. Ut id elit vel orci molestie ornare eget interdum sem. Quisque interdum sem pulvinar maximus pharetra. Vivamus non justo velit. Ut metus enim, vestibulum iaculis dui ut, commodo accumsan est. Sed vulputate mi ut nisl interdum, a commodo massa rutrum. Etiam ut lacus non libero pharetra consectetur ut sed tortor. Sed eu diam libero. Ut auctor ullamcorper dolor, ac cursus diam interdum sed. Praesent tincidunt ipsum tortor, sed interdum erat scelerisque sollicitudin. Vivamus pulvinar purus eu nibh tincidunt tempus. Maecenas mattis magna a est pharetra mattis. Cras ac sem augue. Etiam ut tellus orci.
+
+Pellentesque non suscipit libero. Phasellus viverra tortor quis hendrerit tempor. Vestibulum hendrerit quam nec viverra suscipit. Sed finibus tortor at sapien consequat, in viverra nisi egestas. Fusce odio tellus, vulputate vel magna non, efficitur venenatis mauris. Integer quis nisi venenatis, iaculis ante ac, rhoncus dolor. Quisque congue mattis lorem ut tincidunt. In quis dictum libero. Quisque convallis porttitor purus eu vehicula. Nunc congue consequat augue, a interdum mi ultricies eu. Nullam sit amet ipsum mollis elit vehicula volutpat. Pellentesque vitae orci vitae tortor finibus viverra non quis tellus. Pellentesque mi risus, iaculis ut placerat ut, rutrum nec nisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Proin a ante pellentesque, pellentesque ligula et, tincidunt ex.
+
+Etiam eu eleifend nulla. Etiam non eros nec eros molestie condimentum at eget nibh. Etiam lacinia tempor diam sed bibendum. Nulla et convallis ex, ut auctor turpis. Praesent quis nibh quis lectus euismod pretium. In feugiat in arcu sit amet lobortis. Donec dictum tortor quis dapibus tristique. Sed diam elit, pharetra eu fringilla eget, fringilla non augue. Nam ut malesuada tortor. Pellentesque semper metus eget cursus tempus. "
+            FontSize="Body"
+           HorizontalOptions="End"
+            />
+      
+            </StackLayout>
+        </ScrollView>
+        </StackLayout>
     </VerticalStackLayout>
 </ContentPage>
