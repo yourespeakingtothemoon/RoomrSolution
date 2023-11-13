@@ -12,6 +12,7 @@
         <Label Text="Da Joka Baybee"
  FontSize="Title"
  HorizontalOptions="Center"/>
+        <StackLayout>
         <ScrollView
                VerticalOptions="Fill"
             VerticalScrollBarVisibility="Always"
@@ -39,5 +40,6 @@ Etiam eu eleifend nulla. Etiam non eros nec eros molestie condimentum at eget ni
       
             </StackLayout>
         </ScrollView>
+        </StackLayout>
     </VerticalStackLayout>
 </ContentPage>
