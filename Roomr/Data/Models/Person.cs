@@ -21,5 +21,24 @@ namespace Roomr.Data.Models
         public string Region { get; set; }
         public string Country { get; set; }
         public string ProfilePicture { get; set; }
+
+        public Person() { }
+
+        public Person(string name, string username, string password, string contactInfo, string city, string region, string country, string profilePicture)
+        {
+            Name = name;
+            Username = username;
+            Password = password;
+            ContactInfo = contactInfo;
+            City = city;
+            Region = region;
+            Country = country;
+            ProfilePicture = profilePicture;
+        }
+
+        public override string ToString()
+        {
+            return "Id: [" + Id + "] Name/Username: [" + Name + "/" + Username + "] Pass: [" + Password + "] Location: [" + City + ", " + Region + ", " + Country + "] Profile Picture URL: [" + ProfilePicture + "]";
+        }
     }
 }

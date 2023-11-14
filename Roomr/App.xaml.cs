@@ -10,19 +10,5 @@ namespace Roomr
 
             MainPage = new AppShell();
         }
-
-        static SQLiteDatabase database;
-
-        public static SQLiteDatabase Database
-        {
-            get
-            {
-                if (database == null)
-                {
-                    database = new SQLiteDatabase();
-                }
-                return database;
-            }
-        }
     }
 }
