@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using Roomr.Data;
 
 namespace Roomr
 {
@@ -14,6 +15,8 @@ namespace Roomr
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
+
+            builder.Services.AddSingleton<PersonDatabase>();
 
 #if DEBUG
 		builder.Logging.AddDebug();

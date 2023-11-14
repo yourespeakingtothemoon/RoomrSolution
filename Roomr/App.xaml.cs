@@ -1,4 +1,6 @@
-﻿namespace Roomr
+﻿using Roomr.Data;
+
+namespace Roomr
 {
     public partial class App : Application
     {
