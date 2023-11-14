@@ -1,4 +1,4 @@
-﻿using Roomr.Data.Models;
+﻿using Roomr.Data;
 
 namespace Roomr
 {
