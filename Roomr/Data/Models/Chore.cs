@@ -6,13 +6,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Roomr.Models
+namespace Roomr.Data.Models
 {
-    [SQLite.Table("hobbies")]
-    public class Hobby
+    [SQLite.Table("chores")]
+    public class Chore
     {
         [PrimaryKey, AutoIncrement]
-        public int Id { get; set; }
+        public int Id { get; set; } //Primary key
         public string Name { get; set; }
+
+        public Chore (string name)
+        {
+            this.Name = name;
+        }
     }
 }
