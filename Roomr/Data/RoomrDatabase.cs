@@ -64,6 +64,16 @@ namespace Roomr.Data
             return await Database.DeleteAsync(person);
         }
 
+        public async Task<List<Person>> GetUsersInSameRegion(Person person)
+        {
+            await Init();
+            return await Database.Table<Person>().Where(
+                i => i.Country == person.Country &&
+                i.Region == person.Region &&
+                i.Id != person.Id)
+                .ToListAsync();
+        }
+
         #endregion
 
         #region Preferences DB Stuff
@@ -89,15 +99,7 @@ namespace Roomr.Data
             return await Database.DeleteAsync(preferences);
         }
 
-        public async Task<List<Person>> GetUsersInSameRegion(Person person)
-        {
-            await Init();
-            return await Database.Table<Person>().Where(
-                i => i.Country == person.Country &&
-                i.Region == person.Region &&
-                i.Id != person.Id)
-                .ToListAsync();
-        }
+        
 
         #endregion
 
