@@ -16,5 +16,7 @@ namespace Roomr.Data.Models
         public bool WillingToMove { get; set; }
         public bool HasJob { get; set; }
         public bool WantsAnimals { get; set; }
+
+        public Preferences() { }
     }
 }

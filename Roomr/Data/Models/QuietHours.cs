@@ -1,13 +1,13 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Roomr.Data.Models
 {
-    [SQLite.Table("quiethours")]
+    [Table("quiethours")]
     public class QuietHours
     {
         [SQLiteNetExtensions.Attributes.ForeignKey(typeof(Person))]
@@ -36,5 +36,7 @@ namespace Roomr.Data.Models
         public bool TwentyOne { get; set; }
         public bool TwentyTwo { get; set; }
         public bool TwentyThree { get; set; }
+
+        public QuietHours() { }
     }
 }

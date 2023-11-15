@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace Roomr.Data
 {
-    public class PersonDatabase
+    public class RoomrDatabase
     {
         SQLiteAsyncConnection Database;
 
-        public PersonDatabase() { }
+        public RoomrDatabase() { }
 
         async Task Init()
         {
@@ -20,9 +20,17 @@ namespace Roomr.Data
                 return;
 
             Database = new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
-            var result = await Database.CreateTableAsync<Person>();
+            var personTable = await Database.CreateTableAsync<Person>();
+            var prefTable = await Database.CreateTableAsync<Models.Preferences>();
+            var hoursTable = await Database.CreateTableAsync<QuietHours>();
+            var choreTable = await Database.CreateTableAsync<Chore>();
+            var hobbyTable = await Database.CreateTableAsync<Hobby>();
+            var matchTable = await Database.CreateTableAsync<Match>();
+            var personChoreTable = await Database.CreateTableAsync<PersonChore>();
+            var personHobbyTable = await Database.CreateTableAsync<PersonHobby>();
         }
 
+        #region Person DB Stuff
         public async Task<List<Person>> GetPeopleAsync()
         {
             await Init();
@@ -55,5 +63,26 @@ namespace Roomr.Data
             await Init();
             return await Database.DeleteAsync(person);
         }
+
+        #endregion
+
+        #region Preferences DB Stuff
+
+        public async Task<int> SavePreferencesAsync(Models.Preferences preferences)
+        {
+            await Init();
+            if (preferences.PersonId != 0)
+                return await Database.UpdateAsync(preferences);
+            else
+                return await Database.InsertAsync(preferences);
+        }
+
+        public async Task<Models.Preferences> GetUserPreferences(int id)
+        {
+            await Init();
+            return await Database.Table<Models.Preferences>().Where(i => i.PersonId == id).FirstOrDefaultAsync();
+        }
+
+        #endregion
     }
 }
