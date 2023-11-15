@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Roomr.LoginPage"
-             Title="LoginPage">
+             x:Class="Roomr.SignUpPage"
+             Title="SignUpPage">
     <ScrollView>
         <VerticalStackLayout
-            Spacing="30"
+            Spacing="20"
             Padding="40,0"
             VerticalOptions="Center">
 
@@ -14,25 +14,28 @@
             <Entry 
                 IsPassword="True"
                 Placeholder="Password" />
+            <Entry 
+                IsPassword="True"
+                Placeholder="Confirm Password" />
 
             <Button
                 x:Name="CounterBtn"
-                Text="Log in"
+                Text="Sign up"
                 BackgroundColor="#8B508B"
                 SemanticProperties.Hint="Takes you to log in"
-                
                 HorizontalOptions="Center" />
-                <!-- Add OnClick-->
+            <!-- Add OnClick-->
+
             <Label
-                Text="Not A Member? Sign-Up"
-                SemanticProperties.Description="Not A Member? Sign-Up"
+                Text="Already A Member? Login"
+                SemanticProperties.Description="Already A Member? Login"
                 FontSize="15"
                 HorizontalOptions="Center" 
                 FontAttributes="Italic"/>
 
             <Button
                 x:Name="CounterBtn"
-                Text="Sign Up"
+                Text="Log in"
                 BackgroundColor="#8B508B"
                 SemanticProperties.Hint="Takes you to log in"
                 
