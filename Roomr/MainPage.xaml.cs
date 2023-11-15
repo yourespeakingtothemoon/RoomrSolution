@@ -14,6 +14,7 @@ namespace Roomr
             database = new PersonDatabase();
         }
 
+
         private async void OnLoginClicked(object sender, EventArgs e)
         {
             List<Person> people = await database.GetPeopleAsync();
