@@ -32,18 +32,18 @@
                 FontAttributes="Italic"/>
 
             <Button
-                x:Name="LoginBtn"
+                x:Name="CounterBtn"
                 Text="Log In"
                 BackgroundColor="#8B508B"
                 SemanticProperties.Hint="Takes you to log in"
-                Clicked="OnLoginClicked"
+                
                 HorizontalOptions="Center" />
             <Button
-                x:Name="SignUpBtn"
+                x:Name="Counter2Btn"
                 Text="Sign Up"
                 BackgroundColor="#FFB7C8"
                 SemanticProperties.Hint="Takes you to sign up"
-                Clicked="OnSignUpClicked"
+                
                 HorizontalOptions="Center" />
         </VerticalStackLayout>
     </ScrollView>
