@@ -23,8 +23,9 @@
                 Text="Sign up"
                 BackgroundColor="#8B508B"
                 SemanticProperties.Hint="Takes you to log in"
-                HorizontalOptions="Center" />
-            <!-- Add OnClick-->
+                HorizontalOptions="Center" 
+                Clicked="OnSignUpClicked"
+                />
 
             <Label
                 Text="Already A Member? Login"
@@ -38,9 +39,8 @@
                 Text="Log in"
                 BackgroundColor="#8B508B"
                 SemanticProperties.Hint="Takes you to log in"
-                
+                Clicked="OnLoginClicked"
                 HorizontalOptions="Center" />
-            <!-- Add OnClick-->
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
