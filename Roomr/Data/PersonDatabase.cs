@@ -35,6 +35,12 @@ namespace Roomr.Data
             return await Database.Table<Person>().Where(i => i.Id == id).FirstOrDefaultAsync();
         }
 
+        public async Task<Person> GetPersonLogin(string username, string password)
+        {
+            await Init();
+            return await Database.Table<Person>().Where(i => i.Username == username && i.Password == password).FirstOrDefaultAsync();
+        }
+
         public async Task<int> SavePersonAsync(Person person)
         {
             await Init();
