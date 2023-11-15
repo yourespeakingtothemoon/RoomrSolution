@@ -9,6 +9,6 @@ public partial class ProfilePage : ContentPage
 
     private void ScrollView_Scrolled(object sender, ScrolledEventArgs e)
     {
-		name.Text = "Scrolled";
+	
     }
 }
