@@ -4,11 +4,11 @@ namespace Roomr;
 
 public partial class LoginPage : ContentPage
 {
-    PersonDatabase database;
+    RoomrDatabase database;
     public LoginPage()
 	{
 		InitializeComponent();
-		database = new PersonDatabase();
+		database = new RoomrDatabase();
 	}
 
 	private void OnSubmitClicked(object sender, EventArgs e)

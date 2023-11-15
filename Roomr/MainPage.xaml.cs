@@ -5,12 +5,12 @@ namespace Roomr
 {
     public partial class MainPage : ContentPage
     {
-        PersonDatabase database;
+        RoomrDatabase database;
 
         public MainPage()
         {
             InitializeComponent();
-            database = new PersonDatabase();
+            database = new RoomrDatabase();
         }
 
 

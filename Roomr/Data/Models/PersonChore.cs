@@ -1,13 +1,13 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Roomr.Data.Models
 {
-    [SQLite.Table("personchores")]
+    [Table("personchores")]
     public class PersonChore
     {
         [SQLiteNetExtensions.Attributes.ForeignKey(typeof(Person))]
@@ -15,5 +15,7 @@ namespace Roomr.Data.Models
 
         [SQLiteNetExtensions.Attributes.ForeignKey(typeof(Chore))]
         public int ChoreId { get; set; }
+
+        public PersonChore() { }
     }
 }
