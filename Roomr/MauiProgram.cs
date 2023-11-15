@@ -16,7 +16,7 @@ namespace Roomr
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
-            builder.Services.AddSingleton<PersonDatabase>();
+            builder.Services.AddSingleton<RoomrDatabase>();
 
 #if DEBUG
 		builder.Logging.AddDebug();
