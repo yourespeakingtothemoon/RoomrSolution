@@ -64,6 +64,16 @@ namespace Roomr.Data
             return await Database.DeleteAsync(person);
         }
 
+        public async Task<List<Person>> GetUsersInSameRegion(Person person)
+        {
+            await Init();
+            return await Database.Table<Person>().Where(
+                i => i.Country == person.Country &&
+                i.Region == person.Region &&
+                i.Id != person.Id)
+                .ToListAsync();
+        }
+
         #endregion
 
         #region Preferences DB Stuff
@@ -82,6 +92,69 @@ namespace Roomr.Data
             await Init();
             return await Database.Table<Models.Preferences>().Where(i => i.PersonId == id).FirstOrDefaultAsync();
         }
+
+        public async Task<int> DeletePreferencesAsync(Models.Preferences preferences)
+        {
+            await Init();
+            return await Database.DeleteAsync(preferences);
+        }
+
+        
+
+        #endregion
+
+        #region QuietHours DB Stuff
+
+        public async Task<int> SaveQuietHourssAsync(QuietHours hours)
+        {
+            await Init();
+            if (hours.PersonId != 0)
+                return await Database.UpdateAsync(hours);
+            else
+                return await Database.InsertAsync(hours);
+        }
+
+        public async Task<QuietHours> GetUserQuietHours(int id)
+        {
+            await Init();
+            return await Database.Table<QuietHours>().Where(i => i.PersonId == id).FirstOrDefaultAsync();
+        }
+
+        public async Task<int> DeleteQuietHoursAsync(QuietHours hours)
+        {
+            await Init();
+            return await Database.DeleteAsync(hours);
+        }
+
+        #endregion
+
+        #region Chore DB Stuff
+
+
+
+        #endregion
+
+        #region Hobby DB Stuff
+
+
+
+        #endregion
+
+        #region Match DB Stuff
+
+
+
+        #endregion
+
+        #region PersonChore DB Stuff
+
+
+
+        #endregion
+
+        #region PersonHobby DB Stuff
+
+
 
         #endregion
     }
