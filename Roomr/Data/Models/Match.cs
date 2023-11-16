@@ -11,6 +11,8 @@ namespace Roomr.Data.Models
     [Table("matches")]
     public class Match
     {
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
         [SQLiteNetExtensions.Attributes.ForeignKey(typeof(Person))]
         public int Id1 { get; set; }
         [SQLiteNetExtensions.Attributes.ForeignKey(typeof(Person))]
