@@ -31,25 +31,25 @@ namespace Roomr.Data
         }
 
         #region Person DB Stuff
-        public async Task<List<Person>> GetPeopleAsync()
+        public async Task<List<Person>> GetPeopleAsync() //Returns all Person objects
         {
             await Init();
             return await Database.Table<Person>().ToListAsync();
         }
 
-        public async Task<Person> GetPersonAsync(int id)
+        public async Task<Person> GetPersonAsync(int id) //Returns a single Person by Id
         {
             await Init();
             return await Database.Table<Person>().Where(i => i.Id == id).FirstOrDefaultAsync();
         }
 
-        public async Task<Person> GetPersonLogin(string username, string password)
+        public async Task<Person> GetPersonLogin(string username, string password) //Returns a Person object when a user logs in
         {
             await Init();
             return await Database.Table<Person>().Where(i => i.Username == username && i.Password == password).FirstOrDefaultAsync();
         }
 
-        public async Task<int> SavePersonAsync(Person person)
+        public async Task<int> SavePersonAsync(Person person) //Returns an int based on whether or not a Person was saved -- can just call the function without saving result
         {
             await Init();
             if (person.Id != 0)
@@ -58,13 +58,13 @@ namespace Roomr.Data
                 return await Database.InsertAsync(person);
         }
 
-        public async Task<int> DeleteItemAsync(Person person)
+        public async Task<int> DeleteItemAsync(Person person) //Returns an int based on whether or not a Person was deleted -- can just call the function without saving result
         {
             await Init();
             return await Database.DeleteAsync(person);
         }
 
-        public async Task<List<Person>> GetUsersInSameRegion(Person person)
+        public async Task<List<Person>> GetUsersInSameRegion(Person person) //Returns a list of all Person objects that match the given user's country & region (besides themselves)
         {
             await Init();
             return await Database.Table<Person>().Where(
@@ -84,7 +84,7 @@ namespace Roomr.Data
 
         #region Preferences DB Stuff
 
-        public async Task<int> SavePreferencesAsync(Models.Preferences preferences)
+        public async Task<int> SavePreferencesAsync(Models.Preferences preferences) //Returns an int based on whether or not a Preferences object was saved -- can just call the function without saving result
         {
             await Init();
             if (preferences.PersonId != 0)
@@ -93,13 +93,13 @@ namespace Roomr.Data
                 return await Database.InsertAsync(preferences);
         }
 
-        public async Task<Models.Preferences> GetUserPreferences(int id)
+        public async Task<Models.Preferences> GetUserPreferences(int id) //Returns a Preferences object for the given Person's Id
         {
             await Init();
             return await Database.Table<Models.Preferences>().Where(i => i.PersonId == id).FirstOrDefaultAsync();
         }
 
-        public async Task<int> DeletePreferencesAsync(Models.Preferences preferences)
+        public async Task<int> DeletePreferencesAsync(Models.Preferences preferences) //Returns an int based on whether or not a Preferences object was deleted -- can just call the function without saving result
         {
             await Init();
             return await Database.DeleteAsync(preferences);
@@ -109,7 +109,7 @@ namespace Roomr.Data
 
         #region QuietHours DB Stuff
 
-        public async Task<int> SaveQuietHoursAsync(QuietHours hours)
+        public async Task<int> SaveQuietHoursAsync(QuietHours hours) //Returns an int based on whether or not a QuietHours object was saved -- can just call the function without saving result
         {
             await Init();
             if (hours.PersonId != 0)
@@ -118,13 +118,13 @@ namespace Roomr.Data
                 return await Database.InsertAsync(hours);
         }
 
-        public async Task<QuietHours> GetUserQuietHours(int id)
+        public async Task<QuietHours> GetUserQuietHours(int id) //Returns a QuietHours object based on a Person's Id
         {
             await Init();
             return await Database.Table<QuietHours>().Where(i => i.PersonId == id).FirstOrDefaultAsync();
         }
 
-        public async Task<int> DeleteQuietHoursAsync(QuietHours hours)
+        public async Task<int> DeleteQuietHoursAsync(QuietHours hours) //Returns an int based on whether or not a QuietHours object was deleted -- can just call the function without saving result
         {
             await Init();
             return await Database.DeleteAsync(hours);
@@ -134,7 +134,7 @@ namespace Roomr.Data
 
         #region Chore DB Stuff
 
-        public async Task<int> SaveChoreAsync(Chore chore)
+        public async Task<int> SaveChoreAsync(Chore chore) //Returns an int based on whether or not a Chore was saved -- can just call the function without saving result
         {
             await Init();
             if (chore.Id != 0)
@@ -143,19 +143,19 @@ namespace Roomr.Data
                 return await Database.InsertAsync(chore);
         }
 
-        public async Task<List<Chore>> GetChoresAsync()
+        public async Task<List<Chore>> GetChoresAsync() //Returns all Chore objects
         {
             await Init();
             return await Database.Table<Chore>().ToListAsync();
         }
 
-        public async Task<Chore> GetChoreAsync(int id)
+        public async Task<Chore> GetChoreAsync(int id) //Returns a single Chore by Id
         {
             await Init();
             return await Database.Table<Chore>().Where(i => i.Id == id).FirstOrDefaultAsync();
         } 
 
-        public async Task<int> DeleteChoreAsync(Chore chore)
+        public async Task<int> DeleteChoreAsync(Chore chore) //Returns an int based on whether or not a Chore was deleted -- can just call the function without saving result
         {
             await Init();
             return await Database.DeleteAsync(chore);
@@ -165,7 +165,7 @@ namespace Roomr.Data
 
         #region Hobby DB Stuff
 
-        public async Task<int> SaveHobbyAsync(Hobby hobby)
+        public async Task<int> SaveHobbyAsync(Hobby hobby) //Returns an int based on whether or not a Hobby was saved -- can just call the function without saving result
         {
             await Init();
             if (hobby.Id != 0)
@@ -174,19 +174,19 @@ namespace Roomr.Data
                 return await Database.InsertAsync(hobby);
         }
 
-        public async Task<List<Hobby>> GetAllHobbies()
+        public async Task<List<Hobby>> GetAllHobbies() //Returns all Hobby objects
         {
             await Init();
             return await Database.Table<Hobby>().ToListAsync();
         }
 
-        public async Task<Hobby> GetHobbyAsync(int id)
+        public async Task<Hobby> GetHobbyAsync(int id) //Returns a single Chore by Id
         {
             await Init();
             return await Database.Table<Hobby>().Where(i => i.Id == id).FirstOrDefaultAsync();
         }
 
-        public async Task<int> DeleteHobbyAsync(Hobby hobby)
+        public async Task<int> DeleteHobbyAsync(Hobby hobby) //Returns an int based on whether or not a Hobby was deleted -- can just call the function without saving result
         {
             await Init();
             return await Database.DeleteAsync(hobby);
@@ -196,7 +196,7 @@ namespace Roomr.Data
 
         #region Match DB Stuff
 
-        public async Task<int> SaveMatchAsync(Models.Match match)
+        public async Task<int> SaveMatchAsync(Models.Match match) //Returns an int based on whether or not a Match was saved -- can just call the function without saving result
         {
             await Init();
             if (match.Id != 0)
@@ -205,19 +205,19 @@ namespace Roomr.Data
                 return await Database.InsertAsync(match);
         }
 
-        public async Task<List<Models.Match>> GetMatchesAsync(int personId)
+        public async Task<List<Models.Match>> GetMatchesAsync(int personId) //Returns all Match objects
         {
             await Init();
             return await Database.Table<Models.Match>().Where(match => match.Id1 == personId).ToListAsync();
         }
 
-        public async Task<Models.Match> GetMatchByIdAsync(int id)
+        public async Task<Models.Match> GetMatchByIdAsync(int id) //Returns a single Match by Id
         {
             await Init();
             return await Database.Table<Models.Match>().Where(match => match.Id == id).FirstOrDefaultAsync();
         }
 
-        public async Task<int> DeleteMatchAsync(Match match)
+        public async Task<int> DeleteMatchAsync(Match match) //Returns an int based on whether or not a Match was deleted -- can just call the function without saving result
         {
             await Init();
             return await Database.DeleteAsync(match);
@@ -227,7 +227,7 @@ namespace Roomr.Data
 
         #region PersonChore DB Stuff
 
-        public async Task<int> SavePersonChoreAsync(PersonChore personChore)
+        public async Task<int> SavePersonChoreAsync(PersonChore personChore) //Returns an int based on whether or not a PersonChore was saved -- can just call the function without saving result
         {
             await Init();
             if (personChore.Id != 0)
@@ -236,13 +236,13 @@ namespace Roomr.Data
                 return await Database.InsertAsync(personChore);
         }
 
-        public async Task<PersonChore> GetPersonChoreAsync(int personId)
+        public async Task<PersonChore> GetPersonChoreAsync(int personId) //Returns a single PersonChore object based on a given Person's Id
         {
             await Init();
             return await Database.Table<PersonChore>().Where(personChore => personChore.PersonId == personId).FirstOrDefaultAsync();
         }
 
-        public async Task<int> DeletePersonChoreAsync(PersonChore personChore)
+        public async Task<int> DeletePersonChoreAsync(PersonChore personChore) //Returns an int based on whether or not a PersonChore was deleted -- can just call the function without saving result
         {
             await Init();
             return await Database.DeleteAsync(personChore);
@@ -252,7 +252,7 @@ namespace Roomr.Data
 
         #region PersonHobby DB Stuff
 
-        public async Task<int> SavePersonHobbyAsync(PersonHobby personHobby)
+        public async Task<int> SavePersonHobbyAsync(PersonHobby personHobby) //Returns an int based on whether or not a PersonHobby was saved -- can just call the function without saving result
         {
             await Init();
             if (personHobby.Id != 0)
@@ -261,13 +261,13 @@ namespace Roomr.Data
                 return await Database.InsertAsync(personHobby);
         }
 
-        public async Task<PersonHobby> GetPersonHobbyAsync(int personId)
+        public async Task<PersonHobby> GetPersonHobbyAsync(int personId) //Returns a single PersonHobby object by a given Person's Id
         {
             await Init();
             return await Database.Table<PersonHobby>().Where(personHobby => personHobby.PersonId == personId).FirstOrDefaultAsync();
         }
 
-        public async Task<int> DeletePersonHobbyAsync(PersonHobby personHobby)
+        public async Task<int> DeletePersonHobbyAsync(PersonHobby personHobby) //Returns an int based on whether or not a PersonHobby was deleted -- can just call the function without saving result
         {
             await Init();
             return await Database.DeleteAsync(personHobby);
