@@ -4,7 +4,7 @@
              x:Class="Roomr.ProfilePage"
              Title="ProfilePage">
     <ScrollView
-  Padding="20"
+ 
  VerticalScrollBarVisibility="Always"
      Scrolled="ScrollView_Scrolled"
  >
@@ -13,20 +13,34 @@
  Source="Resources/Images/joker.jpg"
  Margin="0, 0, 0, 15"
  HorizontalOptions="CenterAndExpand"
+       VerticalOptions="Start"     
 />
         <Label Text="Da Joka Baybe"
               x:Name="name" 
  FontSize="Title"
  HorizontalOptions="Center"/>
-  
+            <HorizontalStackLayout
+                HorizontalOptions="Center"
+                >
+                <Label  Text="Distance From you: "
+                FontSize="Micro"
+                        HorizontalOptions="Start"
+                        />
+                <Label Text="Calculating..."
+                       x:Name="distance"
+                          FontSize="Micro"
+                          />
+            </HorizontalStackLayout>
+           
             
+          
+           
+                <StackLayout Padding="20">
                 <Label Text="Bio:"
 FontSize="Caption"
       
 HorizontalOptions="Start"
 />
-           
-                <StackLayout>
                 <Label Text="I'm a joka, I'm a smoker, I'm a midnight toker... wanna know how I got these scars? HAHAHAHAHA" />
 
                 <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis condimentum magna ullamcorper porttitor fringilla. Mauris sollicitudin vulputate turpis in rhoncus. Pellentesque condimentum mauris magna. In dui neque, elementum vitae commodo ut, eleifend id velit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce iaculis porttitor metus, id convallis turpis efficitur vitae.
@@ -38,9 +52,23 @@ Donec placerat in eros sed faucibus. Morbi ut viverra eros."/>
                     <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis condimentum magna ullamcorper porttitor fringilla. Mauris sollicitudin vulputate turpis in rhoncus. Pellentesque condimentum mauris magna. In dui neque, elementum vitae commodo ut, eleifend id velit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce iaculis porttitor metus, id convallis turpis efficitur vitae.
 
 Donec placerat in eros sed faucibus. Morbi ut viverra eros."/>
+                    
+                   
                 </StackLayout>
-              
+            <BoxView Color="LightGray"
+          HeightRequest="2"
+          Margin="15, 0, 15, 0"
+          HorizontalOptions="Fill" />
+            <StackLayout Padding="20">
+                <Label Text="Hobbies:"
+FontSize="Caption"
+      
+HorizontalOptions="Start"
+/>
+                <Label Text="Acting" />
 
-    </VerticalStackLayout>
+            </StackLayout>
+
+        </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

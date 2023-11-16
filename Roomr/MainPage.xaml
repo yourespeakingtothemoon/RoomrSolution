@@ -32,14 +32,14 @@
                 FontAttributes="Italic"/>
 
             <Button
-                x:Name="CounterBtn"
+                x:Name="LoginBtn"
                 Text="Log In"
                 BackgroundColor="#8B508B"
                 SemanticProperties.Hint="Takes you to log in"
                 
                 HorizontalOptions="Center" />
             <Button
-                x:Name="Counter2Btn"
+                x:Name="SignUpBtn"
                 Text="Sign Up"
                 BackgroundColor="#FFB7C8"
                 SemanticProperties.Hint="Takes you to sign up"

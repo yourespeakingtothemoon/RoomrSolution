@@ -16,7 +16,7 @@
                 Placeholder="Password" />
 
             <Button
-                x:Name="CounterBtn"
+                x:Name="LoginBtn"
                 Text="Log in"
                 BackgroundColor="#8B508B"
                 SemanticProperties.Hint="Takes you to log in"
@@ -31,7 +31,7 @@
                 FontAttributes="Italic"/>
 
             <Button
-                x:Name="CounterBtn"
+                x:Name="SignUpBtn"
                 Text="Sign Up"
                 BackgroundColor="#8B508B"
                 SemanticProperties.Hint="Takes you to log in"
