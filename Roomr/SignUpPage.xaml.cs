@@ -14,9 +14,8 @@ public partial class SignUpPage : ContentPage
         //Person person = new Person("David", "sampleUsername", "samplePass", "Phone number: 867-5309", "Salt Lake City", "Utah", "United States of America", "");
         //await database.SavePersonAsync(person);
     }
-
-    public void OnLoginClicked(object sender, EventArgs e)
+	private async void OnLoginClicked(object sender, EventArgs e)
 	{
-		//Move to LoginPage
+		await Navigation.PushAsync(new LoginPage());
 	}
 }
