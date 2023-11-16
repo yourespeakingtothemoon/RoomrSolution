@@ -11,15 +11,14 @@ public partial class LoginPage : ContentPage
 		database = new RoomrDatabase();
 	}
 
-	private void OnSubmitClicked(object sender, EventArgs e)
-	{
-        //TODO: add login form, call login request to check user/pass, set user as logged in:
-
-        //Person loggedInPerson = await database.LoginPerson(username, password);
+    private async void OnLoginClicked(object sender, EventArgs e)
+    {
+        //TODO: Grab the data from the database base and login using that information
+        await Navigation.PushAsync(new FeedPage());
     }
 
-    private void OnSignUpClicked(object sender, EventArgs e)
+    private async void OnSignUpClicked(object sender, EventArgs e)
 	{
-        //Move to Sign Up Page
-    }
+		await Navigation.PushAsync(new SignUpPage());
+	}
 }
