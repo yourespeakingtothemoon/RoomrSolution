@@ -31,11 +31,8 @@
                           FontSize="Micro"
                           />
             </HorizontalStackLayout>
-           
-            
-          
-           
-                <StackLayout Padding="20">
+
+            <StackLayout Padding="20">
                 <Label Text="Bio:"
 FontSize="Caption"
       
