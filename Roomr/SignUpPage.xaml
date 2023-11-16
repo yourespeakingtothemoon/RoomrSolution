@@ -39,7 +39,8 @@
                 BackgroundColor="#8B508B"
                 SemanticProperties.Hint="Takes you to log in"
                 
-                HorizontalOptions="Center" />
+                HorizontalOptions="Center"
+                Clicked="OnLoginClicked"/>
             <!-- Add OnClick-->
         </VerticalStackLayout>
     </ScrollView>
