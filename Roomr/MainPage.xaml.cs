@@ -18,26 +18,11 @@ namespace Roomr
         private async void OnLoginClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new LoginPage());
-/*            List<Person> people = await database.GetPeopleAsync();
-            foreach(Person person in people)
-            {
-                Console.WriteLine(person.ToString());
-            }
-            await database.SavePersonAsync(people[8]);
-
-            people = await database.GetPeopleAsync();
-            foreach (Person person in people)
-            {
-                Console.WriteLine(person.ToString());
-            }
-*/        }
+        }
         
         private async void OnSignUpClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new SignUpPage());
-
-/*            Person person = new Person("David", "sampleUsername", "samplePass", "Phone number: 867-5309", "Salt Lake City", "Utah", "United States of America", "");
-            await database.SavePersonAsync(person);*/
         }
 
     }
