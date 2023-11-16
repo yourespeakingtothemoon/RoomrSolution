@@ -10,7 +10,7 @@
  >
         <VerticalStackLayout>
         <Image
- Source="Resources/Images/joker.jpg"
+ Source="Resources/Images/Profile/joker.jpg"
  Margin="0, 0, 0, 15"
  HorizontalOptions="CenterAndExpand"
        VerticalOptions="Start"     
@@ -24,7 +24,7 @@
      HorizontalOptions="Center"
      >
                 <Image 
-           Source="Test.svg" Name="MyImage"/>
+           Source="Test.svg" x:Name="MyImage"/>
                 <Label  Text="Hell, MI"
                         x:Name="CityRegionCountry"
      FontSize="Micro"
