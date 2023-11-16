@@ -24,7 +24,7 @@
      HorizontalOptions="Center"
      >
                 <Image 
-           Source="Test.svg" Name="MyImage"/>
+           Source="Test.svg" x:Name="MyImage"/>
                 <Label  Text="Hell, MI"
                         x:Name="CityRegionCountry"
      FontSize="Micro"

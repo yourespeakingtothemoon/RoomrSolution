@@ -24,6 +24,12 @@ namespace Roomr.Data.Models
 
         public Person() { }
 
+        public Person(string username, string password)
+        {
+            Username = username;
+            Password = password;
+        }
+
         public Person(string name, string username, string password, string contactInfo, string city, string region, string country, string profilePicture)
         {
             Name = name;
