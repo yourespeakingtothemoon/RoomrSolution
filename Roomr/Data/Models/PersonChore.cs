@@ -10,6 +10,8 @@ namespace Roomr.Data.Models
     [Table("personchores")]
     public class PersonChore
     {
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
         [SQLiteNetExtensions.Attributes.ForeignKey(typeof(Person))]
         public int PersonId { get; set; }
 
