@@ -74,6 +74,12 @@ namespace Roomr.Data
                 .ToListAsync();
         }
 
+        public async Task<bool> CheckIfUsernameExists(string username) //Will return true if username already exists, false if not
+        {
+            await Init();
+            return Database.Table<Person>().Where(person => person.Username == username).FirstOrDefaultAsync() != null;
+        }
+
         #endregion
 
         #region Preferences DB Stuff
