@@ -1,7 +1,9 @@
-﻿using SQLite;
+﻿using Android.Views;
+using SQLite;
 using SQLiteNetExtensions.Attributes;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,8 +28,14 @@ namespace Roomr.Data.Models
 
         public Person(string username, string password)
         {
+            Name = null;
             Username = username;
             Password = password;
+            ContactInfo = null;
+            City = null;
+            Region = null;
+            Country = null;
+            ProfilePicture = null;
         }
 
         public Person(string name, string username, string password, string contactInfo, string city, string region, string country, string profilePicture)
