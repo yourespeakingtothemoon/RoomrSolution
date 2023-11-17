@@ -29,6 +29,7 @@ namespace Roomr.Data
             var personChoreTable = await Database.CreateTableAsync<PersonChore>();
             var personHobbyTable = await Database.CreateTableAsync<PersonHobby>();
 
+            await AddDummyData();
         }
 
         async Task AddDummyData()
@@ -37,13 +38,24 @@ namespace Roomr.Data
                 new Hobby("Cooking"),
                 new Hobby("Baking"),
                 new Hobby("Reading"),
+                new Hobby("Fitness"),
                 new Hobby("Biking"),
                 new Hobby("Hiking"),
+                new Hobby("Gardening"),
                 new Hobby("Gaming"),
                 new Hobby("Art"),
                 new Hobby("Music"),
-                new Hobby(""),
 
+                new Chore("Vacuuming"),
+                new Chore("Sweeping"),
+                new Chore("Washing dishes"),
+                new Chore("Taking out the Trash"),
+                new Chore("Cleaning the Bathroom"),
+                new Chore("Cleaning the Kitchen"),
+                new Chore("Dusting"),
+                new Chore("Grocery Shopping"),
+                new Chore("Mopping"),
+                new Chore("Mowing"),
             });
         }
 
