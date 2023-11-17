@@ -77,7 +77,11 @@ namespace Roomr.Data
         public async Task<bool> CheckIfUsernameExists(string username) //Will return true if username already exists, false if not
         {
             await Init();
-            return Database.Table<Person>().Where(person => person.Username == username).FirstOrDefaultAsync() != null;
+            Person person = await Database.Table<Person>().Where(person => person.Username == username).FirstOrDefaultAsync();
+            Console.WriteLine(person);
+
+            return person != null;
+
         }
 
         #endregion

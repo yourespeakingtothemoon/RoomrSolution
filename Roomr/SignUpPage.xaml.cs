@@ -20,7 +20,7 @@ public partial class SignUpPage : ContentPage
         #endregion
 
         #region Sending Data To Database
-        if (database.CheckIfUsernameExists(UsernameField.Text).Result) // If Username Does Exist In Database
+        if (await database.CheckIfUsernameExists(UsernameField.Text)) // If Username Does Exist In Database
 		{
 			Console.WriteLine("Username is NOT available."); // Inform Dev That Username Is Not Available. Add Validation To Textbox To Inform User.
 		}
@@ -32,6 +32,7 @@ public partial class SignUpPage : ContentPage
 			{
 				Console.WriteLine("Passwords Match. Profile Can Be Made."); // Inform Dev That Passwords Match & Profile Can Be Made
 				await database.SavePersonAsync(new Data.Models.Person(UsernameField.Text, PasswordFieldOne.Text)); // Make Person Object & Save To Database
+				
 			}
 			else
 			{
