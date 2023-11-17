@@ -10,7 +10,7 @@
  >
         <VerticalStackLayout>
         <Image
- Source="Resources/Images/joker.jpg"
+ Source="Resources/Images/Profile/joker.jpg"
  Margin="0, 0, 0, 15"
  HorizontalOptions="CenterAndExpand"
        VerticalOptions="Start"     
