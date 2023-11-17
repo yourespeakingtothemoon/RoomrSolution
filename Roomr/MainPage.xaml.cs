@@ -13,16 +13,17 @@ namespace Roomr
             database = new RoomrDatabase();
         }
 
-
         private async void OnLoginClicked(object sender, EventArgs e)
         {
-            //Move to Login Page
+            await Navigation.PushAsync(new LoginPage());
         }
 
         private async void OnSignUpClicked(object sender, EventArgs e)
         {
-            //Move to Sign Up Page
+            await Navigation.PushAsync(new SignUpPage());
+
         }
 
     }
+
 }

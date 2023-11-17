@@ -10,15 +10,27 @@
  >
         <VerticalStackLayout>
         <Image
- Source="Resources/Images/joker.jpg"
+ Source="Resources/Images/Profile/joker.jpg"
  Margin="0, 0, 0, 15"
  HorizontalOptions="CenterAndExpand"
        VerticalOptions="Start"     
 />
-        <Label Text="Da Joka Baybe"
+        <Label Text="Da Joka Baybee"
               x:Name="name" 
  FontSize="Title"
  HorizontalOptions="Center"/>
+            <HorizontalStackLayout
+               
+     HorizontalOptions="Center"
+     >
+                <Image 
+           Source="Test.svg" x:Name="MyImage"/>
+                <Label  Text="Hell, MI"
+                        x:Name="CityRegionCountry"
+     FontSize="Micro"
+             HorizontalOptions="Start"
+             />
+            </HorizontalStackLayout>
             <HorizontalStackLayout
                 HorizontalOptions="Center"
                 >
@@ -38,19 +50,7 @@ FontSize="Caption"
       
 HorizontalOptions="Start"
 />
-                <Label Text="I'm a joka, I'm a smoker, I'm a midnight toker... wanna know how I got these scars? HAHAHAHAHA" />
-
-                <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis condimentum magna ullamcorper porttitor fringilla. Mauris sollicitudin vulputate turpis in rhoncus. Pellentesque condimentum mauris magna. In dui neque, elementum vitae commodo ut, eleifend id velit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce iaculis porttitor metus, id convallis turpis efficitur vitae.
-
-Donec placerat in eros sed faucibus. Morbi ut viverra eros."/>
-                    <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis condimentum magna ullamcorper porttitor fringilla. Mauris sollicitudin vulputate turpis in rhoncus. Pellentesque condimentum mauris magna. In dui neque, elementum vitae commodo ut, eleifend id velit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce iaculis porttitor metus, id convallis turpis efficitur vitae.
-
-Donec placerat in eros sed faucibus. Morbi ut viverra eros."/>
-                    <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis condimentum magna ullamcorper porttitor fringilla. Mauris sollicitudin vulputate turpis in rhoncus. Pellentesque condimentum mauris magna. In dui neque, elementum vitae commodo ut, eleifend id velit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce iaculis porttitor metus, id convallis turpis efficitur vitae.
-
-Donec placerat in eros sed faucibus. Morbi ut viverra eros."/>
-                    
-                   
+                
                 </StackLayout>
             <BoxView Color="LightGray"
           HeightRequest="2"
