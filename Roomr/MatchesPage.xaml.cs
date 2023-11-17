@@ -13,7 +13,7 @@ public partial class MatchesPage : ContentPage
 
 	private async void Button_Clicked(object sender, EventArgs e)
 	{
-		string result = await DisplayActionSheet("Pick a Photo", "Cancel", null, "fish_candy.png", "joker.png", "weezer.jpg");
+		string result = await DisplayActionSheet("Pick a Photo", "Cancel", null, "fish_candy.png", "wheezer.jpg", "joker.jpg", "tyrunt.jpg", "pickel.png");
 		result = String.Concat("Resources/Images/Profile/", result);
 		owo.SetImage(result);
 	}

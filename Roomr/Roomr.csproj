@@ -88,4 +88,10 @@
 	  <Folder Include="Resources\Images\Icons\" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <MauiImage Include="Resources\Images\Profile\pickel.png" />
+	  <MauiImage Include="Resources\Images\Profile\tyrunt.jpg" />
+	  <MauiImage Include="Resources\Images\Profile\wheezer.jpg" />
+	</ItemGroup>
+
 </Project>
