@@ -6,4 +6,9 @@ public partial class Match : ContentView
 	{
 		InitializeComponent();
 	}
+
+	public void SetImage(string path)
+	{ 
+		ProfileImage.Source = path;
+	}
 }
