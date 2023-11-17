@@ -23,11 +23,14 @@
                
      HorizontalOptions="Center"
      >
-                <Image Source="=Resources/Images/Icons/geo.svg"/>
+                <Image Source="=Resources/Images/Icons/locale.img"
+                      MaximumHeightRequest="10"
+                        
+                       />
                 
 
                 <Label  Text="Hell, MI "
-                        x:Name="CityRegionCountry"
+                        x:Name="location"
      FontSize="Micro"
              HorizontalOptions="Start"
              />
@@ -62,10 +65,41 @@ FontSize="Caption"
       
 HorizontalOptions="Start"
 />
-                <Label Text="Acting" />
+                <Label 
+                    x:Name="hobbies"
+                    
+                    Text="Acting" />
 
             </StackLayout>
+         
+            <BoxView Color="LightGray"
+          HeightRequest="2"
+          Margin="15, 0, 15, 0"
+          HorizontalOptions="Fill" />
+            <StackLayout Padding="20">
+                <Label Text="Chores:"
+FontSize="Caption"
+      
+HorizontalOptions="Start"
+/>
+                <Label 
+                    x:Name="chores"
+                    
+                    Text="being da joka" />
 
+            </StackLayout>
+            <StackLayout Padding="20">
+                <Label Text="Quiet Hours:"
+FontSize="Caption"
+      
+HorizontalOptions="Start"
+/>
+                <Label 
+                    x:Name="quiet"
+                    
+                    Text="being da joka" />
+
+            </StackLayout>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
