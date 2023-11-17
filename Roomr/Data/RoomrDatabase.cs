@@ -28,6 +28,23 @@ namespace Roomr.Data
             var matchTable = await Database.CreateTableAsync<Models.Match>();
             var personChoreTable = await Database.CreateTableAsync<PersonChore>();
             var personHobbyTable = await Database.CreateTableAsync<PersonHobby>();
+
+        }
+
+        async Task AddDummyData()
+        {
+            await Database.InsertAllAsync(new List<Object> {
+                new Hobby("Cooking"),
+                new Hobby("Baking"),
+                new Hobby("Reading"),
+                new Hobby("Biking"),
+                new Hobby("Hiking"),
+                new Hobby("Gaming"),
+                new Hobby("Art"),
+                new Hobby("Music"),
+                new Hobby(""),
+
+            });
         }
 
         #region Person DB Stuff
