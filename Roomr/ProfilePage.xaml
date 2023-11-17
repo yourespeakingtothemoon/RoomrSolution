@@ -23,18 +23,16 @@
                
      HorizontalOptions="Center"
      >
-                <Image 
-           Source="Test.svg" Name="MyImage"/>
-                <Label  Text="Hell, MI"
+                <Image Source="=Resources/Images/Icons/geo.svg"/>
+                
+
+                <Label  Text="Hell, MI "
                         x:Name="CityRegionCountry"
      FontSize="Micro"
              HorizontalOptions="Start"
              />
-            </HorizontalStackLayout>
-            <HorizontalStackLayout
-                HorizontalOptions="Center"
-                >
-                <Label  Text="Distance From you: "
+                <Label Text="|"  FontSize="Micro"/>
+                <Label  Text=" Distance From you: "
                 FontSize="Micro"
                         HorizontalOptions="Start"
                         />
@@ -43,6 +41,8 @@
                           FontSize="Micro"
                           />
             </HorizontalStackLayout>
+           
+          
 
             <StackLayout Padding="20">
                 <Label Text="Bio:"
