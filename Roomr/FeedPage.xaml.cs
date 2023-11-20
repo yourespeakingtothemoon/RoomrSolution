@@ -1,19 +1,35 @@
 using static System.Net.Mime.MediaTypeNames;
+using Roomr.Data;
 
 namespace Roomr;
 
 public partial class FeedPage : ContentPage
 {
-	double lat = 34.052235;
-	double lon = -118.243683;
+	double lat = 0;
+	double lon = 0;
 	private CancellationTokenSource _cancelTokenSource;
-	private bool _isCheckingLocation;
+	RoomrDatabase database;
+	List<Data.Models.Person> PeopleBucket;
 
 	public FeedPage()
 	{
 		InitializeComponent();
 		//get from database
+		database = new RoomrDatabase();
+	}
 
+	public async void FindPeople()
+	{
+		PeopleBucket = await database.GetPeopleAsync();
+
+		foreach (var person in PeopleBucket)
+		{
+			// get the logged in user's state
+			// compare to person's country
+			// if person's country is different, remove from bucket
+			// repeate for state
+			// repeate for city
+		}
 	}
 
 	public async Task<double> GetDistance()
@@ -22,8 +38,6 @@ public partial class FeedPage : ContentPage
 		test.Text = "Calculating...";
 		try
 		{
-			_isCheckingLocation = true;
-
 			GeolocationRequest request = new GeolocationRequest(GeolocationAccuracy.Medium, TimeSpan.FromSeconds(10));
 
 			_cancelTokenSource = new CancellationTokenSource();
@@ -43,10 +57,6 @@ public partial class FeedPage : ContentPage
 		catch (Exception ex)
 		{
 
-		}
-		finally
-		{
-			_isCheckingLocation = false;
 		}
 		return distance;
 	}
