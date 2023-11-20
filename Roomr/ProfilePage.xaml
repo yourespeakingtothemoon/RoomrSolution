@@ -10,6 +10,7 @@
  >
         <VerticalStackLayout>
         <Image
+            x:Name="Image"
  Source="Resources/Images/joker.jpg"
  Margin="0, 0, 0, 15"
  HorizontalOptions="CenterAndExpand"
@@ -34,15 +35,7 @@
      FontSize="Micro"
              HorizontalOptions="Start"
              />
-                <Label Text="|"  FontSize="Micro"/>
-                <Label  Text=" Distance From you: "
-                FontSize="Micro"
-                        HorizontalOptions="Start"
-                        />
-                <Label Text="Calculating..."
-                       x:Name="distance"
-                          FontSize="Micro"
-                          />
+                
             </HorizontalStackLayout>
            
           
