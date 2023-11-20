@@ -1,4 +1,5 @@
 using Android.App;
+using Roomr.Data.Models;
 
 namespace Roomr;
 
@@ -17,8 +18,7 @@ public partial class ProfilePage : ContentPage
 	
     }
 
-
-	private Person person;
+	private Roomr.Data.Models.Person person;
 
 	private void HobbyList()
 	{
@@ -69,7 +69,7 @@ List<string> list = new List<string>();
         //Or do we wanna round up to the nearest half hour with a float?
 
         qh = beginHour + ":" + beginMin + " - " + endHour + ":" + endMin;
-        quietHours.Text = qh;
+        QuietHours.Text = qh; 
         
     }
 }
