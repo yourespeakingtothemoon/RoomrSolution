@@ -15,5 +15,10 @@ namespace Roomr.Data.Models
         public string Name { get; set; }
 
         public Hobby() { }
+
+        public Hobby(string name)
+        {
+            Name = name;
+        }
     }
 }

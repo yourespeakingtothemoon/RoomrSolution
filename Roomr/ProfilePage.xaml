@@ -10,7 +10,7 @@
  >
         <VerticalStackLayout>
         <Image
- Source="Resources/Images/Profile/joker.jpg"
+ Source="Resources/Images/joker.jpg"
  Margin="0, 0, 0, 15"
  HorizontalOptions="CenterAndExpand"
        VerticalOptions="Start"     
@@ -23,18 +23,19 @@
                
      HorizontalOptions="Center"
      >
-                <Image 
-           Source="Test.svg" x:Name="MyImage"/>
-                <Label  Text="Hell, MI"
-                        x:Name="CityRegionCountry"
+                <Image Source="=Resources/Images/Icons/locale.img"
+                      MaximumHeightRequest="10"
+                        
+                       />
+                
+
+                <Label  Text="Hell, MI "
+                        x:Name="location"
      FontSize="Micro"
              HorizontalOptions="Start"
              />
-            </HorizontalStackLayout>
-            <HorizontalStackLayout
-                HorizontalOptions="Center"
-                >
-                <Label  Text="Distance From you: "
+                <Label Text="|"  FontSize="Micro"/>
+                <Label  Text=" Distance From you: "
                 FontSize="Micro"
                         HorizontalOptions="Start"
                         />
@@ -43,6 +44,8 @@
                           FontSize="Micro"
                           />
             </HorizontalStackLayout>
+           
+          
 
             <StackLayout Padding="20">
                 <Label Text="Bio:"
@@ -62,10 +65,41 @@ FontSize="Caption"
       
 HorizontalOptions="Start"
 />
-                <Label Text="Acting" />
+                <Label 
+                    x:Name="hobbies"
+                    
+                    Text="Acting" />
 
             </StackLayout>
+         
+            <BoxView Color="LightGray"
+          HeightRequest="2"
+          Margin="15, 0, 15, 0"
+          HorizontalOptions="Fill" />
+            <StackLayout Padding="20">
+                <Label Text="Chores:"
+FontSize="Caption"
+      
+HorizontalOptions="Start"
+/>
+                <Label 
+                    x:Name="chores"
+                    
+                    Text="being da joka" />
 
+            </StackLayout>
+            <StackLayout Padding="20">
+                <Label Text="Quiet Hours:"
+FontSize="Caption"
+      
+HorizontalOptions="Start"
+/>
+                <Label 
+                    x:Name="quiet"
+                    
+                    Text="being da joka" />
+
+            </StackLayout>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
