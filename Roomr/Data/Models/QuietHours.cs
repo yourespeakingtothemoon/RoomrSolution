@@ -40,7 +40,7 @@ namespace Roomr.Data.Models
         public QuietHours() { }
 
 
-        public string ToString()
+        public override string ToString() 
         {
             string result = "";
         

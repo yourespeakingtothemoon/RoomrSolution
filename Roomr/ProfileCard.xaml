@@ -5,25 +5,42 @@
     <HorizontalStackLayout>
         <Image
  Source="Resources/Images/Profile/joker.jpg"
+            x:Name="photo"
  Margin="0, 0, 0, 15"
  VerticalOptions="CenterAndExpand"
 />
+        <VerticalStackLayout>
         <Label Text="Da Joka Baybee"
+                x:Name="name"
  FontSize="Title"
 VerticalOptions="Start"
                HorizontalOptions="Center"/>
-        
-            <VerticalStackLayout>
-        <Label Text="Bio:"
-           FontSize="Caption"
-           HorizontalOptions="Start"
-           />
-                <!-- Figure out how to make a "limited" version of the bio to a few characters, comparitivley-->
-        <Label Text="I'm a joka, I'm a smoker, I'm a midnight toker... wanna know how I got these scars? HAHAHAHAHA"
-            FontSize="Body"
-           HorizontalOptions="Center"
-            />
-            </VerticalStackLayout>
-     
+
+        <HorizontalStackLayout
+          
+HorizontalOptions="Center"
+>
+            <Image Source="=Resources/Images/Icons/locale.img"
+                 MaximumHeightRequest="10"
+                   
+                  />
+
+
+            <Label  Text="Hell, MI "
+                   x:Name="location"
+FontSize="Micro"
+        HorizontalOptions="Start"
+        />
+            <Label Text="|"  FontSize="Micro"/>
+            <Label  Text=" Distance From you: "
+           FontSize="Micro"
+                   HorizontalOptions="Start"
+                   />
+            <Label Text="Calculating..."
+                  x:Name="distance"
+                     FontSize="Micro"
+                     />
+        </HorizontalStackLayout>
+        </VerticalStackLayout>
     </HorizontalStackLayout>
 </ContentView>
