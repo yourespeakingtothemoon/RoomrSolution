@@ -1,6 +1,3 @@
-using Android.App;
-using Roomr.Data.Models;
-
 namespace Roomr;
 
 public partial class ProfilePage : ContentPage
@@ -53,7 +50,7 @@ List<string> list = new List<string>();
         //to do reference ethan's distance getter
         string loc = "";
         float dist = 0.0f;
-        distance.Text = dist + " UNITS";
+      //  distance.Text = dist + " UNITS";
         location.Text = loc;
        
     }
@@ -69,7 +66,7 @@ List<string> list = new List<string>();
         //Or do we wanna round up to the nearest half hour with a float?
 
         qh = beginHour + ":" + beginMin + " - " + endHour + ":" + endMin;
-        QuietHours.Text = qh; 
+        quiet.Text = qh; 
         
     }
 }
