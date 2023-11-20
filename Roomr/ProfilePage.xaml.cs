@@ -1,6 +1,3 @@
-using Android.App;
-using Roomr.Data.Models;
-
 namespace Roomr;
 
 public partial class ProfilePage : ContentPage
@@ -53,7 +50,7 @@ List<string> list = new List<string>();
         //to do reference ethan's distance getter
         string loc = "";
         float dist = 0.0f;
-        distance.Text = dist + " UNITS";
+      //  distance.Text = dist + " UNITS";
         location.Text = loc;
        
     }

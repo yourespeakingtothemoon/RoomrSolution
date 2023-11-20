@@ -1,5 +1,4 @@
-﻿using Android.Views;
-using SQLite;
+﻿using SQLite;
 using SQLiteNetExtensions.Attributes;
 using System;
 using System.Collections.Generic;
