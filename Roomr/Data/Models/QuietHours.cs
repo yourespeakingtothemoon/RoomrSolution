@@ -38,5 +38,42 @@ namespace Roomr.Data.Models
         public bool TwentyThree { get; set; }
 
         public QuietHours() { }
+
+
+        public string ToString()
+        {
+            string result = "";
+        
+                if (Zero) result += "12 AM, ";
+                if (One) result += "1 AM, ";
+                if (Two) result += "2 AM, ";
+                if (Three) result += "3 AM, ";
+                if (Four) result += "4 AM, ";
+                if (Five) result += "5 AM, ";
+                if (Six) result += "6 AM, ";
+                if (Seven) result += "7 AM, ";
+                if (Eight) result += "8 AM, ";
+                if (Nine) result += "9 AM, ";
+                if (Ten) result += "10 AM, ";
+                if (Eleven) result += "11 AM, ";
+                if (Twelve) result += "12 PM, ";
+                if (Thirteen) result += "1 PM, ";
+                if (Fourteen) result += "2 PM, ";
+                if (Fifteen) result += "3 PM, ";
+                if (Sixteen) result += "4 PM, ";
+                if (Seventeen) result += "5 PM, ";
+                if (Eighteen) result += "6 PM, ";
+                if (Nineteen) result += "7 PM, ";
+                if (Twenty) result += "8 PM, ";
+                if (TwentyOne) result += "9 PM, ";
+                if (TwentyTwo) result += "10 PM, ";
+                if (TwentyThree) result += "11 PM, ";
+
+                result = result.Substring(0, result.Length - 2);
+
+            return result;
+
+            }
+        
     }
 }
