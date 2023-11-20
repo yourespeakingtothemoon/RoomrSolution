@@ -69,7 +69,7 @@ List<string> list = new List<string>();
         //Or do we wanna round up to the nearest half hour with a float?
 
         qh = beginHour + ":" + beginMin + " - " + endHour + ":" + endMin;
-        QuietHours.Text = qh; 
+        quiet.Text = qh; 
         
     }
 }
