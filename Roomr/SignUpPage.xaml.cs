@@ -1,4 +1,5 @@
 using Roomr.Data;
+using Roomr.Data.Models;
 
 namespace Roomr;
 
@@ -32,7 +33,8 @@ public partial class SignUpPage : ContentPage
 			{
 				Console.WriteLine("Passwords Match. Profile Can Be Made."); // Inform Dev That Passwords Match & Profile Can Be Made
 				await database.SavePersonAsync(new Data.Models.Person(UsernameField.Text, PasswordFieldOne.Text)); // Make Person Object & Save To Database
-				
+
+				//Send to Feed Page
 			}
 			else
 			{
@@ -45,6 +47,6 @@ public partial class SignUpPage : ContentPage
 
     private async void OnLoginClicked(object sender, EventArgs e)
 	{
-		await Navigation.PushAsync(new LoginPage());
-	}
+        await Shell.Current.GoToAsync("//LoginPage");
+    }
 }

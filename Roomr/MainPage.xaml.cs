@@ -15,12 +15,12 @@ namespace Roomr
 
         private async void OnLoginClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new LoginPage());
+            await Shell.Current.GoToAsync("//LoginPage");
         }
 
         private async void OnSignUpClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new SignUpPage());
+            await Shell.Current.GoToAsync("//SignUpPage");
         }
 
     }
