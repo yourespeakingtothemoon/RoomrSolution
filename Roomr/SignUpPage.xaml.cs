@@ -32,9 +32,11 @@ public partial class SignUpPage : ContentPage
 			if (PasswordFieldOne.Text == PasswordFieldTwo.Text) // If Passwords Match
 			{
 				Console.WriteLine("Passwords Match. Profile Can Be Made."); // Inform Dev That Passwords Match & Profile Can Be Made
-				await database.SavePersonAsync(new Data.Models.Person(UsernameField.Text, PasswordFieldOne.Text)); // Make Person Object & Save To Database
+				Person newPerson = new Data.Models.Person(UsernameField.Text, PasswordFieldOne.Text);
 
-				//Send to Feed Page
+                await database.SavePersonAsync(newPerson); // Make Person Object & Save To Database
+				Globals.loggedInPerson = newPerson;
+				await Shell.Current.GoToAsync("//Profile");
 			}
 			else
 			{
