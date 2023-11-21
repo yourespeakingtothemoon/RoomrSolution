@@ -19,6 +19,7 @@ public partial class LoginPage : ContentPage
         if (person != null)
         {
             Console.WriteLine("Valid Login. Logging In.");
+            Globals.loggedInPerson = person;
             await Shell.Current.GoToAsync("//FeedPage");
         }
         else
