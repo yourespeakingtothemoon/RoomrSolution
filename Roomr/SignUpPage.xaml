@@ -28,8 +28,7 @@
                 x:Name="SignUpBtn"
                 Text="Sign up"
                 BackgroundColor="#8B508B"
-                SemanticProperties.Hint="Takes you to log in"
-
+                SemanticProperties.Hint="Takes you to Sign up"
                 HorizontalOptions="Center" 
                 Clicked="OnSignUpClicked"
                 />
@@ -46,9 +45,15 @@
                 Text="Log in"
                 BackgroundColor="#8B508B"
                 SemanticProperties.Hint="Takes you to log in"
-                
                 HorizontalOptions="Center"
                 Clicked="OnLoginClicked"/>
+
+            <Button
+                x:Name="HomeBtn"
+                Text="Home"
+                BackgroundColor="#8B508B"
+                HorizontalOptions="Center"
+                Clicked="HomeBtnClicked"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

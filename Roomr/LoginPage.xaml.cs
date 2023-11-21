@@ -31,4 +31,9 @@ public partial class LoginPage : ContentPage
 	{
         await Shell.Current.GoToAsync("//SignUpPage");
 	}
+
+    private async void HomeBtnClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("//MainPage");
+    }
 }
