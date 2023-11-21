@@ -294,10 +294,10 @@ namespace Roomr.Data
                 return await Database.InsertAsync(personHobby);
         }
 
-        public async Task<PersonHobby> GetPersonHobbyAsync(int personId) //Returns a single PersonHobby object by a given Person's Id
+        public async Task<List<PersonHobby>> GetPersonHobbyAsync(int personId) //Returns a single PersonHobby object by a given Person's Id
         {
             await Init();
-            return await Database.Table<PersonHobby>().Where(personHobby => personHobby.PersonId == personId).FirstOrDefaultAsync();
+            return await Database.Table<PersonHobby>().Where(personHobby => personHobby.PersonId == personId).ToListAsync();
         }
 
         public async Task<int> DeletePersonHobbyAsync(PersonHobby personHobby) //Returns an int based on whether or not a PersonHobby was deleted -- can just call the function without saving result
