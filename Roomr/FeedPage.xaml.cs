@@ -16,7 +16,7 @@ public partial class FeedPage : ContentPage
 		InitializeComponent();
 		//get from database
 		database = new RoomrDatabase();
-		FindPeople();
+		//FindPeople();
 	}
 
 	public async void FindPeople()
