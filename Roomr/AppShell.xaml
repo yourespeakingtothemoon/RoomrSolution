@@ -18,5 +18,13 @@
         Title="SignUp"
         ContentTemplate="{DataTemplate local:SignUpPage}"
         Route="SignUpPage" />
+    <ShellContent
+        Title="Matches"
+        ContentTemplate="{DataTemplate local:MatchesPage}"
+        Route="Matches" />
+    <ShellContent
+        Title="Profile"
+        ContentTemplate="{DataTemplate local:ProfilePage}"
+        Route="Profile" />
 
 </Shell>
