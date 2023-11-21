@@ -99,11 +99,14 @@ public partial class FeedPage : ContentPage
 			lat = CurrentPerson.Latitude;
 			lon = CurrentPerson.Longitude;
 
+			// create and and data to profile card
 			double o = await GetDistance();
+
 			var match = new Data.Models.Match();
 			match.Id1 = Globals.loggedInPerson.Id;
 			match.Id2 = CurrentPerson.Id;
 			await database.SaveMatchAsync(match);
+
 			PeopleBucket.Remove(CurrentPerson);
 		}
 		else 
@@ -120,7 +123,10 @@ public partial class FeedPage : ContentPage
 			lat = CurrentPerson.Latitude;
 			lon = CurrentPerson.Longitude;
 
+			// create and and data to profile card
 			double o = await GetDistance();
+
+
 			PeopleBucket.Remove(CurrentPerson);
 		}
 		else 
