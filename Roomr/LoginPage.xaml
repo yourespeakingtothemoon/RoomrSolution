@@ -9,9 +9,11 @@
             Padding="40,0"
             VerticalOptions="Center">
 
-            <Entry 
+            <Entry
+                x:Name="UsernameField"
                 Placeholder="Username"/>
-            <Entry 
+            <Entry
+                x:Name="PasswordField"
                 IsPassword="True"
                 Placeholder="Password" />
 
@@ -38,7 +40,6 @@
                 
                 HorizontalOptions="Center"
                 Clicked="OnSignUpClicked"/>
-            <!-- Add OnClick-->
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
