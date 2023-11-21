@@ -14,7 +14,7 @@ public partial class LoginPage : ContentPage
     private async void OnLoginClicked(object sender, EventArgs e)
     {
         //TODO: Grab the data from the database base and login using that information
-        await Navigation.PushAsync(new FeedPage());
+        await Shell.Current.GoToAsync("//Profile");
     }
 
     private async void OnSignUpClicked(object sender, EventArgs e)
