@@ -35,9 +35,14 @@ public partial class SignUpPage : ContentPage
 				await database.SavePersonAsync(new Data.Models.Person(UsernameField.Text, PasswordFieldOne.Text)); // Make Person Object & Save To Database
 				await Shell.Current.GoToAsync("//FeedPage"); // Send to Feed Page
             }
-            else
-			{
-				Console.WriteLine("Passwords DO NOT Match."); // Inform Dev That Passwords Do Not Match. Add Validation To Textbox To Inform User.
+			else
+			{ 
+
+				Person newPerson = new Data.Models.Person(UsernameField.Text, PasswordFieldOne.Text);
+
+                await database.SavePersonAsync(newPerson); // Make Person Object & Save To Database
+				Globals.loggedInPerson = newPerson;
+				await Shell.Current.GoToAsync("//Profile");
 			}
 		}
         #endregion

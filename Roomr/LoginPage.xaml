@@ -9,9 +9,11 @@
             Padding="40,0"
             VerticalOptions="Center">
 
-            <Entry 
+            <Entry
+                x:Name="UsernameField"
                 Placeholder="Username"/>
-            <Entry 
+            <Entry
+                x:Name="PasswordField"
                 IsPassword="True"
                 Placeholder="Password" />
 
@@ -30,7 +32,7 @@
                 HorizontalOptions="Center" 
                 FontAttributes="Italic"/>
 
-            <Button
+                <Button
                 x:Name="SignUpBtn"
                 Text="Sign Up"
                 BackgroundColor="#8B508B"
@@ -38,12 +40,13 @@
                 HorizontalOptions="Center"
                 Clicked="OnSignUpClicked"/>
 
-            <Button
+                <Button
                 x:Name="HomeBtn"
                 Text="Home"
                 BackgroundColor="#8B508B"
                 HorizontalOptions="Center"
                 Clicked="HomeBtnClicked"/>
+    
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

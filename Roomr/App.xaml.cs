@@ -5,7 +5,6 @@ namespace Roomr
 {
     public partial class App : Application
     {
-        public static Person loggedInPerson;
         public App()
         {
             InitializeComponent();

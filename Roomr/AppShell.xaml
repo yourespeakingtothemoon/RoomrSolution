@@ -12,17 +12,31 @@
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" 
         />
-    <ShellContent
+    
+        <ShellContent
         Title="Login"
         ContentTemplate="{DataTemplate local:LoginPage}"
         Route="LoginPage" />
+  
     <ShellContent
         Title="SignUp"
         ContentTemplate="{DataTemplate local:SignUpPage}"
         Route="SignUpPage" />
+
     <ShellContent
         Title="Feed"
         ContentTemplate="{DataTemplate local:FeedPage}"
         Route="FeedPage" />
+
+  
+    <ShellContent
+        Title="Matches"
+        ContentTemplate="{DataTemplate local:MatchesPage}"
+        Route="Matches" />
+
+    <ShellContent
+        Title="Profile"
+        ContentTemplate="{DataTemplate local:ProfilePage}"
+        Route="Profile" />
 
 </Shell>
