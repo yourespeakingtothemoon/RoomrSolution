@@ -4,12 +4,14 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Roomr"
-    Shell.FlyoutBehavior="Disabled">
-
+    Shell.FlyoutBehavior="Disabled"
+    BackgroundColor="#8B508B">
+    
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        Route="MainPage" 
+        />
     <ShellContent
         Title="Login"
         ContentTemplate="{DataTemplate local:LoginPage}"
@@ -18,5 +20,9 @@
         Title="SignUp"
         ContentTemplate="{DataTemplate local:SignUpPage}"
         Route="SignUpPage" />
+    <ShellContent
+        Title="Feed"
+        ContentTemplate="{DataTemplate local:FeedPage}"
+        Route="FeedPage" />
 
 </Shell>

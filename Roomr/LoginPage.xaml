@@ -20,9 +20,9 @@
                 Text="Log in"
                 BackgroundColor="#8B508B"
                 SemanticProperties.Hint="Takes you to log in"
+                HorizontalOptions="Center" 
+                Clicked="OnLoginClicked"/>
                 
-                HorizontalOptions="Center" />
-                <!-- Add OnClick-->
             <Label
                 Text="Not A Member? Sign-Up"
                 SemanticProperties.Description="Not A Member? Sign-Up"
@@ -35,10 +35,15 @@
                 Text="Sign Up"
                 BackgroundColor="#8B508B"
                 SemanticProperties.Hint="Takes you to log in"
-                
                 HorizontalOptions="Center"
                 Clicked="OnSignUpClicked"/>
-            <!-- Add OnClick-->
+
+            <Button
+                x:Name="HomeBtn"
+                Text="Home"
+                BackgroundColor="#8B508B"
+                HorizontalOptions="Center"
+                Clicked="HomeBtnClicked"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

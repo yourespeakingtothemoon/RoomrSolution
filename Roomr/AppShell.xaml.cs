@@ -6,5 +6,10 @@
         {
             InitializeComponent();
         }
+
+        private async void Shell_NavigatedTo(object sender, NavigatedToEventArgs e)
+        {
+            await Shell.Current.GoToAsync("//MainPage");
+        }
     }
 }
