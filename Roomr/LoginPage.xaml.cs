@@ -15,8 +15,7 @@ public partial class LoginPage : ContentPage
     private async void OnLoginClicked(object sender, EventArgs e)
     {
         //TODO: Grab the data from the database base and login using that information
-        Person person = database.GetPersonLogin(UsernameField.Text, PasswordField.Text).Result;
-        if (person != null)
+        if (database.GetPersonLogin(UsernameField.Text, PasswordField.Text).Result != null)
         {
             Console.WriteLine("Valid Login. Logging In.");
             await Shell.Current.GoToAsync("//FeedPage");
