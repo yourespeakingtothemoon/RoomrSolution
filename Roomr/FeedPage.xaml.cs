@@ -93,6 +93,7 @@ public partial class FeedPage : ContentPage
 
 	private async void SwipeMatch_Swiped(object sender, SwipedEventArgs e)
 	{
+		Cards.Clear();
 		if (PeopleBucket.Count() != 0)
 		{
 			CurrentPerson = PeopleBucket.FirstOrDefault();
@@ -101,6 +102,7 @@ public partial class FeedPage : ContentPage
 
 			// create and and data to profile card
 			double o = await GetDistance();
+			Cards.Add(new ProfileCard(CurrentPerson, o));
 
 			var match = new Data.Models.Match();
 			match.Id1 = Globals.loggedInPerson.Id;
@@ -117,6 +119,7 @@ public partial class FeedPage : ContentPage
 	}
 	private async void SwipeReject_Swiped(object sender, SwipedEventArgs e)
 	{
+		Cards.Clear();
 		if (PeopleBucket.Count() != 0)
 		{
 			CurrentPerson = PeopleBucket.FirstOrDefault();
@@ -125,7 +128,7 @@ public partial class FeedPage : ContentPage
 
 			// create and and data to profile card
 			double o = await GetDistance();
-
+			Cards.Add(new ProfileCard(CurrentPerson, o));
 
 			PeopleBucket.Remove(CurrentPerson);
 		}
