@@ -37,17 +37,7 @@
              />
                 
             </HorizontalStackLayout>
-           
           
-
-            <StackLayout Padding="20">
-                <Label Text="Bio:"
-FontSize="Caption"
-      
-HorizontalOptions="Start"
-/>
-                
-                </StackLayout>
             <BoxView Color="LightGray"
           HeightRequest="2"
           Margin="15, 0, 15, 0"
@@ -87,6 +77,10 @@ FontSize="Caption"
       
 HorizontalOptions="Start"
 />
+                <BoxView Color="LightGray"
+HeightRequest="2"
+Margin="15, 0, 15, 0"
+HorizontalOptions="Fill" />
                 <Label 
                     x:Name="quiet"
                     

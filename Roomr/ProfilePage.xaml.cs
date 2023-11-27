@@ -1,28 +1,58 @@
+using Roomr.Data;
+
 namespace Roomr;
 
 public partial class ProfilePage : ContentPage
 {
 
+    private RoomrDatabase database;
 
 
 	public ProfilePage()
 	{
 		InitializeComponent();
+        database = new RoomrDatabase();
+
+        //get person from database
 	}
+
+    public ProfilePage(int id)
+    {
+        InitializeComponent();
+        database = new RoomrDatabase();
+
+        //get person from database
+        person = database.GetPersonAsync(id).Result;   
+    }
+
+    //public ProfilePage()
+    //{
+    //    database = db;
+    //    InitializeComponent();
+    //}
 
     private void ScrollView_Scrolled(object sender, ScrolledEventArgs e)
     {
 	
     }
-
 	private Roomr.Data.Models.Person person;
 
-	private void HobbyList()
+	private async void HobbyListAsync()
 	{
 		string hobbs = "";
 		//to do, get reference to hobbies list
 //	person.Hobbies
 List<string> list = new List<string>();
+        List<Roomr.Data.Models.PersonHobby> hobbos = database.GetPersonHobbyAsync(person.Id).Result;
+            
+        
+
+       foreach (var item in hobbos)
+        {
+            list.Add(item.ToString());
+        }
+
+
 		foreach (var item in list)
 		{
 			hobbs+= item + ", ";
@@ -47,10 +77,11 @@ List<string> list = new List<string>();
     {
         //to do, get reference to location
 
-        //to do reference ethan's distance getter
+     
         string loc = "";
-        float dist = 0.0f;
-      //  distance.Text = dist + " UNITS";
+        
+       loc= person.City + ", " + person.Region + ", " + person.Country;
+
         location.Text = loc;
        
     }
@@ -65,7 +96,11 @@ List<string> list = new List<string>();
         int endMin = 0;
         //Or do we wanna round up to the nearest half hour with a float?
 
-        qh = beginHour + ":" + beginMin + " - " + endHour + ":" + endMin;
+        qh = database.GetUserQuietHours(person.Id).Result.ToString();
+
+
+
+       // qh = beginHour + ":" + beginMin + " - " + endHour + ":" + endMin;
         quiet.Text = qh; 
         
     }
