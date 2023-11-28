@@ -19,5 +19,11 @@ namespace Roomr.Data.Models
         public int HobbyId { get; set; }
 
         public PersonHobby() { }
+
+        public PersonHobby(int PersonId, int HobbyId)
+        {
+            this.PersonId = PersonId;
+            this.HobbyId = HobbyId;
+        }
     }
 }

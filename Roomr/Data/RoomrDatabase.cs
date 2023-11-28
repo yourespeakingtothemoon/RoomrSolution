@@ -16,8 +16,8 @@ namespace Roomr.Data
 
         async Task Init()
         {
-            if (Database is not null)
-                return;
+            //if (Database is not null)
+            //    return;
 
             Database = new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
             var personTable = await Database.CreateTableAsync<Person>();
@@ -28,6 +28,15 @@ namespace Roomr.Data
             var matchTable = await Database.CreateTableAsync<Models.Match>();
             var personChoreTable = await Database.CreateTableAsync<PersonChore>();
             var personHobbyTable = await Database.CreateTableAsync<PersonHobby>();
+
+            await Database.DeleteAllAsync<Person>();
+            await Database.DeleteAllAsync<Models.Preferences>();
+            await Database.DeleteAllAsync<QuietHours>();
+            await Database.DeleteAllAsync<Chore>();
+            await Database.DeleteAllAsync<Hobby>();
+            await Database.DeleteAllAsync<Models.Match>();
+            await Database.DeleteAllAsync<PersonChore>();
+            await Database.DeleteAllAsync<PersonHobby>();
 
             await AddDummyData();
         }
@@ -56,6 +65,11 @@ namespace Roomr.Data
                 new Chore("Grocery Shopping"),
                 new Chore("Mopping"),
                 new Chore("Mowing"),
+
+                new Person("Tony Stark", "TStark@Avengers.org", "Salt Lake City", "Utah", "United States", "fish_candy.png"),
+                new Person("Daenerys Targaryen", "Reach me via Raven", "Salt Lake City", "Utah", "United States", "wheezer.jpg"),
+                new Person("Luke Skywalker", "Use the Force", "Albany", "New York", "United States", "joker.jpg"),
+                new Person("Frodo Baggins", "Send a Message to the Shire", "Salt Lake City", "Utah", "United States", "tyrunt.jpg"),
             });
         }
 
