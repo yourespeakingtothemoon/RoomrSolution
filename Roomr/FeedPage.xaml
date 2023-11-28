@@ -3,15 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Roomr.FeedPage"
              Title="Feed Page">
-    <ScrollView>
     <VerticalStackLayout>
-        <StackLayout x:Name="Cards">
+        <StackLayout x:Name="Cards" HeightRequest="800">
             <StackLayout.GestureRecognizers>
-            <SwipeGestureRecognizer Direction="Left" Swiped="SwipeMatch_Swiped"/>
-            <SwipeGestureRecognizer Direction="Right" Swiped="SwipeReject_Swiped"/>
-        </StackLayout.GestureRecognizers>
+                <SwipeGestureRecognizer Direction="Right" Swiped="SwipeMatch_Swiped"/>
+                <SwipeGestureRecognizer Direction="Left" Swiped="SwipeReject_Swiped"/>
+            </StackLayout.GestureRecognizers>
         </StackLayout>
         <Label x:Name="test"></Label>
     </VerticalStackLayout>
-    </ScrollView>
 </ContentPage>

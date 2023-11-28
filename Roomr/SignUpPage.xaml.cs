@@ -32,17 +32,14 @@ public partial class SignUpPage : ContentPage
 			if (PasswordFieldOne.Text == PasswordFieldTwo.Text) // If Passwords Match
 			{
 				Console.WriteLine("Passwords Match. Profile Can Be Made."); // Inform Dev That Passwords Match & Profile Can Be Made
-				await database.SavePersonAsync(new Data.Models.Person(UsernameField.Text, PasswordFieldOne.Text)); // Make Person Object & Save To Database
+				Person newPerson = new Data.Models.Person(UsernameField.Text, "", "Salt Lake City", "Utah", "United States", "fish_candy.png");
+				Globals.loggedInPerson = newPerson;
+				await database.SavePersonAsync(newPerson); // Make Person Object & Save To Database
 				await Shell.Current.GoToAsync("//FeedPage"); // Send to Feed Page
-            }
+			}
 			else
 			{ 
 
-				Person newPerson = new Data.Models.Person(UsernameField.Text, PasswordFieldOne.Text);
-
-                await database.SavePersonAsync(newPerson); // Make Person Object & Save To Database
-				Globals.loggedInPerson = newPerson;
-				await Shell.Current.GoToAsync("//Profile");
 			}
 		}
         #endregion

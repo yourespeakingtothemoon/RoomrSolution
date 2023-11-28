@@ -9,6 +9,6 @@ namespace Roomr.Data
 {
     public static class Globals
     {
-        public static Person loggedInPerson;
-    }
+		public static Person loggedInPerson = new Person("", "", "", "", "", "");
+	}
 }
