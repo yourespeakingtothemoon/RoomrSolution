@@ -19,5 +19,11 @@ namespace Roomr.Data.Models
         public int ChoreId { get; set; }
 
         public PersonChore() { }
+
+        public PersonChore(int PersonId, int ChoreId)
+        {
+            this.PersonId = PersonId;
+            this.ChoreId = ChoreId;
+        }
     }
 }
