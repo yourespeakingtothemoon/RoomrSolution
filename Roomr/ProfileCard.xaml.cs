@@ -22,12 +22,11 @@ public partial class ProfileCard : ContentView
 
 	public ProfileCard(Roomr.Data.Models.Person person, double dist)
 	{
-        //set all labels to person's info
-        name.Text = person.Name;
+		//set all labels to person's info
+		InitializeComponent();
+		name.Text = person.Name;
         location.Text = person.City + ", " + person.Region + ", " + person.Country;
-        photo.Source = person.ProfilePicture;
+        //photo.Source = String.Concat("Resources/Images/Profile/", person.ProfilePicture);
 		distance.Text = dist.ToString() + "km";
     }
-
-
 }

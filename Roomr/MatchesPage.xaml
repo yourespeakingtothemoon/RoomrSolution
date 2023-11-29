@@ -4,6 +4,5 @@
              x:Class="Roomr.MatchesPage"
              Title="MatchesPage">
     <VerticalStackLayout x:Uid="MatchStack" x:Name="MatchStack">
-        <Button Clicked="Button_Clicked"/>
     </VerticalStackLayout>
 </ContentPage>
