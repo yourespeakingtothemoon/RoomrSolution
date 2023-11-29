@@ -37,9 +37,9 @@ public partial class SignUpPage : ContentPage
 				await database.SavePersonAsync(newPerson); // Make Person Object & Save To Database
 				await Shell.Current.GoToAsync("//FeedPage"); // Send to Feed Page
 			}
-			else
-			{ 
-
+			else {
+				Console.WriteLine("Passwords don't match");
+				//Do nothing?? Passwords do not match
 			}
 		}
         #endregion
