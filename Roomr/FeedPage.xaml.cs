@@ -124,14 +124,16 @@ public partial class FeedPage : ContentPage
 				match.Id1 = Globals.loggedInPerson.Id;
 				match.Id2 = CurrentPerson.Id;
 				await database.SaveMatchAsync(match);
-				// remove that person from the bucket
-				PeopleBucket.Remove(CurrentPerson);
-				Cards.Clear();
 
 				// find the next person
 				CurrentPerson = PeopleBucket.FirstOrDefault();
 				//lat = CurrentPerson.Latitude;
 				//lon = CurrentPerson.Longitude;
+
+				// remove that person from the bucket
+				PeopleBucket.Remove(CurrentPerson);
+				Cards.Clear();
+
 
 				// create and and data to profile card
 				//double o = await GetDistance();
@@ -164,8 +166,8 @@ public partial class FeedPage : ContentPage
 			if (PeopleBucket.Count() != 0)
 			{
 				CurrentPerson = PeopleBucket.FirstOrDefault();
-				lat = CurrentPerson.Latitude;
-				lon = CurrentPerson.Longitude;
+				//lat = CurrentPerson.Latitude;
+				//lon = CurrentPerson.Longitude;
 
 				PeopleBucket.Remove(CurrentPerson);
 				Cards.Clear();
