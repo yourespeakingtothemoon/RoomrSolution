@@ -8,13 +8,13 @@ public partial class ProfilePage : ContentPage
     private RoomrDatabase database;
 
 
-	public ProfilePage()
-	{
-		InitializeComponent();
+    public ProfilePage()
+    {
+        InitializeComponent();
         database = new RoomrDatabase();
 
         //get person from database
-	}
+    }
 
     public ProfilePage(int id)
     {
@@ -22,7 +22,7 @@ public partial class ProfilePage : ContentPage
         database = new RoomrDatabase();
 
         //get person from database
-        person = database.GetPersonAsync(id).Result;   
+        person = database.GetPersonAsync(id).Result;
     }
 
     //public ProfilePage()
@@ -33,33 +33,33 @@ public partial class ProfilePage : ContentPage
 
     private void ScrollView_Scrolled(object sender, ScrolledEventArgs e)
     {
-	
+
     }
-	private Roomr.Data.Models.Person person;
+    private Roomr.Data.Models.Person person;
 
-	private async void HobbyListAsync()
-	{
-		string hobbs = "";
-		//to do, get reference to hobbies list
-//	person.Hobbies
-List<string> list = new List<string>();
+    private async void HobbyListAsync()
+    {
+        string hobbs = "";
+        //to do, get reference to hobbies list
+        //	person.Hobbies
+        List<string> list = new List<string>();
         List<Roomr.Data.Models.PersonHobby> hobbos = database.GetPersonHobbyAsync(person.Id).Result;
-            
-        
 
-       foreach (var item in hobbos)
+
+
+        foreach (var item in hobbos)
         {
             list.Add(item.ToString());
         }
 
 
-		foreach (var item in list)
-		{
-			hobbs+= item + ", ";
+        foreach (var item in list)
+        {
+            hobbs += item + ", ";
         }
-		hobbs = hobbs.Substring(0, hobbs.Length - 2);
-		hobbies.Text = hobbs;
-	}
+        hobbs = hobbs.Substring(0, hobbs.Length - 2);
+        hobbies.Text = hobbs;
+    }
     private void ChoresList()
     {
         string chorz = "";
@@ -77,13 +77,13 @@ List<string> list = new List<string>();
     {
         //to do, get reference to location
 
-     
+
         string loc = "";
-        
-       loc= person.City + ", " + person.Region + ", " + person.Country;
+
+        loc = person.City + ", " + person.Region + ", " + person.Country;
 
         location.Text = loc;
-       
+
     }
 
     private void QuietHours()
@@ -100,8 +100,8 @@ List<string> list = new List<string>();
 
 
 
-       // qh = beginHour + ":" + beginMin + " - " + endHour + ":" + endMin;
-        quiet.Text = qh; 
-        
+        // qh = beginHour + ":" + beginMin + " - " + endHour + ":" + endMin;
+        quiet.Text = qh;
+
     }
 }
