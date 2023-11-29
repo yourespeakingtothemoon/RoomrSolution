@@ -10,6 +10,5 @@ namespace Roomr.Data
     public static class Globals
     {
         public static Person loggedInPerson = new Person("", "", "", "", "", "");
-        public static Person viewingPerson = new Person("", "", "", "", "", "");
     }
 }
