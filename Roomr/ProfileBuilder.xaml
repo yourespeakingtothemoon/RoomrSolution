@@ -3,13 +3,85 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Roomr.ProfileBuilder"
              Title="ProfileBuilder">
-    <VerticalStackLayout>
-        <Label Text="Create Profile" FontSize="Title" />
-        <BoxView Color="LightGray"
-HeightRequest="2"
-Margin="15, 0, 15, 0"
-HorizontalOptions="Fill" />
-        <Entry Placeholder="Name" />
-        
-    </VerticalStackLayout>
+    <ScrollView
+ 
+ VerticalScrollBarVisibility="Always"
+ >
+        <VerticalStackLayout>
+            <ImageButton
+                x:Name="ImageButton"
+                Source="Resources/Images/Profile/wheezer.png"
+               
+                HorizontalOptions="Center"
+             
+                Margin="0, 0, 0, 15"
+                />
+  
+            <Label Text="Da Joka Baybee"
+              x:Name="name" 
+ FontSize="Title"
+ HorizontalOptions="Center"/>
+            <HorizontalStackLayout
+               
+     HorizontalOptions="Center"
+     >
+                <Image Source="=Resources/Images/Icons/locale.img"
+                      MaximumHeightRequest="10"
+                        
+                       />
+
+
+                <Label  Text="Hell, MI "
+                        x:Name="location"
+     FontSize="Micro"
+             HorizontalOptions="Start"
+             />
+
+            </HorizontalStackLayout>
+
+            <BoxView Color="LightGray"
+          HeightRequest="2"
+          Margin="15, 0, 15, 0"
+          HorizontalOptions="Fill" />
+            <StackLayout Padding="20">
+                <Label Text="Hobbies:"
+FontSize="Caption"
+      
+HorizontalOptions="Start"
+/>
+                <Label 
+                    x:Name="hobbies"
+                    
+                    Text="Acting" />
+
+            </StackLayout>
+
+            <BoxView Color="LightGray"
+          HeightRequest="2"
+          Margin="15, 0, 15, 0"
+          HorizontalOptions="Fill" />
+            <StackLayout Padding="20">
+                <Label Text="Chores:"
+                FontSize="Caption"
+                HorizontalOptions="Start"/>
+                <Label 
+                    x:Name="chores"
+                    Text="being da joka" />
+            </StackLayout>
+            <StackLayout Padding="20">
+                <Label Text="Quiet Hours:"
+                FontSize="Caption"
+                HorizontalOptions="Start" />
+                <BoxView Color="LightGray"
+                HeightRequest="2"
+                Margin="15, 0, 15, 0"
+                HorizontalOptions="Fill" />
+                <Label 
+                    x:Name="quiet"
+                    
+                    Text="being da joka" />
+
+            </StackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
