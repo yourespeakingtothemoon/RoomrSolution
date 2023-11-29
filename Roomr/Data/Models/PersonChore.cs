@@ -25,5 +25,10 @@ namespace Roomr.Data.Models
             this.PersonId = PersonId;
             this.ChoreId = ChoreId;
         }
+
+        public override string ToString()
+        {
+            return "[" + PersonId + ": " + ChoreId + "]";
+        }
     }
 }
