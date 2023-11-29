@@ -3,23 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Roomr.Match">
     <VerticalStackLayout>
-    <HorizontalStackLayout>
-        <Image
-            x:Name="ProfileImage"
-            Source="Resources/Images/Profile/fish_candy.png"
-            Margin="15, 15, 15, 15"
-            MaximumWidthRequest="100"
-            MaximumHeightRequest="100"/>
-        <Label 
-            x:Name="ProfileName"
-            Text="Person Name"
-            FontSize="Large"
-            Margin="0, 10, 0, 0"
-            VerticalOptions="Center"/>
-    </HorizontalStackLayout>
-    <BoxView Color="LightGray"
-             HeightRequest="2"
-             Margin="15, 0, 15, 0"
-             HorizontalOptions="Fill" />
+        <HorizontalStackLayout x:Name="Match">
+            <Image
+                x:Name="ProfileImage"
+                Source="Resources/Images/Profile/fish_candy.png"
+                Margin="15, 15, 15, 15"
+                MaximumWidthRequest="100"
+                MaximumHeightRequest="100"/>
+            <Label 
+                x:Name="ProfileName"
+                Text="Person Name"
+                FontSize="Large"
+                Margin="0, 10, 0, 0"
+                VerticalOptions="Center"/>
+        </HorizontalStackLayout>
+        <BoxView Color="LightGray"
+                 HeightRequest="2"
+                 Margin="15, 0, 15, 0"
+                 HorizontalOptions="Fill" />
     </VerticalStackLayout>
 </ContentView>

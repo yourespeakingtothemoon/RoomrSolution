@@ -66,7 +66,7 @@ public partial class FeedPage : ContentPage
 			//}
 		}
 
-		Cards.Add(new Label { Text = PeopleBucket.Count().ToString() });
+		//Cards.Add(new Label { Text = PeopleBucket.Count().ToString() });
 	}
 
 	public async Task<double> GetDistance()
@@ -119,27 +119,29 @@ public partial class FeedPage : ContentPage
 		{
 			if (PeopleBucket.Count() != 0)
 			{
-				//// create match with current person
-				//var match = new Data.Models.Match();
-				//match.Id1 = Globals.loggedInPerson.Id;
-				//match.Id2 = CurrentPerson.Id;
-				//await database.SaveMatchAsync(match);
-				//// remove that person from the bucket
-				//PeopleBucket.Remove(CurrentPerson);
+				// create match with current person
+				var match = new Data.Models.Match();
+				match.Id1 = Globals.loggedInPerson.Id;
+				match.Id2 = CurrentPerson.Id;
+				await database.SaveMatchAsync(match);
+				// remove that person from the bucket
+				PeopleBucket.Remove(CurrentPerson);
+				Cards.Clear();
 
-				//// find the next person
-				//CurrentPerson = PeopleBucket.FirstOrDefault();
-				////lat = CurrentPerson.Latitude;
-				////lon = CurrentPerson.Longitude;
+				// find the next person
+				CurrentPerson = PeopleBucket.FirstOrDefault();
+				//lat = CurrentPerson.Latitude;
+				//lon = CurrentPerson.Longitude;
 
-				//// create and and data to profile card
-				////double o = await GetDistance();
-				//Cards.Add(new ProfileCard(CurrentPerson, 0));
-				Cards.Add(new Label { Text = "ugh" });
+				// create and and data to profile card
+				//double o = await GetDistance();
+				Cards.Add(new ProfileCard(CurrentPerson, 0));
+				//Cards.Add(new Label { Text = "ugh" });
 			}
 			else
 			{
 				// idk have a screen that says that you are a loser or something
+				Cards.Clear();
 				Cards.Add(new Label { Text = "Out of matches... loser", Margin = new Thickness(0, 300, 0, 0), HorizontalTextAlignment = TextAlignment.Center, FontSize = 28 });
 			}
 		}
@@ -147,23 +149,38 @@ public partial class FeedPage : ContentPage
 	}
 	private async void SwipeReject_Swiped(object sender, SwipedEventArgs e)
 	{
-		Cards.Clear();
-		if (PeopleBucket.Count() != 0)
+		if (Cards.Children.Count() > 1)
 		{
-			CurrentPerson = PeopleBucket.FirstOrDefault();
-			lat = CurrentPerson.Latitude;
-			lon = CurrentPerson.Longitude;
-
-			// create and and data to profile card
-			double o = await GetDistance();
-			Cards.Add(new ProfileCard(CurrentPerson, o));
-
-			PeopleBucket.Remove(CurrentPerson);
+			Cards.Clear();
+			if (PeopleBucket.Count() != 0)
+			{
+				CurrentPerson = PeopleBucket.FirstOrDefault();
+				Cards.Add(new ProfileCard(CurrentPerson, 0));
+				//Cards.Add(new Label { Text = CurrentPerson.ToString() });
+			}
 		}
 		else 
-		{
-			// idk have a screen that says that you are a loser or something
-			Cards.Add(new Label { Text = "Out of matches... loser", Margin = new Thickness(0, 300, 0, 0), HorizontalTextAlignment = TextAlignment.Center, FontSize = 28 });
+		{ 
+			if (PeopleBucket.Count() != 0)
+			{
+				CurrentPerson = PeopleBucket.FirstOrDefault();
+				lat = CurrentPerson.Latitude;
+				lon = CurrentPerson.Longitude;
+
+				PeopleBucket.Remove(CurrentPerson);
+				Cards.Clear();
+
+				// create and and data to profile card
+				//double o = await GetDistance();
+
+				Cards.Add(new ProfileCard(CurrentPerson, 0));
+			}
+			else 
+			{
+				// idk have a screen that says that you are a loser or something
+				Cards.Clear();
+				Cards.Add(new Label { Text = "Out of matches... loser", Margin = new Thickness(0, 300, 0, 0), HorizontalTextAlignment = TextAlignment.Center, FontSize = 28 });
+			}
 		}
 	}
 }
