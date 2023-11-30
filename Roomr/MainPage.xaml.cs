@@ -43,6 +43,17 @@ namespace Roomr
                 }
             }
 
+            List<PersonHobby> personHobbies = new List<PersonHobby>();
+            foreach (int id in ids)
+            {
+                List<PersonHobby> thisPersonsHobbies = await database.GetPersonHobbiesAsync(id);
+                foreach (PersonHobby personHobby in thisPersonsHobbies)
+                {
+                    personHobbies.Add(personHobby);
+                    sb.Append(personHobby.ToString());
+                }
+            }
+
             DummyData.Text = sb.ToString();
 
         }
