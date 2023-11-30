@@ -105,12 +105,20 @@ namespace Roomr.Data
                 new PersonChore(Tony.Id, Dusting.Id),
                 new PersonChore(Tony.Id, Trash.Id),
 
-                new PersonHobby(Tony.Id, ),
+                new PersonHobby(Tony.Id, Fitness.Id),
+                new PersonHobby(Tony.Id, Cooking.Id),
+                new PersonHobby(Tony.Id, Reading.Id),
 
 
                 new PersonChore(Daenerys.Id, Groceries.Id),
                 new PersonChore(Daenerys.Id, Mowing.Id),
                 new PersonChore(Daenerys.Id, Mopping.Id),
+
+                new PersonHobby(Daenerys.Id, Cooking.Id),
+                new PersonHobby(Daenerys.Id, Baking.Id),
+                new PersonHobby(Daenerys.Id, Gardening.Id),
+                new PersonHobby(Daenerys.Id, Art.Id),
+
 
                 new PersonChore(Luke.Id, Vacuuming.Id),
                 new PersonChore(Luke.Id, Sweeping.Id),
@@ -118,12 +126,25 @@ namespace Roomr.Data
                 new PersonChore(Luke.Id, Trash.Id),
                 new PersonChore(Luke.Id, Bathroom.Id),
 
+                new PersonHobby(Luke.Id, Gaming.Id),
+                new PersonHobby(Luke.Id, Biking.Id),
+                new PersonHobby(Luke.Id, Hiking.Id),
+                new PersonHobby(Luke.Id, Fitness.Id),
+                new PersonHobby(Luke.Id, Music.Id),
+
+
                 new PersonChore(Frodo.Id, Dusting.Id),
                 new PersonChore(Frodo.Id, Groceries.Id),
                 new PersonChore(Frodo.Id, Dishes.Id),
                 new PersonChore(Frodo.Id, Kitchen.Id),
                 new PersonChore(Frodo.Id, Bathroom.Id),
                 new PersonChore(Frodo.Id, Mopping.Id),
+
+                new PersonHobby(Frodo.Id, Cooking.Id),
+                new PersonHobby(Frodo.Id, Baking.Id),
+                new PersonHobby(Frodo.Id, Reading.Id),
+                new PersonHobby(Frodo.Id, Gardening.Id),
+                new PersonHobby(Frodo.Id, Music.Id),
             });
         }
 

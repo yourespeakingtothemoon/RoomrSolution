@@ -42,7 +42,7 @@ public partial class ProfilePage : ContentPage
 		//to do, get reference to hobbies list
 //	person.Hobbies
 List<string> list = new List<string>();
-        List<Roomr.Data.Models.PersonHobby> hobbos = database.GetPersonHobbyAsync(user.Id).Result;
+        List<Roomr.Data.Models.PersonHobby> hobbos = database.GetPersonHobbiesAsync(user.Id).Result;
             
         
 

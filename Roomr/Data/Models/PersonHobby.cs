@@ -25,5 +25,10 @@ namespace Roomr.Data.Models
             this.PersonId = PersonId;
             this.HobbyId = HobbyId;
         }
+
+        public override string ToString()
+        {
+            return "[" + PersonId + ": " + HobbyId + "]";
+        }
     }
 }
