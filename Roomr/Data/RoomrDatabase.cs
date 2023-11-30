@@ -105,7 +105,7 @@ namespace Roomr.Data
                 new PersonChore(Tony.Id, Dusting.Id),
                 new PersonChore(Tony.Id, Trash.Id),
 
-                new PersonHobby(Tony.Id, ),
+                new PersonHobby(Tony.Id, Fitness.Id),
 
 
                 new PersonChore(Daenerys.Id, Groceries.Id),

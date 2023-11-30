@@ -5,7 +5,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Roomr"
     Shell.FlyoutBehavior="Disabled"
-    BackgroundColor="#8B508B">
+    BackgroundColor="#8B508B"
+    TabBarBackgroundColor="#8b508b">
+    
     
     <ShellContent
         Title="Home"
@@ -39,4 +41,28 @@
         ContentTemplate="{DataTemplate local:ProfilePage}"
         Route="Profile" />
 
+    <TabBar>
+        <Tab Title="Profile"
+            Icon="door.png"
+            > 
+            <!-- Put in profile png for icon -->
+            <ShellContent ContentTemplate="{DataTemplate local:ProfilePage}" />
+        </Tab>
+    </TabBar>
+    
+    <TabBar>
+        <Tab Title="Feed"
+            >
+            <!-- Put in Feed png for icon -->
+            <ShellContent ContentTemplate="{DataTemplate local:FeedPage}" />
+        </Tab>
+    </TabBar>
+
+    <TabBar>
+        <Tab Title="Matches"
+            >
+            <!-- Put in Matches png for icon -->
+            <ShellContent ContentTemplate="{DataTemplate local:MatchesPage}" />
+        </Tab>
+    </TabBar>
 </Shell>
