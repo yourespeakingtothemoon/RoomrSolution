@@ -8,27 +8,35 @@
  VerticalScrollBarVisibility="Always"
  >
         <VerticalStackLayout>
+
+
             <ImageButton
-                x:Name="ImageButton"
-                Source="Resources/Images/Profile/wheezer.png"
-               
-                HorizontalOptions="Center"
-             
-                Margin="0, 0, 0, 15"
-                />
-  
-            <Label Text="Da Joka Baybee"
-              x:Name="name" 
- FontSize="Title"
- HorizontalOptions="Center"/>
-            <HorizontalStackLayout
-               
-     HorizontalOptions="Center"
-     >
-                <Image Source="=Resources/Images/Icons/locale.img"
-                      MaximumHeightRequest="10"
-                        
-                       />
+                    
+      x:Name="PictureChanger"
+     
+      Source="Resources/Images/Profile/joker.jpg"
+     
+              
+      HorizontalOptions="CenterAndExpand"
+   Aspect="AspectFill"
+      Margin="10, 10, 10, 10"
+         
+       MaximumHeightRequest="350"
+          
+          BorderColor="#e67baa"
+          BorderWidth="10"
+                    
+      Clicked="ImageButton_Clicked"
+              Released="PictureChanger_Released"
+       Focused="PictureChanger_Focused"
+              Pressed="PictureChanger_Pressed"
+       Unfocused="PictureChanger_Unfocused"
+      >
+          
+     </ImageButton>
+         
+          
+         
 
 
                 <Label  Text="Hell, MI "
@@ -37,7 +45,7 @@
              HorizontalOptions="Start"
              />
 
-            </HorizontalStackLayout>
+        
 
             <BoxView Color="LightGray"
           HeightRequest="2"
