@@ -50,12 +50,19 @@ FontSize="Caption"
 HorizontalOptions="Start"
 />
                 <!-- add text here that adds to list of hobbies already added-->
+                <Label Text=""
+                       x:Name="Hobbies"
+                       />
+
                 <Entry
                     x:Name="hobbies"
                     
                     Placeholder="Hobby" />
+
+                <Button Text="Add Hobby"
+                        Clicked="AddHobbyAsync"
+                        />
                 
-                <!-- Add button here to add an additional hobby-->
 
             </StackLayout>
 
@@ -69,12 +76,17 @@ HorizontalOptions="Start"
                 FontSize="Caption"
                 HorizontalOptions="Start"/>
                 <!-- add text here that adds to list of hobbies already added-->
+                <Label x:Name="Chores"
+                          Text=""
+                          />
                 <Entry
        x:Name="chores"
        
        Placeholder="Chore" />
 
-                <!-- Add button here to add an additional hobby-->
+                <Button Text="Add Chore"
+                        Clicked="AddChoreAsync"
+                        />
             </StackLayout>
             <StackLayout Padding="20">
                 <Label Text="Quiet Hours:"
