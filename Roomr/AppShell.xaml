@@ -29,7 +29,7 @@
         <ShellContent 
             Title="Profile"
             ContentTemplate="{DataTemplate local:ProfilePage}"
-            Route="ProfilePage}"
+            Route="ProfilePage"
             Icon="profile.png" />
 
         <ShellContent 

@@ -436,6 +436,17 @@ namespace Roomr.Data
                 }
             }
 
+            List<Models.Match> matches = new List<Models.Match>();
+            foreach (int id in ids)
+            {
+                List<Models.Match> thisPersonsMatches = await this.GetMatchesAsync(id);
+                foreach(Models.Match match in thisPersonsMatches)
+                {
+                    matches.Add(match);
+                    sb.Append(match.ToString());
+                }
+            }
+
             return sb.ToString();
         }
     }

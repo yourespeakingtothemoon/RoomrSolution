@@ -167,6 +167,10 @@ public partial class FeedPage : ContentPage
 				//StringBuilder match = new StringBuilder();
 				//foreach (var match2 in matches) { match.Append(match2.ToString()); }
 				Cards.Add(new Label { Text = matches.Count().ToString() });
+				foreach( var match in matches )
+				{
+					Console.WriteLine(match);
+				}
 			}
 		}
 		
