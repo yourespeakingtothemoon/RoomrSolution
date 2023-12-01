@@ -16,7 +16,7 @@ namespace Roomr
 
         private async void OnLoginClicked(object sender, EventArgs e)
         {
-            //await Shell.Current.GoToAsync("//LoginPage");
+            await Shell.Current.GoToAsync("//LoginPage");
             StringBuilder sb = new StringBuilder();
 
             List<int> ids = new List<int>();
@@ -53,9 +53,6 @@ namespace Roomr
                     sb.Append(personHobby.ToString());
                 }
             }
-
-            DummyData.Text = sb.ToString();
-
         }
 
         private async void OnSignUpClicked(object sender, EventArgs e)
