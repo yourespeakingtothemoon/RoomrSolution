@@ -12,17 +12,13 @@
             <Image
                 Source="roomr.png"
                 SemanticProperties.Description="The Roomr Logo"
-                HeightRequest="100"
-                
-                />
+                HeightRequest="100"/>
 
             <Label
                 Text="Welcome to Roomr!"
                 TextColor="#8B508B"
                 FontSize="31"
-                HorizontalOptions="Center"
-
-                />
+                HorizontalOptions="Center"/>
 
             <Label
                 Text="And They Were Roommates"

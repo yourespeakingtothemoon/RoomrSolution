@@ -9,14 +9,14 @@
      Scrolled="ScrollView_Scrolled"
  >
         <VerticalStackLayout>
-        <Image
+            <Image
             x:Name="Image"
  Source="Resources/Images/joker.jpg"
  Margin="0, 0, 0, 15"
  HorizontalOptions="CenterAndExpand"
        VerticalOptions="Start"     
 />
-        <Label Text="Da Joka Baybee"
+            <Label Text="Da Joka Baybee"
               x:Name="name" 
  FontSize="Title"
  HorizontalOptions="Center"/>
@@ -28,16 +28,16 @@
                       MaximumHeightRequest="10"
                         
                        />
-                
+
 
                 <Label  Text="Hell, MI "
                         x:Name="location"
      FontSize="Micro"
              HorizontalOptions="Start"
              />
-                
+
             </HorizontalStackLayout>
-          
+
             <BoxView Color="LightGray"
           HeightRequest="2"
           Margin="15, 0, 15, 0"
@@ -54,14 +54,14 @@ HorizontalOptions="Start"
                     Text="Acting" />
 
             </StackLayout>
-         
+
             <BoxView Color="LightGray"
           HeightRequest="2"
           Margin="15, 0, 15, 0"
           HorizontalOptions="Fill" />
             <StackLayout Padding="20">
                 <Label Text="Chores:"
-FontSize="Caption"
+                      FontSize="Caption"
       
 HorizontalOptions="Start"
 />

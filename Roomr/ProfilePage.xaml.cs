@@ -10,19 +10,20 @@ public partial class ProfilePage : ContentPage
 	public ProfilePage()
 	{
 		InitializeComponent();
+
         database = new RoomrDatabase();
 
         //get person from database
-	}
+    }
 
     public ProfilePage(int id)
     {
         InitializeComponent();
         database = new RoomrDatabase();
 
-        //get person from database
+
         //person = database.GetPersonAsync(id).Result;   
-    }
+}
 
     //public ProfilePage()
     //{
@@ -32,8 +33,9 @@ public partial class ProfilePage : ContentPage
 
     private void ScrollView_Scrolled(object sender, ScrolledEventArgs e)
     {
-	
+
     }
+
 	//private Roomr.Data.Models.Person person;
 
 	private async void HobbyListAsync()
@@ -46,19 +48,22 @@ List<string> list = new List<string>();
             
         
 
-       foreach (var item in hobbos)
+
+
+
+        foreach (var item in hobbos)
         {
             list.Add(item.ToString());
         }
 
 
-		foreach (var item in list)
-		{
-			hobbs+= item + ", ";
+        foreach (var item in list)
+        {
+            hobbs += item + ", ";
         }
-		hobbs = hobbs.Substring(0, hobbs.Length - 2);
-		hobbies.Text = hobbs;
-	}
+        hobbs = hobbs.Substring(0, hobbs.Length - 2);
+        hobbies.Text = hobbs;
+    }
     private void ChoresList()
     {
         string chorz = "";
@@ -76,13 +81,14 @@ List<string> list = new List<string>();
     {
         //to do, get reference to location
 
-     
-        string loc = "";
+
+string loc="";
         
        loc= user.City + ", " + user.Region + ", " + user.Country;
 
+
         location.Text = loc;
-       
+
     }
 
     private void QuietHours()
@@ -99,8 +105,8 @@ List<string> list = new List<string>();
 
 
 
-       // qh = beginHour + ":" + beginMin + " - " + endHour + ":" + endMin;
-        quiet.Text = qh; 
-        
+        // qh = beginHour + ":" + beginMin + " - " + endHour + ":" + endMin;
+        quiet.Text = qh;
+
     }
 }

@@ -26,7 +26,7 @@ public partial class ProfileCard : ContentView
 		InitializeComponent();
 		name.Text = person.Name;
         location.Text = person.City + ", " + person.Region + ", " + person.Country;
-        //photo.Source = String.Concat("Resources/Images/Profile/", person.ProfilePicture);
+        photo.Source = String.Concat("Resources/Images/Profile/", person.ProfilePicture);
 		distance.Text = dist.ToString() + "km";
     }
 }
