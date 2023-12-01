@@ -16,8 +16,8 @@ namespace Roomr.Data
 
         async Task Init()
         {
-            //if (Database is not null)
-            //    return;
+            if (Database is not null)
+                return;
 
             Database = new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
             var personTable = await Database.CreateTableAsync<Person>();
@@ -43,33 +43,108 @@ namespace Roomr.Data
 
         async Task AddDummyData()
         {
+            Person Tony = new Person("Tony Stark", "TStark@Avengers.org", "Salt Lake City", "Utah", "United States", "fish_candy.png");
+            Person Daenerys = new Person("Daenerys Targaryen", "Reach me via Raven", "Salt Lake City", "Utah", "United States", "wheezer.jpg");
+            Person Luke = new Person("Luke Skywalker", "Use the Force", "Albany", "New York", "United States", "joker.jpg");
+            Person Frodo = new Person("Frodo Baggins", "Send a Message to the Shire", "Salt Lake City", "Utah", "United States", "tyrunt.jpg");
+
+            Chore Vacuuming = new Chore("Vacuuming");
+            Chore Sweeping = new Chore("Sweeping");
+            Chore Dishes = new Chore("Washing dishes");
+            Chore Trash = new Chore("Taking out the Trash");
+            Chore Bathroom = new Chore("Cleaning the Bathroom");
+            Chore Kitchen = new Chore("Cleaning the Kitchen");
+            Chore Dusting = new Chore("Dusting");
+            Chore Groceries = new Chore("Grocery Shopping");
+            Chore Mopping = new Chore("Mopping");
+            Chore Mowing = new Chore("Mowing");
+
+            Hobby Cooking = new Hobby("Cooking");
+            Hobby Baking = new Hobby("Baking");
+            Hobby Reading = new Hobby("Reading");
+            Hobby Fitness = new Hobby("Fitness");
+            Hobby Biking = new Hobby("Biking");
+            Hobby Hiking = new Hobby("Hiking");
+            Hobby Gardening = new Hobby("Gardening");
+            Hobby Gaming = new Hobby("Gaming");
+            Hobby Art = new Hobby("Art");
+            Hobby Music = new Hobby("Music");
+
             await Database.InsertAllAsync(new List<Object> {
-                new Hobby("Cooking"),
-                new Hobby("Baking"),
-                new Hobby("Reading"),
-                new Hobby("Fitness"),
-                new Hobby("Biking"),
-                new Hobby("Hiking"),
-                new Hobby("Gardening"),
-                new Hobby("Gaming"),
-                new Hobby("Art"),
-                new Hobby("Music"),
+                Cooking,
+                Baking,
+                Reading,
+                Fitness,
+                Biking,
+                Hiking,
+                Gardening,
+                Gaming,
+                Art,
+                Music,
 
-                new Chore("Vacuuming"),
-                new Chore("Sweeping"),
-                new Chore("Washing dishes"),
-                new Chore("Taking out the Trash"),
-                new Chore("Cleaning the Bathroom"),
-                new Chore("Cleaning the Kitchen"),
-                new Chore("Dusting"),
-                new Chore("Grocery Shopping"),
-                new Chore("Mopping"),
-                new Chore("Mowing"),
+                Vacuuming,
+                Sweeping,
+                Dishes,
+                Trash,
+                Bathroom,
+                Kitchen,
+                Dusting,
+                Groceries,
+                Mopping,
+                Mowing,
 
-                new Person("Tony Stark", "TStark@Avengers.org", "Salt Lake City", "Utah", "United States", "fish_candy.png"),
-                new Person("Daenerys Targaryen", "Reach me via Raven", "Salt Lake City", "Utah", "United States", "wheezer.jpg"),
-                new Person("Luke Skywalker", "Use the Force", "Albany", "New York", "United States", "joker.jpg"),
-                new Person("Frodo Baggins", "Send a Message to the Shire", "Salt Lake City", "Utah", "United States", "tyrunt.jpg"),
+                Tony,
+                Daenerys,
+                Luke,
+                Frodo
+            });
+
+            await Database.InsertAllAsync(new List<Object>
+            {
+                new PersonChore(Tony.Id, Vacuuming.Id),
+                new PersonChore(Tony.Id, Dusting.Id),
+                new PersonChore(Tony.Id, Trash.Id),
+
+                new PersonHobby(Tony.Id, Fitness.Id),
+                new PersonHobby(Tony.Id, Cooking.Id),
+                new PersonHobby(Tony.Id, Reading.Id),
+
+
+                new PersonChore(Daenerys.Id, Groceries.Id),
+                new PersonChore(Daenerys.Id, Mowing.Id),
+                new PersonChore(Daenerys.Id, Mopping.Id),
+
+                new PersonHobby(Daenerys.Id, Cooking.Id),
+                new PersonHobby(Daenerys.Id, Baking.Id),
+                new PersonHobby(Daenerys.Id, Gardening.Id),
+                new PersonHobby(Daenerys.Id, Art.Id),
+
+
+                new PersonChore(Luke.Id, Vacuuming.Id),
+                new PersonChore(Luke.Id, Sweeping.Id),
+                new PersonChore(Luke.Id, Dishes.Id),
+                new PersonChore(Luke.Id, Trash.Id),
+                new PersonChore(Luke.Id, Bathroom.Id),
+
+                new PersonHobby(Luke.Id, Gaming.Id),
+                new PersonHobby(Luke.Id, Biking.Id),
+                new PersonHobby(Luke.Id, Hiking.Id),
+                new PersonHobby(Luke.Id, Fitness.Id),
+                new PersonHobby(Luke.Id, Music.Id),
+
+
+                new PersonChore(Frodo.Id, Dusting.Id),
+                new PersonChore(Frodo.Id, Groceries.Id),
+                new PersonChore(Frodo.Id, Dishes.Id),
+                new PersonChore(Frodo.Id, Kitchen.Id),
+                new PersonChore(Frodo.Id, Bathroom.Id),
+                new PersonChore(Frodo.Id, Mopping.Id),
+
+                new PersonHobby(Frodo.Id, Cooking.Id),
+                new PersonHobby(Frodo.Id, Baking.Id),
+                new PersonHobby(Frodo.Id, Reading.Id),
+                new PersonHobby(Frodo.Id, Gardening.Id),
+                new PersonHobby(Frodo.Id, Music.Id),
             });
         }
 
@@ -200,7 +275,7 @@ namespace Roomr.Data
         {
             await Init();
             return await Database.Table<Chore>().Where(i => i.Id == id).FirstOrDefaultAsync();
-        } 
+        }
 
         public async Task<int> DeleteChoreAsync(Chore chore) //Returns an int based on whether or not a Chore was deleted -- can just call the function without saving result
         {
@@ -283,10 +358,10 @@ namespace Roomr.Data
                 return await Database.InsertAsync(personChore);
         }
 
-        public async Task<PersonChore> GetPersonChoreAsync(int personId) //Returns a single PersonChore object based on a given Person's Id
+        public async Task<List<PersonChore>> GetPersonChoresAsync(int personId) //Returns a single PersonChore object based on a given Person's Id
         {
             await Init();
-            return await Database.Table<PersonChore>().Where(personChore => personChore.PersonId == personId).FirstOrDefaultAsync();
+            return await Database.Table<PersonChore>().Where(personChore => personChore.PersonId == personId).ToListAsync();
         }
 
         public async Task<int> DeletePersonChoreAsync(PersonChore personChore) //Returns an int based on whether or not a PersonChore was deleted -- can just call the function without saving result
@@ -308,7 +383,7 @@ namespace Roomr.Data
                 return await Database.InsertAsync(personHobby);
         }
 
-        public async Task<List<PersonHobby>> GetPersonHobbyAsync(int personId) //Returns a single PersonHobby object by a given Person's Id
+        public async Task<List<PersonHobby>> GetPersonHobbiesAsync(int personId) //Returns a single PersonHobby object by a given Person's Id
         {
             await Init();
             return await Database.Table<PersonHobby>().Where(personHobby => personHobby.PersonId == personId).ToListAsync();

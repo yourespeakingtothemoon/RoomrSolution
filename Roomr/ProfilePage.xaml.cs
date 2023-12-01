@@ -4,13 +4,13 @@ namespace Roomr;
 
 public partial class ProfilePage : ContentPage
 {
-
+    public static Data.Models.Person user;
     private RoomrDatabase database;
 
+	public ProfilePage()
+	{
+		InitializeComponent();
 
-    public ProfilePage()
-    {
-        InitializeComponent();
         database = new RoomrDatabase();
 
         //get person from database
@@ -21,9 +21,9 @@ public partial class ProfilePage : ContentPage
         InitializeComponent();
         database = new RoomrDatabase();
 
-        //get person from database
-        person = database.GetPersonAsync(id).Result;
-    }
+
+        //person = database.GetPersonAsync(id).Result;   
+}
 
     //public ProfilePage()
     //{
@@ -35,15 +35,19 @@ public partial class ProfilePage : ContentPage
     {
 
     }
-    private Roomr.Data.Models.Person person;
 
-    private async void HobbyListAsync()
-    {
-        string hobbs = "";
-        //to do, get reference to hobbies list
-        //	person.Hobbies
-        List<string> list = new List<string>();
-        List<Roomr.Data.Models.PersonHobby> hobbos = database.GetPersonHobbyAsync(person.Id).Result;
+	//private Roomr.Data.Models.Person person;
+
+	private async void HobbyListAsync()
+	{
+		string hobbs = "";
+		//to do, get reference to hobbies list
+//	person.Hobbies
+List<string> list = new List<string>();
+        List<Roomr.Data.Models.PersonHobby> hobbos = database.GetPersonHobbiesAsync(user.Id).Result;
+            
+        
+
 
 
 
@@ -78,9 +82,10 @@ public partial class ProfilePage : ContentPage
         //to do, get reference to location
 
 
-        string loc = "";
+string loc="";
+        
+       loc= user.City + ", " + user.Region + ", " + user.Country;
 
-        loc = person.City + ", " + person.Region + ", " + person.Country;
 
         location.Text = loc;
 
@@ -96,7 +101,7 @@ public partial class ProfilePage : ContentPage
         int endMin = 0;
         //Or do we wanna round up to the nearest half hour with a float?
 
-        qh = database.GetUserQuietHours(person.Id).Result.ToString();
+        qh = database.GetUserQuietHours(user.Id).Result.ToString();
 
 
 

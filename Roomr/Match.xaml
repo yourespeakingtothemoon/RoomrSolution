@@ -3,7 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Roomr.Match">
     <VerticalStackLayout>
-        <HorizontalStackLayout x:Name="Card">
+
+        <HorizontalStackLayout x:Name="Matchh">
+            
+            
+
             <Image
                 x:Name="ProfileImage"
                 Source="Resources/Images/Profile/fish_candy.png"
@@ -16,6 +20,9 @@
                 FontSize="Large"
                 Margin="0, 10, 0, 0"
                 VerticalOptions="Center"/>
+            <HorizontalStackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+            </HorizontalStackLayout.GestureRecognizers>
         </HorizontalStackLayout>
         <BoxView Color="LightGray"
                  HeightRequest="2"

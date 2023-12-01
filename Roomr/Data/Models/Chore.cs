@@ -20,5 +20,10 @@ namespace Roomr.Data.Models
         {
             this.Name = name;
         }
+
+        public override string ToString()
+        {
+            return "[" + Id + ": " + Name + "]";
+        }
     }
 }

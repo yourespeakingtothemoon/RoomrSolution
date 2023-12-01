@@ -5,38 +5,45 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Roomr"
     Shell.FlyoutBehavior="Disabled"
-    BackgroundColor="#8B508B">
-    
+    BackgroundColor="#8B508B"
+    TabBarBackgroundColor="#8b508b">
+
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" 
         />
-    
-        <ShellContent
+
+    <ShellContent
         Title="Login"
         ContentTemplate="{DataTemplate local:LoginPage}"
         Route="LoginPage" />
-  
+
     <ShellContent
         Title="SignUp"
         ContentTemplate="{DataTemplate local:SignUpPage}"
         Route="SignUpPage" />
 
-    <ShellContent
-        Title="Feed"
-        ContentTemplate="{DataTemplate local:FeedPage}"
-        Route="FeedPage" />
+    <TabBar>
 
-  
-    <ShellContent
-        Title="Matches"
-        ContentTemplate="{DataTemplate local:MatchesPage}"
-        Route="Matches" />
+        <ShellContent 
+            Title="Profile"
+            ContentTemplate="{DataTemplate local:ProfilePage}"
+            Route="ProfilePage}"
+            Icon="profile.png" />
 
-    <ShellContent
-        Title="Profile"
-        ContentTemplate="{DataTemplate local:ProfilePage}"
-        Route="Profile" />
+        <ShellContent 
+            Title="Matches"
+            ContentTemplate="{DataTemplate local:MatchesPage}"
+            Route="MatchesPage"
+            Icon="matches.png" />
 
+        <ShellContent 
+            Title="Feed"
+            ContentTemplate="{DataTemplate local:FeedPage}"
+            Route="FeedPage"
+            Icon="feed.png" />
+
+    </TabBar>
+    
 </Shell>
