@@ -47,15 +47,6 @@
                 
                 HorizontalOptions="Center"
                 Clicked="OnSignUpClicked"/>
-
-            <Label
-                Text="Dummy Data Text"
-                SemanticProperties.Description="And They Were Roommates"
-                FontSize="17"
-                HorizontalOptions="Center" 
-                FontAttributes="Italic"
-                x:Name="DummyData"
-                />
         </VerticalStackLayout>
     </ScrollView>
 
