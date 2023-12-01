@@ -19,5 +19,10 @@ namespace Roomr.Data.Models
         public int Id2 { get; set; }
 
         public Match() { }
+
+        public override string ToString()
+        {
+            return "[" + Id1 + ": " + Id2 + "]";
+        }
     }
 }
