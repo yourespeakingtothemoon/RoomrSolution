@@ -152,7 +152,8 @@ public partial class ProfileBuilder : ContentPage
                 //this saves entered data to the database, except chores and hobbies, which will require a seperate button requires every field for new user
                 if (nameEntry.Text == null)
                 {
-                    //DisplayAlert("Error", "Please enter a name", "OK");
+                    DisplayAlert("Error", "Please select a profile picture", "OK");
+
                 }
                 else
                 {
