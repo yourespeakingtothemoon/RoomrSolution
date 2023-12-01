@@ -8,7 +8,6 @@ public partial class FeedPage : ContentPage
 	double lat = 0;
 	double lon = 0;
 	private CancellationTokenSource _cancelTokenSource;
-	RoomrDatabase database;
 	List<Data.Models.Person> PeopleBucket = new List<Data.Models.Person>();
 	Data.Models.Person CurrentPerson;
 
@@ -16,7 +15,6 @@ public partial class FeedPage : ContentPage
 	{
 		InitializeComponent();
 		//get from database
-		database = new RoomrDatabase();
 		FindPeople();
 		Cards.Add(new Image { Source = "Resources/Images/roomr.png", Margin = new Thickness (10, 280, 10, 20) });
 		Cards.Add(new Label { Text = "Swipe to start swiping", HorizontalTextAlignment = TextAlignment.Center });
@@ -24,7 +22,7 @@ public partial class FeedPage : ContentPage
 
 	public async void FindPeople()
 	{
-		PeopleBucket = await database.GetPeopleAsync();
+		PeopleBucket = await Globals.database.GetPeopleAsync();
 		//List<Data.Models.Match> matches = await database.GetMatchesAsync(Globals.loggedInPerson.Id);
 
 		//Cards.Add(new Label { Text = Globals.loggedInPerson.ToString() });
@@ -86,7 +84,7 @@ public partial class FeedPage : ContentPage
 			{
 				Globals.loggedInPerson.Latitude = location.Latitude;
 				Globals.loggedInPerson.Longitude = location.Longitude;
-				await database.SavePersonAsync(Globals.loggedInPerson);
+				await Globals.database.SavePersonAsync(Globals.loggedInPerson);
 
 				// yay math is so fun
 				double a = Math.Sin(((lat - location.Latitude) * Math.PI / 180) / 2) * Math.Sin(((lat - location.Latitude) * Math.PI / 180) / 2) +
@@ -113,7 +111,8 @@ public partial class FeedPage : ContentPage
 			{
 				CurrentPerson = PeopleBucket.FirstOrDefault();
 				Cards.Add(new ProfileCard(CurrentPerson, 0));
-				//Cards.Add(new Label { Text = CurrentPerson.ToString() });
+				Console.WriteLine(CurrentPerson.Id.ToString());
+				Console.WriteLine(Globals.loggedInPerson.Id.ToString());
 			}
 		}
 		else
@@ -124,14 +123,16 @@ public partial class FeedPage : ContentPage
 				var match = new Data.Models.Match();
 				match.Id1 = Globals.loggedInPerson.Id;
 				match.Id2 = CurrentPerson.Id;
-				await database.SaveMatchAsync(match);
+				await Globals.database.SaveMatchAsync(match);
 
 				// testing with both users matching to each other
 				var match2 = new Data.Models.Match();
 				match2.Id1 = CurrentPerson.Id;
 				match2.Id2 = Globals.loggedInPerson.Id;
-				await database.SaveMatchAsync(match2);
+				await Globals.database.SaveMatchAsync(match2);
 
+				Console.WriteLine(CurrentPerson.Id.ToString());
+				Console.WriteLine(Globals.loggedInPerson.Id.ToString());
 				// remove that person from the bucket
 				PeopleBucket.Remove(CurrentPerson);
 				Cards.Clear();
@@ -145,17 +146,16 @@ public partial class FeedPage : ContentPage
 					// create and and data to profile card
 					//double o = await GetDistance();
 					Cards.Add(new ProfileCard(CurrentPerson, 0));
-					//Cards.Add(new Label { Text = "ugh" });
 				}
 				else // shhh ignore me being dumb
 				{
 					// idk have a screen that says that you are a loser or something
 					Cards.Clear();
 					Cards.Add(new Label { Text = "Out of matches... loser", Margin = new Thickness(0, 300, 0, 0), HorizontalTextAlignment = TextAlignment.Center, FontSize = 28 });
-					var matches = await database.GetMatchesAsync(Globals.loggedInPerson.Id);
-					//StringBuilder match = new StringBuilder();
-					//foreach (var match2 in matches) { match.Append(match2.ToString()); }
-					Cards.Add(new Label { Text = matches.Count().ToString() });
+					var matches = await Globals.database.GetMatchesAsync(Globals.loggedInPerson.Id);
+					StringBuilder matchh = new StringBuilder();
+					foreach (var matchh2 in matches) { matchh.Append(matchh2.ToString()); }
+					Cards.Add(new Label { Text = matchh.ToString() });
 				}
 			}
 			else
@@ -163,7 +163,7 @@ public partial class FeedPage : ContentPage
 				// idk have a screen that says that you are a loser or something
 				Cards.Clear();
 				Cards.Add(new Label { Text = "Out of matches... loser", Margin = new Thickness(0, 300, 0, 0), HorizontalTextAlignment = TextAlignment.Center, FontSize = 28 });
-				var matches = await database.GetMatchesAsync(Globals.loggedInPerson.Id);
+				var matches = await Globals.database.GetMatchesAsync(Globals.loggedInPerson.Id);
 				//StringBuilder match = new StringBuilder();
 				//foreach (var match2 in matches) { match.Append(match2.ToString()); }
 				Cards.Add(new Label { Text = matches.Count().ToString() });
@@ -210,7 +210,7 @@ public partial class FeedPage : ContentPage
 					// idk have a screen that says that you are a loser or something
 					Cards.Clear();
 					Cards.Add(new Label { Text = "Out of matches... loser", Margin = new Thickness(0, 300, 0, 0), HorizontalTextAlignment = TextAlignment.Center, FontSize = 28 });
-					var matches = await database.GetMatchesAsync(Globals.loggedInPerson.Id);
+					var matches = await Globals.database.GetMatchesAsync(Globals.loggedInPerson.Id);
 					//StringBuilder match = new StringBuilder();
 					//foreach (var match2 in matches) { match.Append(match2.ToString()); }
 					Cards.Add(new Label { Text = matches.Count().ToString() });
