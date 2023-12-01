@@ -9,11 +9,10 @@ public partial class MatchesPage : ContentPage
 	public MatchesPage()
 	{
 		InitializeComponent();
-		Globals.database = new RoomrDatabase();
 		AddMatches();
 	}
 
-	private async void AddMatches()
+	private async Task<bool> AddMatches()
 	{
 		// find all matches
 		matches = await Globals.database.GetMatchesAsync(Globals.loggedInPerson.Id);
@@ -24,6 +23,8 @@ public partial class MatchesPage : ContentPage
 		{
 			MatchStack.Add(new Match(await Globals.database.GetPersonAsync(match.Id2)));
 		}
+
+		return true;
 	}
 
 	private async void Button_Clicked(object sender, EventArgs e)
@@ -31,5 +32,10 @@ public partial class MatchesPage : ContentPage
 		string result = await DisplayActionSheet("Pick a Photo", "Cancel", null, "fish_candy.png", "wheezer.jpg", "joker.jpg", "tyrunt.jpg", "pickel.png");
 		result = String.Concat("Resources/Images/Profile/", result);
 		//owo.SetImage(result);
+	}
+
+	private async void SwipeGestureRecognizer_Swiped(object sender, SwipedEventArgs e)
+	{
+		await AddMatches();
 	}
 }
