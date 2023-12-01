@@ -8,10 +8,12 @@ public partial class ProfileBuilder : ContentPage
 {
     List<CheckBox> checkBoxes = new List<CheckBox>();
     bool isEditing = false;
+    RoomrDatabase database = new RoomrDatabase();
+    Roomr.Data.Models.Person loggedIn = Globals.loggedInPerson;
     public ProfileBuilder()
     {
         InitializeComponent();
-        var loggedIn = Globals.loggedInPerson;
+       // var loggedIn = Globals.loggedInPerson;
         if (loggedIn.Name != null)
         {
             isEditing = true;
@@ -19,6 +21,8 @@ public partial class ProfileBuilder : ContentPage
             nameEntry.Text = loggedIn.Name;
             //hobbies and chores here
         }
+
+       
 
 
         checkBoxes.Add(twelveAM);
@@ -87,7 +91,42 @@ public partial class ProfileBuilder : ContentPage
 
     }
 
-    private void saveButton_Clicked(object sender, EventArgs e)
+    private void UpdateHobbyandChoreLists()
+    {
+        //to do, update hobbies and chores lists
+        List<string> list = new List<string>();
+        List<Roomr.Data.Models.PersonHobby> hobbos = database.GetPersonHobbiesAsync(loggedIn.Id).Result;
+
+        foreach (var item in hobbos)
+        {
+            list.Add(item.ToString());
+        }
+      
+
+        foreach (var item in list)
+        {
+            Hobbies.Text += item + ", ";
+        }
+      Hobbies.Text = Hobbies.Text.Substring(0, Hobbies.Text.Length - 2);
+      
+        //chores
+        List<string> list2 = new List<string>();
+        List<Roomr.Data.Models.PersonChore> chores = database.GetPersonChoresAsync(loggedIn.Id).Result;
+
+        foreach (var item in chores)
+        {
+            list2.Add(item.ToString());
+        }
+
+        foreach (var item in list2)
+        {
+            Chores.Text += item + ", ";
+        }
+        Chores.Text = Chores.Text.Substring(0, Chores.Text.Length - 2);        
+    }
+
+
+    private async void saveButton_Clicked_async(object sender, EventArgs e)
     {
         if (isEditing)
         {
@@ -142,6 +181,33 @@ public partial class ProfileBuilder : ContentPage
 
             }
         }
+
+        await database.SavePersonAsync(Globals.loggedInPerson);
+
+    }
+
+    private async void AddChoreAsync(object sender, EventArgs e)
+    {
+       Chore chore = new Chore();
+        chore.Name = chores.Text;
+        await database.SaveChoreAsync(chore);  
+        PersonChore personChore = new PersonChore();
+        personChore.PersonId = loggedIn.Id;
+        personChore.ChoreId = chore.Id;
+        await database.SavePersonChoreAsync(personChore);
+        UpdateHobbyandChoreLists();
+    }
+
+    private async void AddHobbyAsync(object sender, EventArgs e)
+    {
+        Hobby hobby = new Hobby();
+        hobby.Name = hobbies.Text;
+       await database.SaveHobbyAsync(hobby);
+        PersonHobby personHobby = new PersonHobby();
+        personHobby.PersonId = loggedIn.Id;
+        personHobby.HobbyId = hobby.Id;
+       await database.SavePersonHobbyAsync(personHobby);
+        UpdateHobbyandChoreLists();
 
     }
 }
