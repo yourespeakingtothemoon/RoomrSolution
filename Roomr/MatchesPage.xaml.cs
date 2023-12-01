@@ -9,7 +9,7 @@ public partial class MatchesPage : ContentPage
 	public MatchesPage()
 	{
 		InitializeComponent();
-		AddMatches();
+		//AddMatches();
 	}
 
 	private async Task<bool> AddMatches()
@@ -21,7 +21,10 @@ public partial class MatchesPage : ContentPage
 
 		foreach (var match in matches) 
 		{
-			MatchStack.Add(new Match(await Globals.database.GetPersonAsync(match.Id2)));
+			Console.WriteLine(match.Id2);
+			var person = await Globals.database.GetPersonAsync(match.Id2);
+			Console.WriteLine(person.ToString());
+			MatchStack.Add(new Match(person));
 		}
 
 		return true;
@@ -36,6 +39,8 @@ public partial class MatchesPage : ContentPage
 
 	private async void SwipeGestureRecognizer_Swiped(object sender, SwipedEventArgs e)
 	{
+		MatchStack.Clear();
 		await AddMatches();
+		Console.WriteLine("owo");
 	}
 }

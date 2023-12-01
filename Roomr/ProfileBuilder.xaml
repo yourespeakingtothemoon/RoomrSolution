@@ -124,7 +124,7 @@ HorizontalOptions="Start"
 
             <Button Text="Save"
                     x:Name="saveButton"
-                    Clicked="saveButton_ClickedAsync"
+                    Clicked="saveButton_Clicked_async"
                     />
             
         </VerticalStackLayout>
