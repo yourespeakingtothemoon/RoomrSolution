@@ -43,4 +43,9 @@ public partial class ProfileBuilder : ContentPage
         VisualStateManager.GoToState(PictureChanger, "Normal");
 
     }
+
+    private void saveButton_Clicked(object sender, EventArgs e)
+    {
+
+    }
 }

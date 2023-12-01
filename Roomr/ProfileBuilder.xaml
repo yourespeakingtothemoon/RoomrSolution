@@ -32,20 +32,12 @@
               Pressed="PictureChanger_Pressed"
        Unfocused="PictureChanger_Unfocused"
       >
-          
-     </ImageButton>
-         
-          
-         
 
+            </ImageButton>
 
-                <Label  Text="Hell, MI "
-                        x:Name="location"
-     FontSize="Micro"
-             HorizontalOptions="Start"
-             />
-
-        
+            <Entry 
+    x:Name="nameEntry"
+    Placeholder="Name" />
 
             <BoxView Color="LightGray"
           HeightRequest="2"
@@ -57,10 +49,13 @@ FontSize="Caption"
       
 HorizontalOptions="Start"
 />
-                <Label 
+                <!-- add text here that adds to list of hobbies already added-->
+                <Entry
                     x:Name="hobbies"
                     
-                    Text="Acting" />
+                    Placeholder="Hobby" />
+                
+                <!-- Add button here to add an additional hobby-->
 
             </StackLayout>
 
@@ -68,28 +63,58 @@ HorizontalOptions="Start"
           HeightRequest="2"
           Margin="15, 0, 15, 0"
           HorizontalOptions="Fill" />
+            
             <StackLayout Padding="20">
                 <Label Text="Chores:"
                 FontSize="Caption"
                 HorizontalOptions="Start"/>
-                <Label 
-                    x:Name="chores"
-                    Text="being da joka" />
+                <!-- add text here that adds to list of hobbies already added-->
+                <Entry
+       x:Name="chores"
+       
+       Placeholder="Chore" />
+
+                <!-- Add button here to add an additional hobby-->
             </StackLayout>
             <StackLayout Padding="20">
                 <Label Text="Quiet Hours:"
                 FontSize="Caption"
                 HorizontalOptions="Start" />
-                <BoxView Color="LightGray"
-                HeightRequest="2"
-                Margin="15, 0, 15, 0"
-                HorizontalOptions="Fill" />
-                <Label 
-                    x:Name="quiet"
-                    
-                    Text="being da joka" />
-
+                <CheckBox x:Name="twelveAM" />
+                <CheckBox x:Name="oneAM" />
+                <CheckBox x:Name="twoAM" />
+                <CheckBox x:Name="threeAM" />
+                <CheckBox x:Name="fourAM" />
+                <CheckBox x:Name="fiveAM" />
+                <CheckBox x:Name="sixAM" />
+                <CheckBox x:Name="sevenAM" />
+                <CheckBox x:Name="eightAM" />
+                <CheckBox x:Name="nineAM" />
+                <CheckBox x:Name="tenAM" />
+                <CheckBox x:Name="elevenAM" />
+                <CheckBox x:Name="twelvePM" />
+                <CheckBox x:Name="onePM" />
+                <CheckBox x:Name="twoPM" />
+                <CheckBox x:Name="threePM" />
+                <CheckBox x:Name="fourPM" />
+                <CheckBox x:Name="fivePM" />
+                <CheckBox x:Name="sixPM" />
+                <CheckBox x:Name="sevenPM" />
+                <CheckBox x:Name="eightPM" />
+                <CheckBox x:Name="ninePM" />
+                <CheckBox x:Name="tenPM" />
+                <CheckBox x:Name="elevenPM" />
             </StackLayout>
+            <BoxView Color="LightGray"
+ HeightRequest="2"
+ Margin="15, 0, 15, 0"
+ HorizontalOptions="Fill" />
+
+            <Button Text="Save"
+                    x:Name="saveButton"
+                    Clicked="saveButton_Clicked"
+                    />
+            
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
