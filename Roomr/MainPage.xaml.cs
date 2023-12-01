@@ -17,6 +17,7 @@ namespace Roomr
         private async void OnLoginClicked(object sender, EventArgs e)
         {
             await Shell.Current.GoToAsync("//LoginPage");
+        }
 
         private async void OnSignUpClicked(object sender, EventArgs e)
         {
