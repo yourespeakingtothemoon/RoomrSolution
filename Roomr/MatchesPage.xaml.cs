@@ -19,6 +19,8 @@ public partial class MatchesPage : ContentPage
 		// find all matches
 		matches = await database.GetMatchesAsync(Globals.loggedInPerson.Id);
 
+		MatchStack.Add(new Label { Text = matches.Count.ToString() });
+
 		foreach (var match in matches) 
 		{
 			MatchStack.Add(new Match(await database.GetPersonAsync(match.Id2)));
