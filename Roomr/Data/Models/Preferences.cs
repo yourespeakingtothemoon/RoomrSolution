@@ -18,5 +18,10 @@ namespace Roomr.Data.Models
         public bool WantsAnimals { get; set; }
 
         public Preferences() { }
+
+        public override string ToString()
+        {
+            return "[" + PersonId + ": {InCollege: " + InCollege + ", WillingToMove: " + WillingToMove + ", HasJob: " + HasJob + ", WantsAnimals: " + WantsAnimals + "}]";
+        }
     }
 }
