@@ -12,6 +12,11 @@ public partial class Match : ContentView
 
 	public Match(Data.Models.Person person)
 	{
+
+		if(person.ProfilePicture == null)
+		{
+            person.ProfilePicture = "default.png";
+        }
 		SetImage(String.Concat("Resources/Images/Profile/", person.ProfilePicture));
 		ProfileName.Text = person.Name;
 		Person = person;
