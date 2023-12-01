@@ -4,5 +4,8 @@
              x:Class="Roomr.MatchesPage"
              Title="MatchesPage">
     <VerticalStackLayout x:Uid="MatchStack" x:Name="MatchStack">
+        <VerticalStackLayout.GestureRecognizers>
+            <SwipeGestureRecognizer Direction="Down" Swiped="SwipeGestureRecognizer_Swiped"/>
+        </VerticalStackLayout.GestureRecognizers>
     </VerticalStackLayout>
 </ContentPage>

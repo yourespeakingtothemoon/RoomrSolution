@@ -3,34 +3,41 @@ namespace Roomr;
 
 public partial class MatchesPage : ContentPage
 {
-	RoomrDatabase database;
 	List<Data.Models.Match> matches;
 	List<Data.Models.Person> people;
 
 	public MatchesPage()
 	{
 		InitializeComponent();
-		database = new RoomrDatabase();
 		AddMatches();
 	}
 
-	private async void AddMatches()
+	private async Task<bool> AddMatches()
 	{
 		// find all matches
-		matches = await database.GetMatchesAsync(Globals.loggedInPerson.Id);
+		matches = await Globals.database.GetMatchesAsync(Globals.loggedInPerson.Id);
 
-		MatchStack.Add(new Label { Text = matches.Count.ToString() });
+		MatchStack.Add(new Label { Text = matches.Count().ToString() });
+		Console.WriteLine("owo");
+		Console.WriteLine(await Globals.database.printDB());
 
 		foreach (var match in matches) 
 		{
-			MatchStack.Add(new Match(await database.GetPersonAsync(match.Id2)));
+			MatchStack.Add(new Match(await Globals.database.GetPersonAsync(match.Id2)));
 		}
+
+		return true;
 	}
 
 	private async void Button_Clicked(object sender, EventArgs e)
 	{
 		string result = await DisplayActionSheet("Pick a Photo", "Cancel", null, "fish_candy.png", "wheezer.jpg", "joker.jpg", "tyrunt.jpg", "pickel.png");
 		result = String.Concat("Resources/Images/Profile/", result);
-		//owo.SetImage(result);
+	}
+
+	private async void SwipeGestureRecognizer_Swiped(object sender, SwipedEventArgs e)
+	{
+		MatchStack.Clear();
+		await AddMatches();
 	}
 }
