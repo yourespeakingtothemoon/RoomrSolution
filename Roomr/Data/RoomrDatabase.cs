@@ -396,5 +396,47 @@ namespace Roomr.Data
         }
 
         #endregion
+
+        public async Task<string> printDB()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            List<int> ids = new List<int>();
+            List<Person> people = await this.GetPeopleAsync();
+            foreach (Person person in people)
+            {
+                sb.Append(person);
+                ids.Add(person.Id);
+            }
+            List<Hobby> hobbies = await this.GetAllHobbies();
+            foreach (Hobby hobby in hobbies) { sb.Append(hobby.ToString()); }
+
+            List<Chore> chores = await this.GetChoresAsync();
+            foreach (Chore chore in chores) { sb.Append(chore.ToString()); }
+
+            List<PersonChore> personChores = new List<PersonChore>();
+            foreach (int id in ids)
+            {
+                List<PersonChore> thisPersonsChores = await this.GetPersonChoresAsync(id);
+                foreach (PersonChore personChore in thisPersonsChores)
+                {
+                    personChores.Add(personChore);
+                    sb.Append(personChore.ToString());
+                }
+            }
+
+            List<PersonHobby> personHobbies = new List<PersonHobby>();
+            foreach (int id in ids)
+            {
+                List<PersonHobby> thisPersonsHobbies = await this.GetPersonHobbiesAsync(id);
+                foreach (PersonHobby personHobby in thisPersonsHobbies)
+                {
+                    personHobbies.Add(personHobby);
+                    sb.Append(personHobby.ToString());
+                }
+            }
+
+            return sb.ToString();
+        }
     }
 }
