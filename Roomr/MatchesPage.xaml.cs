@@ -9,20 +9,20 @@ public partial class MatchesPage : ContentPage
 	public MatchesPage()
 	{
 		InitializeComponent();
-		database = new RoomrDatabase();
+		Globals.database = new RoomrDatabase();
 		AddMatches();
 	}
 
 	private async void AddMatches()
 	{
 		// find all matches
-		matches = await database.GetMatchesAsync(Globals.loggedInPerson.Id);
+		matches = await Globals.database.GetMatchesAsync(Globals.loggedInPerson.Id);
 
 		MatchStack.Add(new Label { Text = matches.Count.ToString() });
 
 		foreach (var match in matches) 
 		{
-			MatchStack.Add(new Match(await database.GetPersonAsync(match.Id2)));
+			MatchStack.Add(new Match(await Globals.database.GetPersonAsync(match.Id2)));
 		}
 	}
 
