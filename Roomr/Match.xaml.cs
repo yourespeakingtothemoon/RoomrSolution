@@ -30,6 +30,7 @@ public partial class Match : ContentView
 	private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
 	{
 		ProfilePage.user = Person;
+		ProfilePage.setUser(Person);
 		await Shell.Current.GoToAsync("//ProfilePage");
 	}
 }

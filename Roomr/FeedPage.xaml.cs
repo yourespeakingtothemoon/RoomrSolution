@@ -111,8 +111,8 @@ public partial class FeedPage : ContentPage
 			{
 				CurrentPerson = PeopleBucket.FirstOrDefault();
 				Cards.Add(new ProfileCard(CurrentPerson, 0));
-				Console.WriteLine(CurrentPerson.Id.ToString());
-				Console.WriteLine(Globals.loggedInPerson.Id.ToString());
+				//Console.WriteLine(CurrentPerson.Id.ToString());
+				//Console.WriteLine(Globals.loggedInPerson.Id.ToString());
 			}
 		}
 		else
@@ -152,10 +152,10 @@ public partial class FeedPage : ContentPage
 					// idk have a screen that says that you are a loser or something
 					Cards.Clear();
 					Cards.Add(new Label { Text = "Out of matches... loser", Margin = new Thickness(0, 300, 0, 0), HorizontalTextAlignment = TextAlignment.Center, FontSize = 28 });
-					var matches = await Globals.database.GetMatchesAsync(Globals.loggedInPerson.Id);
-					StringBuilder matchh = new StringBuilder();
-					foreach (var matchh2 in matches) { matchh.Append(matchh2.ToString()); }
-					Cards.Add(new Label { Text = matchh.ToString() });
+					//var matches = await Globals.database.GetMatchesAsync(Globals.loggedInPerson.Id);
+					//StringBuilder matchh = new StringBuilder();
+					//foreach (var matchh2 in matches) { matchh.Append(matchh2.ToString()); }
+					//Cards.Add(new Label { Text = matchh.ToString() });
 				}
 			}
 			else
@@ -163,14 +163,6 @@ public partial class FeedPage : ContentPage
 				// idk have a screen that says that you are a loser or something
 				Cards.Clear();
 				Cards.Add(new Label { Text = "Out of matches... loser", Margin = new Thickness(0, 300, 0, 0), HorizontalTextAlignment = TextAlignment.Center, FontSize = 28 });
-				var matches = await Globals.database.GetMatchesAsync(Globals.loggedInPerson.Id);
-				//StringBuilder match = new StringBuilder();
-				//foreach (var match2 in matches) { match.Append(match2.ToString()); }
-				Cards.Add(new Label { Text = matches.Count().ToString() });
-				foreach( var match in matches )
-				{
-					Console.WriteLine(match);
-				}
 			}
 		}
 		
@@ -210,10 +202,6 @@ public partial class FeedPage : ContentPage
 					// idk have a screen that says that you are a loser or something
 					Cards.Clear();
 					Cards.Add(new Label { Text = "Out of matches... loser", Margin = new Thickness(0, 300, 0, 0), HorizontalTextAlignment = TextAlignment.Center, FontSize = 28 });
-					var matches = await Globals.database.GetMatchesAsync(Globals.loggedInPerson.Id);
-					//StringBuilder match = new StringBuilder();
-					//foreach (var match2 in matches) { match.Append(match2.ToString()); }
-					Cards.Add(new Label { Text = matches.Count().ToString() });
 				}
 			}
 			else 

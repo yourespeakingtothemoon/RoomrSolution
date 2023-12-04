@@ -9,15 +9,13 @@ public partial class MatchesPage : ContentPage
 	public MatchesPage()
 	{
 		InitializeComponent();
-		//AddMatches();
+		AddMatches();
 	}
 
 	private async Task<bool> AddMatches()
 	{
 		// find all matches
 		matches = await Globals.database.GetMatchesAsync(Globals.loggedInPerson.Id);
-
-		MatchStack.Add(new Label { Text = matches.Count.ToString() });
 
 		foreach (var match in matches) 
 		{
