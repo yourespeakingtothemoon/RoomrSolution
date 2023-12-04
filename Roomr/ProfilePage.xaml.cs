@@ -1,4 +1,5 @@
 using Roomr.Data;
+using Roomr.Data.Models;
 
 namespace Roomr;
 
@@ -12,8 +13,18 @@ public partial class ProfilePage : ContentPage
        //database = new RoomrDatabase();
         user = Globals.loggedInPerson;
         Console.WriteLine(user.ToString());
-
+        // user = Globals.database.GetPersonAsync(id).Result;
+        user = Globals.ProfilePerson;
+        HobbyListAsync();
+       // ChoresList();
+      //  LocationAndDist();
+       // QuietHours();
+        //get name and profile picture
+        name.Text = user.Name;
+        Image.Source = user.ProfilePicture;
     }
+
+
 
     public ProfilePage(int id)
     {
@@ -22,13 +33,12 @@ public partial class ProfilePage : ContentPage
 
         user = Globals.database.GetPersonAsync(id).Result;
 
-        HobbyListAsync();
-        ChoresList();
-        LocationAndDist();
-        QuietHours();
-        //get name and profile picture
-        name.Text = user.Name;
-        Image.Source = user.ProfilePicture;
+    
+    }
+
+    public async void setUser(int id)
+    {
+      
     }
 
     public static void setUser(Data.Models.Person person)
@@ -48,28 +58,32 @@ public partial class ProfilePage : ContentPage
 		string hobbs = "";
 		//to do, get reference to hobbies list
 //	person.Hobbies
-List<string> list = new List<string>();
-        List<Roomr.Data.Models.PersonHobby> hobbos = Globals.database.GetPersonHobbiesAsync(user.Id).Result;
+      //  List<string> list = new List<string>();
+        List<Roomr.Data.Models.PersonHobby> hobbos = await Globals.database.GetPersonHobbiesAsync(user.Id);
+
+      
+        //string hobby = "";
+        Hobby hobbyObj;
 
         foreach (var item in hobbos)
         {
-            list.Add(item.ToString());
-        }
+            hobbyObj = await Globals.database.GetHobbyAsync(item.HobbyId);
 
 
-        foreach (var item in list)
-        {
-            hobbs += item + ", ";
+            hobbs += hobbyObj.ToString() + ", ";
         }
         hobbs = hobbs.Substring(0, hobbs.Length - 2);
         hobbies.Text = hobbs;
     }
+
+
     public void ChoresList()
     {
         string chorz = "";
         //to do, get reference to hobbies list
         //	person.Hobbies
         List<string> list = new List<string>();
+
         foreach (var item in list)
         {
             chorz += item + ", ";

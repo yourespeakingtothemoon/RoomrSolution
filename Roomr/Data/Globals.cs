@@ -11,5 +11,6 @@ namespace Roomr.Data
     {
 		public static Person loggedInPerson = new Person("", "", "", "", "", "");
 		public static RoomrDatabase database = new RoomrDatabase();
-	}
+        public static Person ProfilePerson { get; set; }
+    }
 }
