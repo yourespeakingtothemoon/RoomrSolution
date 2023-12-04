@@ -9,20 +9,18 @@ public partial class ProfilePage : ContentPage
 	public ProfilePage()
 	{
 		InitializeComponent();
+       //database = new RoomrDatabase();
+        user = Globals.loggedInPerson;
+        Console.WriteLine(user.ToString());
 
-        database = new RoomrDatabase();
-
-        
-
-        //get person from database
     }
 
     public ProfilePage(int id)
     {
         InitializeComponent();
-        database = new RoomrDatabase();
+       // database = new RoomrDatabase();
 
-        user = database.GetPersonAsync(id).Result;
+        user = Globals.database.GetPersonAsync(id).Result;
 
         HobbyListAsync();
         ChoresList();
@@ -31,9 +29,6 @@ public partial class ProfilePage : ContentPage
         //get name and profile picture
         name.Text = user.Name;
         Image.Source = user.ProfilePicture;
-
-
-        //person = database.GetPersonAsync(id).Result;   
     }
 
     public static void setUser(Data.Models.Person person)
