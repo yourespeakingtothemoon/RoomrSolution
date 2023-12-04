@@ -161,7 +161,7 @@ public partial class ProfileBuilder : ContentPage
                 }
                 if (PictureChanger.Source == null)
                 {
-                    DisplayAlert("Error", "Please select a profile picture", "OK");
+                    //DisplayAlert("Error", "Please select a profile picture", "OK");
                 }
                 else
                 {

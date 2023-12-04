@@ -3,89 +3,80 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Roomr.ProfilePage"
              Title="ProfilePage">
-    <ScrollView
- 
- VerticalScrollBarVisibility="Always"
-     Scrolled="ScrollView_Scrolled"
- >
+    <ScrollView 
+        VerticalScrollBarVisibility="Always"
+        Scrolled="ScrollView_Scrolled">
         <VerticalStackLayout>
+            <VerticalStackLayout.GestureRecognizers>
+                <SwipeGestureRecognizer Direction="Down" Swiped="SwipeGestureRecognizer_Swiped" />
+            </VerticalStackLayout.GestureRecognizers>
             <Image
-            x:Name="Image"
- Source="Resources/Images/joker.jpg"
- Margin="0, 0, 0, 15"
- HorizontalOptions="CenterAndExpand"
-       VerticalOptions="Start"     
-/>
-            <Label Text="Da Joka Baybee"
-              x:Name="name" 
- FontSize="Title"
- HorizontalOptions="Center"/>
-            <HorizontalStackLayout
-               
-     HorizontalOptions="Center"
-     >
-                <Image Source="=Resources/Images/Icons/locale.img"
-                      MaximumHeightRequest="10"
-                        
-                       />
+                x:Name="Image"
+                Source="Resources/Images/joker.jpg"
+                Margin="0, 0, 0, 15"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="Start" />
+            <Label 
+                Text="Da Joka Baybee"
+                x:Name="name" 
+                FontSize="Title"
+                HorizontalOptions="Center" />
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Image 
+                    Source="=Resources/Images/Icons/locale.img"
+                    MaximumHeightRequest="10" />
 
-
-                <Label  Text="Hell, MI "
-                        x:Name="location"
-     FontSize="Micro"
-             HorizontalOptions="Start"
-             />
-
+                <Label  
+                    Text="Hell, MI "
+                    x:Name="location"
+                    FontSize="Micro"
+                    HorizontalOptions="Start" />
             </HorizontalStackLayout>
 
-            <BoxView Color="LightGray"
-          HeightRequest="2"
-          Margin="15, 0, 15, 0"
-          HorizontalOptions="Fill" />
+            <BoxView 
+                Color="LightGray"
+                HeightRequest="2"
+                Margin="15, 0, 15, 0"
+                HorizontalOptions="Fill" />
+            
             <StackLayout Padding="20">
-                <Label Text="Hobbies:"
-FontSize="Caption"
-      
-HorizontalOptions="Start"
-/>
+                <Label 
+                    Text="Hobbies:"
+                    FontSize="Caption"
+                    HorizontalOptions="Start"/>
                 <Label 
                     x:Name="hobbies"
-                    
                     Text="Acting" />
-
             </StackLayout>
 
-            <BoxView Color="LightGray"
-          HeightRequest="2"
-          Margin="15, 0, 15, 0"
-          HorizontalOptions="Fill" />
+            <BoxView 
+                Color="LightGray"
+                HeightRequest="2"
+                Margin="15, 0, 15, 0"
+                HorizontalOptions="Fill" />
             <StackLayout Padding="20">
-                <Label Text="Chores:"
-                      FontSize="Caption"
-      
-HorizontalOptions="Start"
-/>
+                <Label 
+                    Text="Chores:"
+                    FontSize="Caption"
+                    HorizontalOptions="Start" />
                 <Label 
                     x:Name="chores"
-                    
                     Text="being da joka" />
-
             </StackLayout>
+            
             <StackLayout Padding="20">
-                <Label Text="Quiet Hours:"
-FontSize="Caption"
-      
-HorizontalOptions="Start"
-/>
-                <BoxView Color="LightGray"
-HeightRequest="2"
-Margin="15, 0, 15, 0"
-HorizontalOptions="Fill" />
+                <Label 
+                    Text="Quiet Hours:"
+                    FontSize="Caption"
+                    HorizontalOptions="Start" />
+                <BoxView 
+                    Color="LightGray"
+                    HeightRequest="2"
+                    Margin="15, 0, 15, 0"
+                    HorizontalOptions="Fill" />
                 <Label 
                     x:Name="quiet"
-                    
                     Text="being da joka" />
-
             </StackLayout>
         </VerticalStackLayout>
     </ScrollView>
