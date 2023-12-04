@@ -29,16 +29,16 @@ namespace Roomr.Data
             var personChoreTable = await Database.CreateTableAsync<PersonChore>();
             var personHobbyTable = await Database.CreateTableAsync<PersonHobby>();
 
-            await Database.DeleteAllAsync<Person>();
-            await Database.DeleteAllAsync<Models.Preferences>();
-            await Database.DeleteAllAsync<QuietHours>();
-            await Database.DeleteAllAsync<Chore>();
-            await Database.DeleteAllAsync<Hobby>();
-            await Database.DeleteAllAsync<Models.Match>();
-            await Database.DeleteAllAsync<PersonChore>();
-            await Database.DeleteAllAsync<PersonHobby>();
+            //await Database.DeleteAllAsync<Person>();
+            //await Database.DeleteAllAsync<Models.Preferences>();
+            //await Database.DeleteAllAsync<QuietHours>();
+            //await Database.DeleteAllAsync<Chore>();
+            //await Database.DeleteAllAsync<Hobby>();
+            //await Database.DeleteAllAsync<Models.Match>();
+            //await Database.DeleteAllAsync<PersonChore>();
+            //await Database.DeleteAllAsync<PersonHobby>();
 
-            await AddDummyData();
+            //await AddDummyData();
         }
 
         async Task AddDummyData()
