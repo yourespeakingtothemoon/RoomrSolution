@@ -13,6 +13,8 @@ public partial class ProfilePage : ContentPage
 
         database = new RoomrDatabase();
 
+        
+
         //get person from database
     }
 
@@ -20,6 +22,16 @@ public partial class ProfilePage : ContentPage
     {
         InitializeComponent();
         database = new RoomrDatabase();
+
+        user = database.GetPersonAsync(id).Result;
+
+        HobbyListAsync();
+        ChoresList();
+        LocationAndDist();
+        QuietHours();
+        //get name and profile picture
+        name.Text = user.Name;
+        Image.Source = user.ProfilePicture;
 
 
         //person = database.GetPersonAsync(id).Result;   
