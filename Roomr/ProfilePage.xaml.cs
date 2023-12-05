@@ -16,9 +16,9 @@ public partial class ProfilePage : ContentPage
         // user = Globals.database.GetPersonAsync(id).Result;
         user = Globals.ProfilePerson;
         HobbyListAsync();
-       // ChoresList();
-      //  LocationAndDist();
-       // QuietHours();
+        ChoresListAsync();
+        LocationAndDist();
+       // QuietHoursAsync();
         //get name and profile picture
         name.Text = user.Name;
         Image.Source = user.ProfilePicture;
@@ -70,26 +70,30 @@ public partial class ProfilePage : ContentPage
             hobbyObj = await Globals.database.GetHobbyAsync(item.HobbyId);
 
 
-            hobbs += hobbyObj.ToString() + ", ";
+            hobbs += hobbyObj.Name + ", ";
         }
         hobbs = hobbs.Substring(0, hobbs.Length - 2);
         hobbies.Text = hobbs;
     }
 
 
-    public void ChoresList()
+    public async void ChoresListAsync()
     {
         string chorz = "";
         //to do, get reference to hobbies list
         //	person.Hobbies
-        List<string> list = new List<string>();
+        List<Roomr.Data.Models.PersonChore> choresList = await Globals.database.GetPersonChoresAsync(user.Id);
 
-        foreach (var item in list)
+        Chore choreObj;
+        foreach (var item in choresList)
         {
-            chorz += item + ", ";
+            choreObj = await Globals.database.GetChoreAsync(item.ChoreId);
+
+            chorz += choreObj.Name + ", ";
         }
         chorz = chorz.Substring(0, chorz.Length - 2);
-        chores.Text = chorz;
+       // chores.Text = chorz;
+       chores.Text = chorz;
     }
     public void LocationAndDist()
     {
@@ -105,20 +109,19 @@ string loc="";
 
     }
 
-    public void QuietHours()
+    public async void QuietHoursAsync()
     {
         //to do get references to quiet hours
-        string qh = "";
-        int beginHour = 0;
-        int endHour = 0;
-        int beginMin = 0;
-        int endMin = 0;
+        //string qh = "";
+       
         //Or do we wanna round up to the nearest half hour with a float?
 
-        qh = Globals.database.GetUserQuietHours(user.Id).Result.ToString();
+        var qh = await Globals.database.GetUserQuietHours(user.Id);
+
+        
 
         // qh = beginHour + ":" + beginMin + " - " + endHour + ":" + endMin;
-        quiet.Text = qh;
+        quiet.Text = qh.ToString();
 
     }
 
