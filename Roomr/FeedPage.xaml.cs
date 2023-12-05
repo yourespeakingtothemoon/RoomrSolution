@@ -1,4 +1,5 @@
 using Roomr.Data;
+using System.Collections.Generic;
 using System.Text;
 
 namespace Roomr;
@@ -24,20 +25,28 @@ public partial class FeedPage : ContentPage
 	{
 		PeopleBucket = await Globals.database.GetUsersInSameRegion(Globals.loggedInPerson);
 		List<Data.Models.Match> matches = await Globals.database.GetMatchesAsync(Globals.loggedInPerson.Id);
+		List <Data.Models.Person> peopleCopy = new List<Data.Models.Person>();
 
 		//Cards.Add(new Label { Text = Globals.loggedInPerson.ToString() });
-
+		//Console.WriteLine(matches.Count());
 		foreach (var person in PeopleBucket)
 		{
 			//remove people that have already been matched with logged in
 			foreach (var match in matches)
 			{
+				//Console.WriteLine(match.ToString());
 				if (person.Id == match.Id2)
 				{
-					PeopleBucket.Remove(person);
-					break;
+					peopleCopy.Add(person);
+					//Console.WriteLine("BAD");
+					//Console.WriteLine(PeopleBucket.Count());
 				}
 			}
+		}
+
+		foreach (var person in peopleCopy)
+		{ 
+			PeopleBucket.Remove(person);
 		}
 
 		//Cards.Add(new Label { Text = PeopleBucket.Count().ToString() });
