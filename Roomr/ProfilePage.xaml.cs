@@ -16,12 +16,13 @@ public partial class ProfilePage : ContentPage
         // user = Globals.database.GetPersonAsync(id).Result;
         user = Globals.ProfilePerson;
         HobbyListAsync();
-       // ChoresList();
+        //ChoresList();
       //  LocationAndDist();
        // QuietHours();
         //get name and profile picture
         name.Text = user.Name;
         Image.Source = user.ProfilePicture;
+        Globals.ProfilePerson = Globals.loggedInPerson;
     }
 
 

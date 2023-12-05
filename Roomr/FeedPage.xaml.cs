@@ -23,48 +23,22 @@ public partial class FeedPage : ContentPage
 	public async void FindPeople()
 	{
 		PeopleBucket = await Globals.database.GetUsersInSameRegion(Globals.loggedInPerson);
-		//List<Data.Models.Match> matches = await database.GetMatchesAsync(Globals.loggedInPerson.Id);
+		List<Data.Models.Match> matches = await Globals.database.GetMatchesAsync(Globals.loggedInPerson.Id);
 
 		//Cards.Add(new Label { Text = Globals.loggedInPerson.ToString() });
 
-		//foreach (var person in PeopleBucket)
-		//{
-		//	Console.WriteLine(person);
-		//	if (person.Id == Globals.loggedInPerson.Id)
-		//	{
-		//		PeopleBucket.Remove(person);
-		//		break;
-		//	}
-		//	// get the logged in user's country
-		//	// compare to person's country
-		//	// if person's country is different, remove from bucket
-		//	if (Globals.loggedInPerson.Country != person.Country)
-		//	{
-		//		PeopleBucket.Remove(person);
-		//		break;
-		//	}
-		//	// repeat for Region
-		//	if (Globals.loggedInPerson.Region != person.Region)
-		//	{
-		//		PeopleBucket.Remove(person);
-		//		break;
-		//	}
-		//	// repeat for city
-		//	if (Globals.loggedInPerson.City != person.City)
-		//	{
-		//		PeopleBucket.Remove(person);
-		//		break;
-		//	}
-			// remove people that have already been matched with logged in
-			//foreach (var match in matches) 
-			//{
-			//	if (person.Id == match.Id2)
-			//	{
-			//		PeopleBucket.Remove(person);
-			//		break;
-			//	}
-			//}
-		//}
+		foreach (var person in PeopleBucket)
+		{
+			//remove people that have already been matched with logged in
+			foreach (var match in matches)
+			{
+				if (person.Id == match.Id2)
+				{
+					PeopleBucket.Remove(person);
+					break;
+				}
+			}
+		}
 
 		//Cards.Add(new Label { Text = PeopleBucket.Count().ToString() });
 	}

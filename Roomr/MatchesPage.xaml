@@ -3,9 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Roomr.MatchesPage"
              Title="MatchesPage">
-    <VerticalStackLayout x:Uid="MatchStack" x:Name="MatchStack">
-        <VerticalStackLayout.GestureRecognizers>
-            <SwipeGestureRecognizer Direction="Down" Swiped="SwipeGestureRecognizer_Swiped"/>
-        </VerticalStackLayout.GestureRecognizers>
-    </VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout x:Uid="MatchStack" x:Name="MatchStack">
+            <VerticalStackLayout.GestureRecognizers>
+                <SwipeGestureRecognizer Direction="Down" Swiped="SwipeGestureRecognizer_Swiped"/>
+            </VerticalStackLayout.GestureRecognizers>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
