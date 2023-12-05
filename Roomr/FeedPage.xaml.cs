@@ -1,4 +1,5 @@
 using Roomr.Data;
+using System.Collections.Generic;
 using System.Text;
 
 namespace Roomr;
@@ -22,47 +23,30 @@ public partial class FeedPage : ContentPage
 
 	public async void FindPeople()
 	{
-		PeopleBucket = await Globals.database.GetPeopleAsync();
-		//List<Data.Models.Match> matches = await database.GetMatchesAsync(Globals.loggedInPerson.Id);
+		PeopleBucket = await Globals.database.GetUsersInSameRegion(Globals.loggedInPerson);
+		List<Data.Models.Match> matches = await Globals.database.GetMatchesAsync(Globals.loggedInPerson.Id);
+		List <Data.Models.Person> peopleCopy = new List<Data.Models.Person>();
 
 		//Cards.Add(new Label { Text = Globals.loggedInPerson.ToString() });
-
+		//Console.WriteLine(matches.Count());
 		foreach (var person in PeopleBucket)
 		{
-			if (person.Id == Globals.loggedInPerson.Id)
+			//remove people that have already been matched with logged in
+			foreach (var match in matches)
 			{
-				PeopleBucket.Remove(person);
-				break;
+				//Console.WriteLine(match.ToString());
+				if (person.Id == match.Id2)
+				{
+					peopleCopy.Add(person);
+					//Console.WriteLine("BAD");
+					//Console.WriteLine(PeopleBucket.Count());
+				}
 			}
-			// get the logged in user's country
-			// compare to person's country
-			// if person's country is different, remove from bucket
-			if (Globals.loggedInPerson.Country != person.Country)
-			{
-				PeopleBucket.Remove(person);
-				break;
-			}
-			// repeat for Region
-			if (Globals.loggedInPerson.Region != person.Region)
-			{
-				PeopleBucket.Remove(person);
-				break;
-			}
-			// repeat for city
-			if (Globals.loggedInPerson.City != person.City)
-			{
-				PeopleBucket.Remove(person);
-				break;
-			}
-			// remove people that have already been matched with logged in
-			//foreach (var match in matches) 
-			//{
-			//	if (person.Id == match.Id2)
-			//	{
-			//		PeopleBucket.Remove(person);
-			//		break;
-			//	}
-			//}
+		}
+
+		foreach (var person in peopleCopy)
+		{ 
+			PeopleBucket.Remove(person);
 		}
 
 		//Cards.Add(new Label { Text = PeopleBucket.Count().ToString() });
@@ -146,6 +130,7 @@ public partial class FeedPage : ContentPage
 					// create and and data to profile card
 					//double o = await GetDistance();
 					Cards.Add(new ProfileCard(CurrentPerson, 0));
+					Console.WriteLine(CurrentPerson);
 				}
 				else // shhh ignore me being dumb
 				{

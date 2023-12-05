@@ -22,6 +22,7 @@ public partial class ProfilePage : ContentPage
         //get name and profile picture
         name.Text = user.Name;
         Image.Source = user.ProfilePicture;
+        Globals.ProfilePerson = Globals.loggedInPerson;
     }
 
 

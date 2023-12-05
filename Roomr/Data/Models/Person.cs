@@ -21,8 +21,8 @@ namespace Roomr.Data.Models
         public string City { get; set; }
         public string Region { get; set; }
         public string Country { get; set; }
-        public double Latitude { get; set; }
-        public double Longitude { get; set; }
+        public double Latitude { get; set; } = 0;
+        public double Longitude { get; set; } = 0;
         public string ProfilePicture { get; set; }
 
         public Person() { }
@@ -36,13 +36,24 @@ namespace Roomr.Data.Models
             City = null;
             Region = null;
             Country = null;
-            Latitude = 0;
-            Longitude = 0;
             ProfilePicture = null;
         }
 
         public Person(string name, string contactInfo, string city, string region, string country, string profilePicture)
         {
+            Name = name;
+            ContactInfo = contactInfo;
+            City = city;
+            Region = region;
+            Country = country;
+            ProfilePicture = profilePicture;
+        }
+
+        public Person(string username, string password, string name, string contactInfo, string city, string region, string country, string profilePicture)
+        {
+            Name = name;
+            Username = username;
+            Password = password;
             Name = name;
             ContactInfo = contactInfo;
             City = city;
