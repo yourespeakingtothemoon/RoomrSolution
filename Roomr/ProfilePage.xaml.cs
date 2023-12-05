@@ -128,12 +128,16 @@ string loc="";
 
 	private async void SwipeGestureRecognizer_Swiped(object sender, SwipedEventArgs e)
 	{
-        //HobbyListAsync();
-		//ChoresList();
-		//LocationAndDist();
-		//QuietHours();
-        Image.Source = String.Concat("Resources/Images/Profile/", user.ProfilePicture);
+   
+        user = Globals.ProfilePerson;
+        HobbyListAsync();
+        ChoresListAsync();
+        LocationAndDist();
+        // QuietHoursAsync();
+        //get name and profile picture
         name.Text = user.Name;
-        Console.WriteLine("owo");
-	}
+        Image.Source = user.ProfilePicture;
+        Globals.ProfilePerson = Globals.loggedInPerson;
+
+    }
 }
