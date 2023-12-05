@@ -36,7 +36,7 @@ public partial class SignUpPage : ContentPage
 				Globals.loggedInPerson = newPerson;
 				await database.SavePersonAsync(newPerson); // Make Person Object & Save To Database
 				Console.WriteLine(newPerson);
-				await Shell.Current.GoToAsync("//FeedPage"); // Send to Feed Page
+				await Shell.Current.GoToAsync("//ProfileBuilder"); // Send to ProfileBuilder Page
 			}
 			else {
 				Console.WriteLine("Passwords don't match");
