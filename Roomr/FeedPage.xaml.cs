@@ -11,6 +11,7 @@ public partial class FeedPage : ContentPage
 	private CancellationTokenSource _cancelTokenSource;
 	List<Data.Models.Person> PeopleBucket = new List<Data.Models.Person>();
 	Data.Models.Person CurrentPerson;
+	ProfileCard currentCard;
 
 	public FeedPage()
 	{
@@ -88,20 +89,25 @@ public partial class FeedPage : ContentPage
 
 	private async void SwipeMatch_Swiped(object sender, SwipedEventArgs e)
 	{
-		if (Cards.Children.Count() > 1)
+        
+        if (Cards.Children.Count() > 1)
 		{
-			Cards.Clear();
+            //await currentCard.TranslateTo(-100, -100, 1000);
+            Cards.Clear();
 			if (PeopleBucket.Count() != 0)
 			{
 				CurrentPerson = PeopleBucket.FirstOrDefault();
-				Cards.Add(new ProfileCard(CurrentPerson, 0));
+				currentCard = new ProfileCard(CurrentPerson, 0);
+				Cards.Add(currentCard);
 				//Console.WriteLine(CurrentPerson.Id.ToString());
 				//Console.WriteLine(Globals.loggedInPerson.Id.ToString());
 			}
 		}
 		else
 		{
-			if (PeopleBucket.Count() != 0)
+            //await Cards.TranslateTo(-100, -100, 1000);
+
+            if (PeopleBucket.Count() != 0)
 			{
 				// create match with current person
 				var match = new Data.Models.Match();
@@ -119,7 +125,8 @@ public partial class FeedPage : ContentPage
 				Console.WriteLine(Globals.loggedInPerson.Id.ToString());
 				// remove that person from the bucket
 				PeopleBucket.Remove(CurrentPerson);
-				Cards.Clear();
+                await currentCard.TranslateTo(-100, -100, 1000);
+                Cards.Clear();
 
 				if (PeopleBucket.Count() > 0)
 				{
@@ -129,13 +136,15 @@ public partial class FeedPage : ContentPage
 
 					// create and and data to profile card
 					//double o = await GetDistance();
-					Cards.Add(new ProfileCard(CurrentPerson, 0));
+					currentCard = new ProfileCard(CurrentPerson, 0);
+					Cards.Add(currentCard);
 					Console.WriteLine(CurrentPerson);
 				}
 				else // shhh ignore me being dumb
 				{
-					// idk have a screen that says that you are a loser or something
-					Cards.Clear();
+                    // idk have a screen that says that you are a loser or something
+                    await currentCard.TranslateTo(-100, -100, 1000);
+                    Cards.Clear();
 					Cards.Add(new Label { Text = "Out of matches... loser", Margin = new Thickness(0, 300, 0, 0), HorizontalTextAlignment = TextAlignment.Center, FontSize = 28 });
 					//var matches = await Globals.database.GetMatchesAsync(Globals.loggedInPerson.Id);
 					//StringBuilder matchh = new StringBuilder();
@@ -145,8 +154,9 @@ public partial class FeedPage : ContentPage
 			}
 			else
 			{
-				// idk have a screen that says that you are a loser or something
-				Cards.Clear();
+                // idk have a screen that says that you are a loser or something
+                await currentCard.TranslateTo(-100, -100, 1000);
+                Cards.Clear();
 				Cards.Add(new Label { Text = "Out of matches... loser", Margin = new Thickness(0, 300, 0, 0), HorizontalTextAlignment = TextAlignment.Center, FontSize = 28 });
 			}
 		}
@@ -156,20 +166,24 @@ public partial class FeedPage : ContentPage
 	{
 		if (Cards.Children.Count() > 1)
 		{
+
+			//await currentCard.TranslateTo(-100, -100, 1000);
 			Cards.Clear();
 			if (PeopleBucket.Count() != 0)
 			{
 				CurrentPerson = PeopleBucket.FirstOrDefault();
-				Cards.Add(new ProfileCard(CurrentPerson, 0));
+				currentCard = new ProfileCard(CurrentPerson, 0);
+				Cards.Add(currentCard);
 				//Cards.Add(new Label { Text = CurrentPerson.ToString() });
 			}
 		}
 		else 
 		{ 
+
 			if (PeopleBucket.Count() != 0)
 			{
-
-				PeopleBucket.Remove(CurrentPerson);
+                await currentCard.TranslateTo(-100, -100, 1000);
+                PeopleBucket.Remove(CurrentPerson);
 				Cards.Clear();
 
 				if (PeopleBucket.Count() > 0)
@@ -180,7 +194,8 @@ public partial class FeedPage : ContentPage
 
 					// create and and data to profile card
 					//double o = await GetDistance();
-					Cards.Add(new ProfileCard(CurrentPerson, 0));
+					currentCard = new ProfileCard(CurrentPerson, 0);
+					Cards.Add(currentCard);
 				}
 				else
 				{

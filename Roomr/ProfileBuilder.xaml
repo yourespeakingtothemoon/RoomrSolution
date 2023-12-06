@@ -54,14 +54,15 @@ HorizontalOptions="Start"
                        x:Name="Hobbies"
                        />
 
-                <Entry
-                    x:Name="hobbies"
+                <SelectableItemsView
+                    x:Name="HobbiesList"
+                    SelectionMode="Multiple"
+                    ItemsSource="{Binding Hobbies}"
+                    SelectionChanged="HobbiesList_SelectionChanged"
+                    >
                     
-                    Placeholder="Hobby" />
+                </SelectableItemsView>
 
-                <Button Text="Add Hobby"
-                        Clicked="AddHobbyAsync"
-                        />
                 
 
             </StackLayout>

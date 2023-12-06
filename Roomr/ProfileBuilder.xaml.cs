@@ -209,4 +209,9 @@ public partial class ProfileBuilder : ContentPage
         UpdateHobbyandChoreLists();
 
     }
+
+    private void HobbiesList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+
+    }
 }
