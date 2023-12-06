@@ -18,9 +18,10 @@ public partial class FeedPage : ContentPage
 		InitializeComponent();
 		//get from database
 		FindPeople();
-		Cards.Add(new Image { Source = "Resources/Images/roomr.png", Margin = new Thickness (10, 280, 10, 20) });
-		Cards.Add(new Label { Text = "Swipe to start swiping", HorizontalTextAlignment = TextAlignment.Center });
-	}
+		//Cards.Add(new Image { Source = "Resources/Images/roomr.png", Margin = new Thickness (10, 280, 10, 20) });
+		//Cards.Add(new Label { Text = "Swipe to start Matching", HorizontalTextAlignment = TextAlignment.Center });
+
+    }
 
 	public async void FindPeople()
 	{
