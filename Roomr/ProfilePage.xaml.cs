@@ -15,7 +15,7 @@ public partial class ProfilePage : ContentPage
         HobbyListAsync();
         ChoresListAsync();
         LocationAndDist();
-       // QuietHoursAsync();
+        QuietHoursAsync();
         //get name and profile picture
         name.Text = Globals.ProfilePerson.Name;
         Image.Source = Globals.ProfilePerson.ProfilePicture;

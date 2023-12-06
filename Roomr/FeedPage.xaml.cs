@@ -169,7 +169,7 @@ public partial class FeedPage : ContentPage
 		{
 
             //await currentCard.TranslateTo(-100, -100, 1000);
-            await currentCard.TranslateTo(-100, 0, 100);
+            //await currentCard.TranslateTo(-100, 0, 100);
             Cards.Clear();
 			if (PeopleBucket.Count() != 0)
 			{
