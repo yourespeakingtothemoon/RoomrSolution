@@ -274,6 +274,7 @@ public partial class ProfileBuilder : ContentPage
         
         await database.SavePersonAsync(person);
 
+        await database.SavePersonAsync(person);
 
         await Shell.Current.GoToAsync("//FeedPage");
 

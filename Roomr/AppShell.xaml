@@ -30,26 +30,31 @@
         Route="ProfileBuilder"
         />
 
-    <TabBar>
-
-        <ShellContent 
+    <TabBar PropertyChanged="listenerChanged">
+        <Tab Title="ProfilePage" Icon="profile.png">
+            <ShellContent 
             Title="Profile"
             ContentTemplate="{DataTemplate local:ProfilePage}"
             Route="ProfilePage"
-            Icon="profile.png" />
+             />
+        </Tab>
 
-        <ShellContent 
+        <Tab Title="MatchesPage" Icon="matches.png">
+            <ShellContent 
             Title="Matches"
             ContentTemplate="{DataTemplate local:MatchesPage}"
             Route="MatchesPage"
-            Icon="matches.png" />
+             />
+        </Tab>
 
-        <ShellContent 
+        <Tab Title="FeedPage" Icon="feed.png">
+            <ShellContent 
             Title="Feed"
             ContentTemplate="{DataTemplate local:FeedPage}"
             Route="FeedPage"
-            Icon="feed.png" />
+             />
+        </Tab>
 
     </TabBar>
-    
+
 </Shell>
