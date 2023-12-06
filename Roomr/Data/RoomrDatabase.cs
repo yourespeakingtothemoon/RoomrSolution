@@ -47,28 +47,60 @@ namespace Roomr.Data
             Person Daenerys = new Person("Daenerys Targaryen", "Reach me via Raven", "Salt Lake City", "Utah", "United States", "wheezer.jpg");
             Person Luke = new Person("Luke Skywalker", "Use the Force", "Albany", "New York", "United States", "joker.jpg");
             Person Frodo = new Person("Frodo Baggins", "Send a Message to the Shire", "Salt Lake City", "Utah", "United States", "tyrunt.jpg");
+                //add hours to people
+                QuietHours TonyHours = new QuietHours(Tony.Id);
+            QuietHours DaenerysHours = new QuietHours(Daenerys.Id);
+            QuietHours LukeHours = new QuietHours(Luke.Id);
+            QuietHours FrodoHours = new QuietHours(Frodo.Id);
+
+
+
+
+            //-------------------------------------------------------
 
             Chore Vacuuming = new Chore("Vacuuming");
+            Globals.Chores.Add(Vacuuming);
             Chore Sweeping = new Chore("Sweeping");
+            Globals.Chores.Add(Sweeping);
             Chore Dishes = new Chore("Washing dishes");
+            Globals.Chores.Add(Dishes);
             Chore Trash = new Chore("Taking out the Trash");
+            Globals.Chores.Add(Trash);
             Chore Bathroom = new Chore("Cleaning the Bathroom");
+            Globals.Chores.Add(Bathroom);
             Chore Kitchen = new Chore("Cleaning the Kitchen");
+            Globals.Chores.Add(Kitchen);
             Chore Dusting = new Chore("Dusting");
+            Globals.Chores.Add(Dusting);
             Chore Groceries = new Chore("Grocery Shopping");
+            Globals.Chores.Add(Groceries);
             Chore Mopping = new Chore("Mopping");
+            Globals.Chores.Add(Mopping);
             Chore Mowing = new Chore("Mowing");
+            Globals.Chores.Add(Mowing);
+
+            //-------------------------------------------------------
 
             Hobby Cooking = new Hobby("Cooking");
+            Globals.Hobbies.Add(Cooking);
             Hobby Baking = new Hobby("Baking");
+            Globals.Hobbies.Add(Baking);
             Hobby Reading = new Hobby("Reading");
+            Globals.Hobbies.Add(Reading);
             Hobby Fitness = new Hobby("Fitness");
+            Globals.Hobbies.Add(Fitness);
             Hobby Biking = new Hobby("Biking");
+            Globals.Hobbies.Add(Biking);
             Hobby Hiking = new Hobby("Hiking");
+            Globals.Hobbies.Add(Hiking);
             Hobby Gardening = new Hobby("Gardening");
+            Globals.Hobbies.Add(Gardening);
             Hobby Gaming = new Hobby("Gaming");
+            Globals.Hobbies.Add(Gaming);
             Hobby Art = new Hobby("Art");
+            Globals.Hobbies.Add(Art);
             Hobby Music = new Hobby("Music");
+            Globals.Hobbies.Add(Music);
 
             await Database.InsertAllAsync(new List<Object> {
                 Cooking,
@@ -283,6 +315,12 @@ namespace Roomr.Data
             return await Database.DeleteAsync(chore);
         }
 
+        public async Task<Chore> GetChoreByName(string name) //Returns a single Chore by Name
+        {
+            await Init();
+            return await Database.Table<Chore>().Where(i => i.Name == name).FirstOrDefaultAsync();
+        }
+
         #endregion
 
         #region Hobby DB Stuff
@@ -312,6 +350,12 @@ namespace Roomr.Data
         {
             await Init();
             return await Database.DeleteAsync(hobby);
+        }
+
+        public async Task<Hobby> GetHobbyByName(string name) //Returns a single Hobby by Name
+        {
+            await Init();
+            return await Database.Table<Hobby>().Where(i => i.Name == name).FirstOrDefaultAsync();
         }
 
         #endregion

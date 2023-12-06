@@ -14,6 +14,8 @@ namespace Roomr.Data.Models
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; } //Primary key
+
+     
         public string Name { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
@@ -61,6 +63,7 @@ namespace Roomr.Data.Models
             Country = country;
             ProfilePicture = profilePicture;
         }
+    
 
         public override string ToString()
         {

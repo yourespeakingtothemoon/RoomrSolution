@@ -39,6 +39,34 @@ namespace Roomr.Data.Models
 
         public QuietHours() { }
 
+        public QuietHours(int personId, bool zero=false, bool one=false, bool two=false, bool three=false, bool four=false, bool five=false, bool six=false, bool seven=false, bool eight=false, bool nine=false, bool ten=false, bool eleven=false, bool twelve=false, bool thirteen=false, bool fourteen=false, bool fifteen=false, bool sixteen=false, bool seventeen=false, bool eighteen=false, bool nineteen=false, bool twenty=false, bool twentyOne=false, bool twentyTwo=false, bool twentyThree=false)
+        {
+            PersonId = personId;
+            Zero = zero;
+            One = one;
+            Two = two;
+            Three = three;
+            Four = four;
+            Five = five;
+            Six = six;
+            Seven = seven;
+            Eight = eight;
+            Nine = nine;
+            Ten = ten;
+            Eleven = eleven;
+            Twelve = twelve;
+            Thirteen = thirteen;
+            Fourteen = fourteen;
+            Fifteen = fifteen;
+            Sixteen = sixteen;
+            Seventeen = seventeen;
+            Eighteen = eighteen;
+            Nineteen = nineteen;
+            Twenty = twenty;
+            TwentyOne = twentyOne;
+            TwentyTwo = twentyTwo;
+            TwentyThree = twentyThree;
+        }
 
         public override string ToString() 
         {

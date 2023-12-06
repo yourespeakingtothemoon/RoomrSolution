@@ -176,7 +176,7 @@ public partial class FeedPage : ContentPage
 				currentCard = new ProfileCard(CurrentPerson, 0);
 				Cards.Add(currentCard);
 				//Cards.Add(new Label { Text = CurrentPerson.ToString() });
-			}
+			} 
 		}
 		else 
 		{ 
