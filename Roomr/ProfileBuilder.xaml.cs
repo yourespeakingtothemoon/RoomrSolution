@@ -238,10 +238,13 @@ public partial class ProfileBuilder : ContentPage
         }
         //remove folders from the start of the image source string
         string imageSource = PictureChanger.Source.ToString();
-        imageSource = imageSource.Substring(25);
+        if (imageSource.Length > 25)
+        {
+            imageSource = imageSource.Substring(25);
+        }
 
-
-        Person person = new Person(nameEntry.Text,Contact.Text,City.Text,State.Text,Country.Text,imageSource);
+        Person person = Globals.loggedInPerson;
+            person.postSignUpSetup(nameEntry.Text, Contact.Text, City.Text, State.Text, Country.Text, imageSource); //new Person(nameEntry.Text,Contact.Text,City.Text,State.Text,Country.Text,imageSource);
 
         //add hobbies and chores
         foreach (var item in checkBoxesHobbies)

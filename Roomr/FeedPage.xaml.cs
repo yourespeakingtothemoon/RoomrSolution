@@ -126,7 +126,7 @@ public partial class FeedPage : ContentPage
 				Console.WriteLine(Globals.loggedInPerson.Id.ToString());
 				// remove that person from the bucket
 				PeopleBucket.Remove(CurrentPerson);
-                await currentCard.TranslateTo(-100, -100, 1000);
+                await currentCard.TranslateTo(100, 0, 100);
                 Cards.Clear();
 
 				if (PeopleBucket.Count() > 0)
@@ -144,7 +144,7 @@ public partial class FeedPage : ContentPage
 				else // shhh ignore me being dumb
 				{
                     // idk have a screen that says that you are a loser or something
-                    await currentCard.TranslateTo(-100, -100, 1000);
+                    await currentCard.TranslateTo(100, 0, 100);
                     Cards.Clear();
 					Cards.Add(new Label { Text = "Out of matches... loser", Margin = new Thickness(0, 300, 0, 0), HorizontalTextAlignment = TextAlignment.Center, FontSize = 28 });
 					//var matches = await Globals.database.GetMatchesAsync(Globals.loggedInPerson.Id);
@@ -156,7 +156,7 @@ public partial class FeedPage : ContentPage
 			else
 			{
                 // idk have a screen that says that you are a loser or something
-                await currentCard.TranslateTo(-100, -100, 1000);
+                await currentCard.TranslateTo(100, 0, 100);
                 Cards.Clear();
 				Cards.Add(new Label { Text = "Out of matches... loser", Margin = new Thickness(0, 300, 0, 0), HorizontalTextAlignment = TextAlignment.Center, FontSize = 28 });
 			}
@@ -168,8 +168,9 @@ public partial class FeedPage : ContentPage
 		if (Cards.Children.Count() > 1)
 		{
 
-			//await currentCard.TranslateTo(-100, -100, 1000);
-			Cards.Clear();
+            //await currentCard.TranslateTo(-100, -100, 1000);
+            await currentCard.TranslateTo(-100, 0, 100);
+            Cards.Clear();
 			if (PeopleBucket.Count() != 0)
 			{
 				CurrentPerson = PeopleBucket.FirstOrDefault();
@@ -183,7 +184,7 @@ public partial class FeedPage : ContentPage
 
 			if (PeopleBucket.Count() != 0)
 			{
-                await currentCard.TranslateTo(-100, -100, 1000);
+                await currentCard.TranslateTo(-100, 0, 100);
                 PeopleBucket.Remove(CurrentPerson);
 				Cards.Clear();
 
