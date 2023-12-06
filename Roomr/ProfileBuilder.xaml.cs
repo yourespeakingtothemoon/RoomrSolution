@@ -253,7 +253,8 @@ public partial class ProfileBuilder : ContentPage
             {
                 //Hobby hobby = new Hobby(item.Text);
                 Hobby h = await database.GetHobbyByName(item.hobby);
-              new PersonHobby(person.Id, h.Id);
+              await database.SavePersonHobbyAsync(new PersonHobby(person.Id, h.Id));
+               
             }
         }
         //chores
@@ -263,13 +264,12 @@ public partial class ProfileBuilder : ContentPage
             {
                 //Chore chore = new Chore(item.Text);
                 Chore c = await database.GetChoreByName(item.chore);
-                new PersonChore(person.Id, c.Id);
+                await database.SavePersonChoreAsync(new PersonChore(person.Id, c.Id));
             }
         }
 
         Globals.loggedInPerson = person;
        // Globals.ProfilePerson = person;
-        
         QuietHours quietHours = new QuietHours(person.Id, hourThirteen.IsChecked, hourFourteen.IsChecked, hourFifteen.IsChecked, hourSixteen.IsChecked, hourSeventeen.IsChecked , hourEighteen.IsChecked, hourNineteen.IsChecked, hourTwenty.IsChecked, hourTwentyOne.IsChecked, hourTwentyTwo.IsChecked, hourTwentyThree.IsChecked, hourTwentyFour.IsChecked, hourOne.IsChecked, hourTwo.IsChecked, hourThree.IsChecked, hourFour.IsChecked, hourFive.IsChecked, hourSix.IsChecked, hourSeven.IsChecked, hourEight.IsChecked, hourNine.IsChecked, hourTen.IsChecked, hourEleven.IsChecked, hourTwelve.IsChecked);
         
         await database.SavePersonAsync(person);
