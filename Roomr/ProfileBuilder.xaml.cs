@@ -265,10 +265,9 @@ public partial class ProfileBuilder : ContentPage
         }
 
         Globals.loggedInPerson = person;
-       // Globals.ProfilePerson = person;
-        
-        await database.SavePersonAsync(person);
+        Globals.ProfilePerson = person;
 
+        await database.SavePersonAsync(person);
 
         await Shell.Current.GoToAsync("//FeedPage");
 
