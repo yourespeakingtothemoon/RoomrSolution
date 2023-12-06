@@ -29,16 +29,16 @@ namespace Roomr.Data
             var personChoreTable = await Database.CreateTableAsync<PersonChore>();
             var personHobbyTable = await Database.CreateTableAsync<PersonHobby>();
 
-            //await Database.DeleteAllAsync<Person>();
-            //await Database.DeleteAllAsync<Models.Preferences>();
-            //await Database.DeleteAllAsync<QuietHours>();
-            //await Database.DeleteAllAsync<Chore>();
-            //await Database.DeleteAllAsync<Hobby>();
-            //await Database.DeleteAllAsync<Models.Match>();
-            //await Database.DeleteAllAsync<PersonChore>();
-            //await Database.DeleteAllAsync<PersonHobby>();
+            await Database.DeleteAllAsync<Person>();
+            await Database.DeleteAllAsync<Models.Preferences>();
+            await Database.DeleteAllAsync<QuietHours>();
+            await Database.DeleteAllAsync<Chore>();
+            await Database.DeleteAllAsync<Hobby>();
+            await Database.DeleteAllAsync<Models.Match>();
+            await Database.DeleteAllAsync<PersonChore>();
+            await Database.DeleteAllAsync<PersonHobby>();
 
-            //await AddDummyData();
+            await AddDummyData();
         }
 
         async Task AddDummyData()
@@ -48,13 +48,10 @@ namespace Roomr.Data
             Person Luke = new Person("Luke Skywalker", "Use the Force", "Albany", "New York", "United States", "joker.jpg");
             Person Frodo = new Person("Frodo Baggins", "Send a Message to the Shire", "Salt Lake City", "Utah", "United States", "tyrunt.jpg");
                 //add hours to people
-                QuietHours TonyHours = new QuietHours(Tony.Id);
-            QuietHours DaenerysHours = new QuietHours(Daenerys.Id);
-            QuietHours LukeHours = new QuietHours(Luke.Id);
-            QuietHours FrodoHours = new QuietHours(Frodo.Id);
-
-
-
+            QuietHours TonyHours = new QuietHours(Tony.Id, true, true, true, true, true, true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
+            QuietHours DaenerysHours = new QuietHours(Daenerys.Id, true, true, true, true, true, true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
+            QuietHours LukeHours = new QuietHours(Luke.Id, true, true, true, true, true, true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
+            QuietHours FrodoHours = new QuietHours(Frodo.Id, true, true, true, true, true, true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
 
             //-------------------------------------------------------
 
@@ -141,6 +138,9 @@ namespace Roomr.Data
                 new PersonHobby(Tony.Id, Cooking.Id),
                 new PersonHobby(Tony.Id, Reading.Id),
 
+                TonyHours,
+              
+              
                 new PersonChore(Daenerys.Id, Groceries.Id),
                 new PersonChore(Daenerys.Id, Mowing.Id),
                 new PersonChore(Daenerys.Id, Mopping.Id),
@@ -149,6 +149,8 @@ namespace Roomr.Data
                 new PersonHobby(Daenerys.Id, Baking.Id),
                 new PersonHobby(Daenerys.Id, Gardening.Id),
                 new PersonHobby(Daenerys.Id, Art.Id),
+
+                DaenerysHours,
 
 
                 new PersonChore(Luke.Id, Vacuuming.Id),
@@ -163,6 +165,8 @@ namespace Roomr.Data
                 new PersonHobby(Luke.Id, Fitness.Id),
                 new PersonHobby(Luke.Id, Music.Id),
 
+                LukeHours,
+
 
                 new PersonChore(Frodo.Id, Dusting.Id),
                 new PersonChore(Frodo.Id, Groceries.Id),
@@ -176,6 +180,8 @@ namespace Roomr.Data
                 new PersonHobby(Frodo.Id, Reading.Id),
                 new PersonHobby(Frodo.Id, Gardening.Id),
                 new PersonHobby(Frodo.Id, Music.Id),
+
+                FrodoHours,
             });
         }
 
