@@ -182,6 +182,7 @@ public partial class ProfileBuilder : ContentPage
         }
 
         await database.SavePersonAsync(Globals.loggedInPerson);
+        await Shell.Current.GoToAsync("//FeedPage"); // Send to Profile Page
 
     }
 

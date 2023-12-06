@@ -24,6 +24,12 @@
         ContentTemplate="{DataTemplate local:SignUpPage}"
         Route="SignUpPage" />
 
+    <ShellContent 
+        Title="ProfileBuilder"
+        ContentTemplate="{DataTemplate local:ProfileBuilder}"
+        Route="ProfileBuilder"
+        />
+
     <TabBar>
 
         <ShellContent 
