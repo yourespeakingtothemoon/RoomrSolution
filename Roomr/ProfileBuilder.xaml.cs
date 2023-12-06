@@ -238,10 +238,13 @@ public partial class ProfileBuilder : ContentPage
         }
         //remove folders from the start of the image source string
         string imageSource = PictureChanger.Source.ToString();
-        imageSource = imageSource.Substring(25);
+        if (imageSource.Length > 25)
+        {
+            imageSource = imageSource.Substring(25);
+        }
 
-
-        Person person = new Person(nameEntry.Text,Contact.Text,City.Text,State.Text,Country.Text,imageSource);
+        Person person = Globals.loggedInPerson;
+            person.postSignUpSetup(nameEntry.Text, Contact.Text, City.Text, State.Text, Country.Text, imageSource); //new Person(nameEntry.Text,Contact.Text,City.Text,State.Text,Country.Text,imageSource);
 
         //add hobbies and chores
         foreach (var item in checkBoxesHobbies)
@@ -266,6 +269,10 @@ public partial class ProfileBuilder : ContentPage
 
         Globals.loggedInPerson = person;
         Globals.ProfilePerson = person;
+        
+        QuietHours quietHours = new QuietHours(person.Id, hourThirteen.IsChecked, hourFourteen.IsChecked, hourFifteen.IsChecked, hourSixteen.IsChecked, hourSeventeen.IsChecked , hourEighteen.IsChecked, hourNineteen.IsChecked, hourTwenty.IsChecked, hourTwentyOne.IsChecked, hourTwentyTwo.IsChecked, hourTwentyThree.IsChecked, hourTwentyFour.IsChecked, hourOne.IsChecked, hourTwo.IsChecked, hourThree.IsChecked, hourFour.IsChecked, hourFive.IsChecked, hourSix.IsChecked, hourSeven.IsChecked, hourEight.IsChecked, hourNine.IsChecked, hourTen.IsChecked, hourEleven.IsChecked, hourTwelve.IsChecked);
+        
+        await database.SavePersonAsync(person);
 
         await database.SavePersonAsync(person);
 

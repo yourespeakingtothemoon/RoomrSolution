@@ -65,6 +65,18 @@ namespace Roomr.Data.Models
         }
     
 
+        public void postSignUpSetup(string name, string contactInfo, string city, string region, string country, string profilePicture)
+        {
+            Name = name;
+            ContactInfo = contactInfo;
+            City = city;
+            Region = region;
+            Country = country;
+            ProfilePicture = profilePicture;
+
+
+        }
+
         public override string ToString()
         {
             return "Id: [" + Id + "] Name/Username: [" + Name + "/" + Username + "] Pass: [" + Password + "] Location: [" + City + ", " + Region + ", " + Country + "] Profile Picture URL: [" + ProfilePicture + "]";
