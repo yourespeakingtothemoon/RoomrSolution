@@ -9,7 +9,27 @@
                 <SwipeGestureRecognizer Direction="Right" Swiped="SwipeMatch_Swiped"/>
                 <SwipeGestureRecognizer Direction="Left" Swiped="SwipeReject_Swiped"/>
             </StackLayout.GestureRecognizers>
+            <Image
+                Source="Resources/Images/roomr.png"
+                Margin="15, 100, 15, 15"
+                MaximumWidthRequest="600"
+                MaximumHeightRequest="150"/>
+            <HorizontalStackLayout>
+                <Image
+                Source="Resources/Images/rejectarrowcropped.png"
+                Margin="20, 150, 15, 15"
+                MaximumWidthRequest="50"
+                MaximumHeightRequest="50"/>
+                <Label x:Name="test">Reject</Label>
+                <Image
+                Source="Resources/Images/acceptarrow.png"
+                Margin="250, 150, 15, 15"
+                MaximumWidthRequest="50"
+                MaximumHeightRequest="50"/>
+                <Label x:Name="test2">Accept</Label>
+            </HorizontalStackLayout>
+            
         </StackLayout>
-        <Label x:Name="test"></Label>
+        
     </VerticalStackLayout>
 </ContentPage>
