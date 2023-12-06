@@ -6,10 +6,10 @@
     <ScrollView 
         VerticalScrollBarVisibility="Always"
         Scrolled="ScrollView_Scrolled">
+        <ScrollView.GestureRecognizers>
+            <SwipeGestureRecognizer Direction="Down" Swiped="SwipeGestureRecognizer_Swiped" />
+        </ScrollView.GestureRecognizers>
         <VerticalStackLayout>
-            <VerticalStackLayout.GestureRecognizers>
-                <SwipeGestureRecognizer Direction="Down" Swiped="SwipeGestureRecognizer_Swiped" />
-            </VerticalStackLayout.GestureRecognizers>
             <Image
                 x:Name="Image"
                 Source="Resources/Images/joker.jpg"

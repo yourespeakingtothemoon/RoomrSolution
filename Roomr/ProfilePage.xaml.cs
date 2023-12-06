@@ -1,29 +1,31 @@
 using Roomr.Data;
 using Roomr.Data.Models;
+using System.Timers;
 
 namespace Roomr;
 
 public partial class ProfilePage : ContentPage
 {
-    public static Data.Models.Person user;
-
+	public static System.Timers.Timer aTimer;
 	public ProfilePage()
 	{
 		InitializeComponent();
        //database = new RoomrDatabase();
-        user = Globals.loggedInPerson;
-        Console.WriteLine(user.ToString());
-        // user = Globals.database.GetPersonAsync(id).Result;
-        user = Globals.ProfilePerson;
+        // Globals.ProfilePerson = Globals.database.GetPersonAsync(id).Result;
         HobbyListAsync();
         ChoresListAsync();
         LocationAndDist();
        // QuietHoursAsync();
         //get name and profile picture
-        name.Text = user.Name;
-        Image.Source = user.ProfilePicture;
+        name.Text = Globals.ProfilePerson.Name;
+        Image.Source = Globals.ProfilePerson.ProfilePicture;
         Globals.ProfilePerson = Globals.loggedInPerson;
-    }
+
+		//aTimer = new System.Timers.Timer(5000);
+		//aTimer.Elapsed += new ElapsedEventHandler(RunThis);
+		//aTimer.AutoReset = true;
+		//aTimer.Enabled = true;
+	}
 
 
 
@@ -32,19 +34,9 @@ public partial class ProfilePage : ContentPage
         InitializeComponent();
        // database = new RoomrDatabase();
 
-        user = Globals.database.GetPersonAsync(id).Result;
+        Globals.ProfilePerson = Globals.database.GetPersonAsync(id).Result;
 
     
-    }
-
-    public async void setUser(int id)
-    {
-      
-    }
-
-    public static void setUser(Data.Models.Person person)
-    {
-        user = person;
     }
 
     private void ScrollView_Scrolled(object sender, ScrolledEventArgs e)
@@ -60,21 +52,23 @@ public partial class ProfilePage : ContentPage
 		//to do, get reference to hobbies list
 //	person.Hobbies
       //  List<string> list = new List<string>();
-        List<Roomr.Data.Models.PersonHobby> hobbos = await Globals.database.GetPersonHobbiesAsync(user.Id);
+        List<Roomr.Data.Models.PersonHobby> hobbos = await Globals.database.GetPersonHobbiesAsync(Globals.ProfilePerson.Id);
 
-      
-        //string hobby = "";
-        Hobby hobbyObj;
+        if (hobbos.Count > 0) 
+        { 
+            //string hobby = "";
+            Hobby hobbyObj;
 
-        foreach (var item in hobbos)
-        {
-            hobbyObj = await Globals.database.GetHobbyAsync(item.HobbyId);
+            foreach (var item in hobbos)
+            {
+                hobbyObj = await Globals.database.GetHobbyAsync(item.HobbyId);
 
 
-            hobbs += hobbyObj.Name + ", ";
+                hobbs += hobbyObj.Name + ", ";
+            }
+            hobbs = hobbs.Substring(0, hobbs.Length - 2);
+            hobbies.Text = hobbs;
         }
-        hobbs = hobbs.Substring(0, hobbs.Length - 2);
-        hobbies.Text = hobbs;
     }
 
 
@@ -83,18 +77,21 @@ public partial class ProfilePage : ContentPage
         string chorz = "";
         //to do, get reference to hobbies list
         //	person.Hobbies
-        List<Roomr.Data.Models.PersonChore> choresList = await Globals.database.GetPersonChoresAsync(user.Id);
+        List<Roomr.Data.Models.PersonChore> choresList = await Globals.database.GetPersonChoresAsync(Globals.ProfilePerson.Id);
 
-        Chore choreObj;
-        foreach (var item in choresList)
-        {
-            choreObj = await Globals.database.GetChoreAsync(item.ChoreId);
+        if (choresList.Count > 0) 
+        { 
+            Chore choreObj;
+            foreach (var item in choresList)
+            {
+                choreObj = await Globals.database.GetChoreAsync(item.ChoreId);
 
-            chorz += choreObj.Name + ", ";
+                chorz += choreObj.Name + ", ";
+            }
+            chorz = chorz.Substring(0, chorz.Length - 2);
+           // chores.Text = chorz;
+           chores.Text = chorz;
         }
-        chorz = chorz.Substring(0, chorz.Length - 2);
-       // chores.Text = chorz;
-       chores.Text = chorz;
     }
     public void LocationAndDist()
     {
@@ -103,7 +100,7 @@ public partial class ProfilePage : ContentPage
 
 string loc="";
         
-       loc= user.City + ", " + user.Region + ", " + user.Country;
+       loc= Globals.ProfilePerson.City + ", " + Globals.ProfilePerson.Region + ", " + Globals.ProfilePerson.Country;
 
 
         location.Text = loc;
@@ -117,7 +114,7 @@ string loc="";
        
         //Or do we wanna round up to the nearest half hour with a float?
 
-        var qh = await Globals.database.GetUserQuietHours(user.Id);
+        var qh = await Globals.database.GetUserQuietHours(Globals.ProfilePerson.Id);
 
         
 
@@ -128,16 +125,28 @@ string loc="";
 
 	private async void SwipeGestureRecognizer_Swiped(object sender, SwipedEventArgs e)
 	{
-   
-        user = Globals.ProfilePerson;
+        Globals.ProfilePerson = Globals.ProfilePerson;
         HobbyListAsync();
         ChoresListAsync();
         LocationAndDist();
         // QuietHoursAsync();
         //get name and profile picture
-        name.Text = user.Name;
-        Image.Source = user.ProfilePicture;
+        name.Text = Globals.ProfilePerson.Name;
+        Image.Source = Globals.ProfilePerson.ProfilePicture;
         Globals.ProfilePerson = Globals.loggedInPerson;
-
     }
+
+	private async void RunThis(object source, ElapsedEventArgs e)
+	{
+		Globals.ProfilePerson = Globals.ProfilePerson;
+		HobbyListAsync();
+		ChoresListAsync();
+		LocationAndDist();
+		// QuietHoursAsync();
+		//get name and profile picture
+		name.Text = Globals.ProfilePerson.Name;
+		Image.Source = Globals.ProfilePerson.ProfilePicture;
+		Globals.ProfilePerson = Globals.loggedInPerson;
+		Console.WriteLine("Print this in every 10 seconds");
+	}
 }

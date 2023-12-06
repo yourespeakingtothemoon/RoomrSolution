@@ -20,6 +20,7 @@ public partial class LoginPage : ContentPage
         {
             Console.WriteLine("Valid Login. Logging In.");
             Globals.loggedInPerson = person;
+            Globals.ProfilePerson = person;
             Console.WriteLine(person);
             await Shell.Current.GoToAsync("//FeedPage");
         }
