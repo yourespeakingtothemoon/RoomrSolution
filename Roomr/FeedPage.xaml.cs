@@ -156,7 +156,7 @@ public partial class FeedPage : ContentPage
 			else
 			{
                 // idk have a screen that says that you are a loser or something
-                await currentCard.TranslateTo(100, 0, 100);
+                //await currentCard.TranslateTo(100, 0, 100);
                 Cards.Clear();
 				Cards.Add(new Label { Text = "Out of matches... loser", Margin = new Thickness(0, 300, 0, 0), HorizontalTextAlignment = TextAlignment.Center, FontSize = 28 });
 			}
@@ -169,7 +169,7 @@ public partial class FeedPage : ContentPage
 		{
 
             //await currentCard.TranslateTo(-100, -100, 1000);
-            await currentCard.TranslateTo(-100, 0, 100);
+            //await currentCard.TranslateTo(-100, 0, 100);
             Cards.Clear();
 			if (PeopleBucket.Count() != 0)
 			{
