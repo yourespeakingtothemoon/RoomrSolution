@@ -20,15 +20,17 @@
                 Margin="20, 150, 15, 15"
                 MaximumWidthRequest="50"
                 MaximumHeightRequest="50"/>
-                <Label x:Name="test">Reject</Label>
                 <Image
                 Source="Resources/Images/acceptarrow.png"
-                Margin="250, 150, 15, 15"
+                Margin="270, 150, 15, 15"
                 MaximumWidthRequest="50"
                 MaximumHeightRequest="50"/>
-                <Label x:Name="test2">Accept</Label>
             </HorizontalStackLayout>
-            
+            <HorizontalStackLayout>
+                <Label x:Name="test" Margin="20,5,15,15" TextColor="Red">Reject</Label>
+                <Label x:Name="test2" Margin="250,5,15,15" TextColor="Green">Accept</Label>
+            </HorizontalStackLayout>
+
         </StackLayout>
         
     </VerticalStackLayout>
