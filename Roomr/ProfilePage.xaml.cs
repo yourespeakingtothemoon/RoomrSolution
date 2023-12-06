@@ -19,6 +19,7 @@ public partial class ProfilePage : ContentPage
         //get name and profile picture
         name.Text = Globals.ProfilePerson.Name;
         Image.Source = Globals.ProfilePerson.ProfilePicture;
+        contact.Text = Globals.ProfilePerson.ContactInfo;
         Globals.ProfilePerson = Globals.loggedInPerson;
 
 		//aTimer = new System.Timers.Timer(5000);

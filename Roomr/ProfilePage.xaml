@@ -32,6 +32,11 @@
                     FontSize="Micro"
                     HorizontalOptions="Start" />
             </HorizontalStackLayout>
+            <Label 
+                Text="(000) 000-0000"
+                x:Name="contact"
+                FontSize="Micro"
+                />
 
             <BoxView 
                 Color="LightGray"
