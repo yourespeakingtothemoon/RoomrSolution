@@ -30,7 +30,7 @@
         Route="ProfileBuilder"
         />
 
-    <TabBar PropertyChanged="listenerChanged">
+    <TabBar>
         <Tab Title="ProfilePage" Icon="profile.png">
             <ShellContent 
             Title="Profile"
