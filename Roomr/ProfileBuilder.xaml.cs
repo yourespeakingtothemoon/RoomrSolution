@@ -270,9 +270,9 @@ public partial class ProfileBuilder : ContentPage
 
         Globals.loggedInPerson = person;
        // Globals.ProfilePerson = person;
-        QuietHours quietHours = new QuietHours(person.Id, hourThirteen.IsChecked, hourFourteen.IsChecked, hourFifteen.IsChecked, hourSixteen.IsChecked, hourSeventeen.IsChecked , hourEighteen.IsChecked, hourNineteen.IsChecked, hourTwenty.IsChecked, hourTwentyOne.IsChecked, hourTwentyTwo.IsChecked, hourTwentyThree.IsChecked, hourTwentyFour.IsChecked, hourOne.IsChecked, hourTwo.IsChecked, hourThree.IsChecked, hourFour.IsChecked, hourFive.IsChecked, hourSix.IsChecked, hourSeven.IsChecked, hourEight.IsChecked, hourNine.IsChecked, hourTen.IsChecked, hourEleven.IsChecked, hourTwelve.IsChecked);
+        //QuietHours quietHours = new QuietHours(person.Id, hourThirteen.IsChecked, hourFourteen.IsChecked, hourFifteen.IsChecked, hourSixteen.IsChecked, hourSeventeen.IsChecked , hourEighteen.IsChecked, hourNineteen.IsChecked, hourTwenty.IsChecked, hourTwentyOne.IsChecked, hourTwentyTwo.IsChecked, hourTwentyThree.IsChecked, hourTwentyFour.IsChecked, hourOne.IsChecked, hourTwo.IsChecked, hourThree.IsChecked, hourFour.IsChecked, hourFive.IsChecked, hourSix.IsChecked, hourSeven.IsChecked, hourEight.IsChecked, hourNine.IsChecked, hourTen.IsChecked, hourEleven.IsChecked, hourTwelve.IsChecked);
         
-        await database.SaveQuietHoursAsync(quietHours);
+        //await database.SaveQuietHoursAsync(quietHours);
    
         await database.SavePersonAsync(person);
 

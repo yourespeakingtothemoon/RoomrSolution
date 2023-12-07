@@ -4,7 +4,7 @@
              x:Class="Roomr.MatchesPage"
              Title="MatchesPage">
     <ScrollView>
-        <VerticalStackLayout x:Uid="MatchStack" x:Name="MatchStack">
+        <VerticalStackLayout x:Uid="MatchStack" x:Name="MatchStack" MinimumHeightRequest="300">
             <VerticalStackLayout.GestureRecognizers>
                 <SwipeGestureRecognizer Direction="Down" Swiped="SwipeGestureRecognizer_Swiped"/>
             </VerticalStackLayout.GestureRecognizers>

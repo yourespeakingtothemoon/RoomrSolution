@@ -12,13 +12,13 @@ public partial class ProfilePage : ContentPage
         InitializeComponent();
         //database = new RoomrDatabase();
         // Globals.ProfilePerson = Globals.database.GetPersonAsync(id).Result;
-        HobbyListAsync();
-        ChoresListAsync();
-        LocationAndDist();
-        // QuietHoursAsync();
-        //get name and profile picture                                                                                                                          
-        name.Text = Globals.ProfilePerson.Name;
-        Image.Source = Globals.ProfilePerson.ProfilePicture;
+        //HobbyListAsync();
+        //ChoresListAsync();
+        //LocationAndDist();
+        //// QuietHoursAsync();
+        ////get name and profile picture                                                                                                                          
+        //name.Text = Globals.ProfilePerson.Name;
+        //Image.Source = Globals.ProfilePerson.ProfilePicture;
         Globals.ProfilePerson = Globals.loggedInPerson;
 
         //aTimer = new System.Timers.Timer(5000);
